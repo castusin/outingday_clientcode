@@ -1,0 +1,23 @@
+
+var app = angular.module('MyApp', ['ui.router','ngAutocomplete']);
+debugger;
+app.config(function($stateProvider, $urlRouterProvider) {
+
+    /*$urlRouterProvider.otherwise('/home');*/
+
+    $stateProvider
+
+
+        .state('Resorts', {
+            url: '/Resorts',
+            /*templateUrl:'../journey/Resorts/Resorts.html',*/
+            templateUrl:'../journey/Resorts/Resorts.html',
+            controller:'ResortCtr'
+        })
+
+
+});
+
+
+
+
