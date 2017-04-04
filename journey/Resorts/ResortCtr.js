@@ -6,7 +6,9 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope',functi
 
 
 
-
+    $scope.currentPage = 1
+    $scope.numPerPage = 10
+    $scope.maxSize = 5;
     /*   var park =  $rootScope.searchInput;
 
         if(park == "Madhapur, Hyderabad, Telangana, India"){
@@ -22,7 +24,24 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope',functi
 
             if(ParksInfo.responseCode == 0){
 
-                            $scope.DetailsListInfo = ParksInfo.resultObject;
+                  debugger;
+                $scope.makeTodos = function() {
+                    $scope.todos = [];
+
+                        $scope.todos = ParksInfo.resultObject;
+
+                };
+                $scope.makeTodos();
+
+                $scope.$watch('currentPage + numPerPage', function() {
+                    var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                        , end = begin + $scope.numPerPage;
+
+                    $scope.DetailsListInfo = $scope.todos.slice(begin, end);
+                });
+
+
+                          /*  $scope.DetailsListInfo = ParksInfo.resultObject;*/
             }
 
             else{

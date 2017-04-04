@@ -1,5 +1,5 @@
 
-var app = angular.module('MyApp', ['ui.router','ngAutocomplete']);
+var app = angular.module('MyApp', ['ui.router','ngAutocomplete','ui.bootstrap']);
 debugger;
 app.config(function($stateProvider, $urlRouterProvider) {
 
