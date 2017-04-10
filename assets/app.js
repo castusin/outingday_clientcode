@@ -1,5 +1,5 @@
 
-var app = angular.module('MyApp', ['ui.router','ngAutocomplete','ui.bootstrap']);
+var app = angular.module('MyApp', ['ngRoute','ui.router','ngAutocomplete','ui.bootstrap','ngMaterial']);
 debugger;
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -10,14 +10,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('Resorts', {
             url: '/Resorts',
-            /*templateUrl:'../journey/Resorts/Resorts.html',*/
-            templateUrl:'../journey/Resorts/Resorts.html',
+            /*templateUrl:'../journey/ResortsImages/ResortsImages.html',*/
+            templateUrl:'../app/Resorts/Resorts.html',
             controller:'ResortCtr'
         })
 
 
 });
-
-
-
-

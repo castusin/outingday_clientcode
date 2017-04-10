@@ -3,37 +3,36 @@
 <head>
     <title>Journey</title>
     <meta charset="utf-8">
-    <link rel="icon" href="../images/favicon.ico">
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/slider.css">
-    <link rel="stylesheet" href="../css/rating.css">
-    <script src="../js/jquery.js"></script>
-    <link data-require="bootstrap-css@*" data-semver="3.3.1" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-    <script data-require="angular.js@*" data-semver="1.3.15" src="//code.angularjs.org/1.3.15/angular.js"></script>
+    <link rel="icon" href="../../assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/slider.css">
+    <link rel="stylesheet" href="../../assets/css/rating.css">
+    <script src="../../assets/js/jquery.js"></script>
 
+    <link data-require="bootstrap-css@*" data-semver="3.3.1" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+  <!--  <script data-require="angular.js@*" data-semver="1.3.15" src="//code.angularjs.org/1.3.15/angular.js"></script>-->
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
     <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
 
-    <!--<script src="../js/jquery-migrate-1.1.1.js"></script>
-    <script src="../js/superfish.js"></script>
-    <script src="../js/sForm.js"></script>
-    <script src="../js/jquery.jqtransform.js"></script>
-    <script src="../js/jquery.equalheights.js"></script>
-    <script src="../js/jquery.easing.1.3.js"></script>
-    <script src="../js/tms-0.4.1.js"></script>
-    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
-    <script src="../js/jquery.ui.totop.js"></script>-->
 
 
-    <script src="../Angularjs/angular.min.js"></script>
-    <script src="../Angularjs/angular-ui-router.min.js"></script>
-    <script src="../Angularjs/angular-cookies.min.js"></script>
-    <script src="../Angularjs/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 
-    <script src="../Angularjs/ngAutocomplete.js"></script>
 
-    <script src="../Angularjs/app.js"></script>
 
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+
+
+
+    <script src="../../assets/js/Angularjs/ngAutocomplete.js"></script>
+
+
+    <script src="../../assets/app.js"></script>
     <script src="../Resorts/ResortCtr.js"></script>
     <script src="../Resorts/ResortService.js"></script>
 
@@ -81,7 +80,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="../build/bootstrap-rating-input.min.js"></script>
+    <script src="../../assets/build/bootstrap-rating-input.min.js"></script>
     <!--[if lt IE 9]>
     <script src="../js/html5shiv.js"></script>
     <link rel="stylesheet" media="screen" href="../css/ie.css">
@@ -89,17 +88,17 @@
 </head>
 
 
-<body class="page1" ng-app="MyApp" ng-controller="ResortCtr">
+<body class="page1" ng-app="MyApp" >
 <header>
     <div class="container_12">
         <div class="grid_12">
-            <h1><a href="../index.html"><img src="../images/logo.png" alt=""></a></h1>
+            <h1><a href="../../index.html"><img src="../../assets/images/logo.png" alt=""></a></h1>
             <div class="clear"></div>
         </div>
         <div class="menu_block">
             <nav>
                 <ul class="sf-menu">
-                    <li class="current"><a href="../index.html">Home</a></li>
+                    <li class="current"><a href="../../index.html">Home</a></li>
                     <li class="with_ul"><a href="../about.html">About</a>
                         <ul>
                             <li><a href="#">Agency</a></li>
@@ -130,8 +129,8 @@
     </div>
 </div>
 
-
-<div class="grid_8" >
+  <div>
+<div class="grid_8" ng-controller="ResortCtr">
     <div id="tabs">
         <ul>
 
@@ -143,7 +142,7 @@
         <div class="tab_cont" id="tabs-1" >
             <div ng-repeat="res in DetailsListInfo">
                                    {{res.city}}
-            <img src="{{res.photoUrl}}" alt="" height="127" width="127">
+            <img src="../../assets/ResortsImages/{{res.photoUrl}}" alt="" height="127" width="127">
             <div class="extra_wrapper">
                 <div class="text1" style="padding-top:3%;">{{res.name}} </div>
                 <p class="style1"><a class="col2" href="#"></a>  </p>
@@ -154,25 +153,17 @@
             </div>
         </div>
 
-
-
     </div>
 </div>
 <div class="grid_4">
     <div class="newsletter_title">Ratings</div>
     <div class="n_container">
-
         <div style="padding-top:5%;"></div>
         <section class="fl-group clearfix moz-no-select" id="fg_stars">
 
             <h4 class="fl-group__hdl moz-text-select">Stars</h4>
 
-
-
-
             <div class="fl-group__btn-group clearfix">
-
-
 
                 <button class="fl-group__btn fl-group__btn--stars fl-group__btn--stars-1 pointer checked js_box btn--reset" title="0/ 1 star hotels" data-field="1" style="background-color:#f6ab3f;color:white;">
 
@@ -183,27 +174,15 @@
                 <path class="svg-color--primary" fill="white" d="M27.157 4.676l-3.604-.6-1.206-3.62C22.257.183 22 0 21.714 0c-.287 0-.54.184-.633.455l-1.204 3.62-3.604.6c-.275.047-.492.26-.544.534-.052.273.072.55.312.694l2.875 1.725-1.164 3.492c-.094.28.008.588.25.758.115.08.25.12.38.12.15 0 .296-.05.418-.146l2.917-2.333 2.917 2.335c.123.097.27.146.417.146.133 0 .266-.04.38-.12.24-.17.344-.476.25-.756L24.516 7.63l2.876-1.725c.24-.143.365-.42.314-.696-.053-.276-.27-.49-.546-.535z"></path>
             </g>
         </svg>
-</span>
-
-
+        </span>
                 </button>
-
-
-
-
-
-
-
-
-
                 <button class="fl-group__btn fl-group__btn--stars fl-group__btn--stars-2 pointer js_box btn--reset checked" title="2 star hotels" data-field="2" style="background-color:#f6ab3f;color:white;">
 
 
         <span class="icon-ic fl-group__btn-icn icon-center moz-no-select"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 28 12">
             <path d="M11.443 4.676l-3.604-.6L6.63.456C6.542.182 6.287 0 6 0s-.542.184-.633.455L4.16 4.075l-3.603.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L3.198 7.63l-1.164 3.493c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.145L6 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L8.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535zm16 0l-3.604-.6-1.21-3.62C22.542.182 22.287 0 22 0s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L19.2 7.63l-1.165 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L22 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L24.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535z" class="svg-color--primary" fill="white" fill-rule="evenodd"></path>
         </svg>
-</span>
-
+        </span>
 
                 </button>
 
@@ -273,6 +252,47 @@
         <!-- <!-- </ul> -->
     </div>
 </div>
+<section>
+	   <div>
+       <div class="checkbox">
+           <label><input type="checkbox" value="">Family </label>
+       </div>
+       <div class="checkbox">
+           <label><input type="checkbox" value="">kids</label>
+       </div>
+       <div class="checkbox ">
+           <label><input type="checkbox" value="" >corporate</label>
+       </div>
+       <div class="checkbox ">
+           <label><input type="checkbox" value="" >friends</label>
+       </div>
+             <div class="checkbox ">
+                 <label><input type="checkbox" value="" >Day out</label>
+             </div>
+             <div class="checkbox ">
+                 <label><input type="checkbox" value="" >Night life</label>
+             </div>
+
+         </div>
+
+           <div>
+               <div class="radio">
+                   <label><input type="radio" name="optradio">1-5</label>
+               </div>
+               <div class="radio">
+                   <label><input type="radio" name="optradio">6-10</label>
+               </div>
+               <div class="radio disabled">
+                   <label><input type="radio" name="optradio" >11-20</label>
+               </div>
+               <div class="radio disabled">
+                   <label><input type="radio" name="optradio" >20 +</label>
+               </div>
+           </div>
+
+	</section>
+
+<br />
 
 <pagination
         ng-model="currentPage"
@@ -282,39 +302,10 @@
         boundary-links="true">
 </pagination>
 
-
+  </div>
 
 <div class="clear"></div>
-</div>
-</div>
-<!-- <div class="bottom_block"> -->
-<!-- <div class="container_12"> -->
-<!-- <div class="grid_2 prefix_2"> -->
-<!-- <ul> -->
-<!-- <li><a href="#">FAQS Page</a></li> -->
-<!-- <li><a href="#">People Say</a></li> -->
-<!-- </ul> -->
-<!-- </div> -->
-<!-- <div class="grid_2"> -->
-<!-- <ul> -->
-<!-- <li><a href="#">Useful links</a></li> -->
-<!-- <li><a href="#">Partners</a></li> -->
-<!-- </ul> -->
-<!-- </div> -->
-<!-- <div class="grid_2"> -->
-<!-- <ul> -->
-<!-- <li><a href="#">Insurance</a></li> -->
-<!-- <li><a href="#">Family Travel</a></li> -->
-<!-- </ul> -->
-<!-- </div> -->
-<!-- <div class="grid_2"> -->
-<!-- <h4>Contact Us:</h4> -->
-<!-- TEL: 1-800-234-5678<br> -->
-<!-- <a href="#">info@demolink.org</a> </div> -->
-<!-- <div class="clear"></div> -->
-<!-- </div> -->
-<!-- </div> -->
-</div>
+
 <footer>
     <div class="container_12">
         <div class="grid_12">

@@ -1,13 +1,13 @@
 
-app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope',function ($scope,$state,GetParksInfo,$rootScope) {
+ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope',function ($scope,$state,GetParksInfo,$rootScope) {
     debugger;
 
 
 
 
 
-    $scope.currentPage = 1
-    $scope.numPerPage = 10
+    $scope.currentPage = 1;
+    $scope.numPerPage = 10;
     $scope.maxSize = 5;
     /*   var park =  $rootScope.searchInput;
 
@@ -18,18 +18,19 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope',functi
             var odRating = "5";
         }*/
 
+
+
+
         GetParksInfo.GetParksService().then(function(ParksInfo){
             debugger;
-
-
             if(ParksInfo.responseCode == 0){
 
                   debugger;
                 $scope.makeTodos = function() {
                     $scope.todos = [];
-
+                    debugger;
                         $scope.todos = ParksInfo.resultObject;
-
+                    var data = $.grep($scope.todos,function(td){}).parktype;
                 };
                 $scope.makeTodos();
 

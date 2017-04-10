@@ -11,7 +11,7 @@
 
             GetParksService :  function(){
                 debugger;
-                var promise = $http.get(webServiceUrl+'getParksinfo?metro=Hyderabad&localArea=Madhapur&odRating=5',config) .then(function(response) {
+                var promise = $http.get(webServiceUrl+'getParksinfo?metro=Hyd&localArea=Madhapur&parkType=resort',config) .then(function(response) {
                     debugger;
                     console.log('Response -- '+response.data);
                     return response.data;
