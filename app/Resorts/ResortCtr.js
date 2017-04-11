@@ -4,9 +4,33 @@
 
 
 
+     this.myDate = new Date();
+     this.isOpen = false;
+
+     this.minDate = new Date(
+         this.myDate.getFullYear(),
+         this.myDate.getMonth(),
+         this.myDate.getDate() - 1
+     );
+
+     this.maxDate = new Date(
+         this.myDate.getFullYear(),
+         this.myDate.getMonth(),
+         this.myDate.getDate()
+     );
 
 
-    $scope.currentPage = 1;
+
+
+     $scope.result = '';
+     $scope.options = {
+         country: 'in'
+
+     };
+     $scope.details = '';
+
+
+     $scope.currentPage = 1;
     $scope.numPerPage = 10;
     $scope.maxSize = 5;
     /*   var park =  $rootScope.searchInput;

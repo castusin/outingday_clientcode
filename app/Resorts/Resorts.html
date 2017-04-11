@@ -15,7 +15,7 @@
     <script src="../../assets/js/Angularjs/angular.min.js"></script>
     <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
 
-
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
@@ -35,40 +35,41 @@
     <script src="../../assets/app.js"></script>
     <script src="../Resorts/ResortCtr.js"></script>
     <script src="../Resorts/ResortService.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCqfFb8jsVREYScpt2SNOhonSVGY9E2iSk&libraries=places&sensor=false"></script>
 
 
 
-   <!-- <script>
-        $(window).load(function () {
-            $('.slider')._TMS({
-                show: 0,
-                pauseOnHover: false,
-                prevBu: '.prev',
-                nextBu: '.next',
-                playBu: false,
-                duration: 800,
-                preset: 'random',
-                pagination: false, //'.pagination',true,'<ul></ul>'
-                pagNums: false,
-                slideshow: 8000,
-                numStatus: false,
-                banners: true,
-                waitBannerAnimation: false,
-                progressBar: false
-            });
-            $("#tabs").tabs();
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-        });
-    </script>
-    <script>
-        $(function(){
-            $('input').on('change', function(){
-                alert("Changed: " + $(this).val())
-            });
-        });
-    </script>-->
+    <!-- <script>
+         $(window).load(function () {
+             $('.slider')._TMS({
+                 show: 0,
+                 pauseOnHover: false,
+                 prevBu: '.prev',
+                 nextBu: '.next',
+                 playBu: false,
+                 duration: 800,
+                 preset: 'random',
+                 pagination: false, //'.pagination',true,'<ul></ul>'
+                 pagNums: false,
+                 slideshow: 8000,
+                 numStatus: false,
+                 banners: true,
+                 waitBannerAnimation: false,
+                 progressBar: false
+             });
+             $("#tabs").tabs();
+             $().UItoTop({
+                 easingType: 'easeOutQuart'
+             });
+         });
+     </script>
+     <script>
+         $(function(){
+             $('input').on('change', function(){
+                 alert("Changed: " + $(this).val())
+             });
+         });
+     </script>-->
     <style>
 
 
@@ -88,7 +89,7 @@
 </head>
 
 
-<body class="page1" ng-app="MyApp" >
+<body class="page1" ng-app="MyApp" ng-controller="ResortCtr">
 <header>
     <div class="container_12">
         <div class="grid_12">
@@ -122,15 +123,17 @@
     <div class="container_12">
 
         <div class="bs-example" align="center">
+            <md-datepicker ng-model="myDate" md-min-date="minDate" md-max-date="maxDate" md-placeholder="Enter date"></md-datepicker>
 
-            <input type="text" class="typeahead tt-query" autocomplete="on" spellcheck="false" placeholder="search Restaurants">
+            <input type="text" class="typeahead tt-query" ng-autocomplete="result" details="details" options="options" placeholder="search Restaurants">
         </div>
+
         <div class="clear"></div>
     </div>
 </div>
 
   <div>
-<div class="grid_8" ng-controller="ResortCtr">
+<div class="grid_8" >
     <div id="tabs">
         <ul>
 
