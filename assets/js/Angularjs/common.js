@@ -40,7 +40,7 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope',function ($sc
 
 
         /*$state.go('ResortsImages');*/
-        $window.location='../../app/Resorts/Resorts.html';
+        $window.location='../../app/Resorts/resort1.html';
 
     }
 
