@@ -487,6 +487,9 @@ a.gal:hover img {
 .tab_cont img {
 	float: left;
 	margin-right: 24px;
+	width:50%;
+	height:auto;
+	margin-left:14px;
 }
 
 .tab_cont .text1 {
@@ -1071,4 +1074,15 @@ footer {
 
     background-image: none !important;
     height: 0px;
+}
+ .md-datepicker-input {
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+    background: 0 0 !important;
+    min-width: 328px !important;
+    max-width: 628px !important;
+	height:35px !important; 
 }

@@ -99,59 +99,58 @@ $(window).load(function () {
 
 <body class="page1" ng-app="MyApp" ng-controller="ResortCtr">
 <header>
-  <div class="container_12">
-    <div class="grid_12">
-      <h1><a href="index.html"><img src="../../assets/images/logo.png" alt=""></a></h1>
-      <div class="clear"></div>
-    </div>
-    <div class="menu_block">
-      <nav>
-        <ul class="sf-menu">
-          <li class="current"><a href="../../index.html">Home</a></li>
-          <li class="with_ul"><a href="app/about.html">About</a>
-            <ul>
-              <li><a href="#">Agency</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Team</a></li>
-            </ul>
-          </li>
-          <li><a href="app/gallery.html">Gallery</a></li>
-          <li><a href="app/tours.html">Tours</a></li>
-          <li><a href="app/blog.html">Blog</a></li>
-          <li><a ui-sref="Resorts">Contacts</a></li>
-        </ul>
-      </nav>
-      <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
+<div align="center">
+  <h2>OUTING DAY </h2>
   </div>
-  
 </header>
 <div class="" align="center">
-    <div class="container_12">
+    <!-- <div class="container_12"> -->
       
-      <div class="bs-example" align="center">
+      <!-- <div class="bs-example" align="center"> -->
 
 
-        <input type="text" class="typeahead tt-query" ng-autocomplete="result" details="details" options="options"  placeholder="search Restaurants">
-          <button ng-click="MainSearch()">Search</button>
-    </div>
-	<div class="bs-example" align="center" style="width:100%;display:inline-block;" >
-<div style="width:40%;display:inline-block;">
-          <md-datepicker ng-model="myDate" md-min-date="minDate" md-max-date="maxDate" md-placeholder="From date" ></md-datepicker>
+        <!-- <input type="text" class="typeahead tt-query" ng-autocomplete="result" details="details" options="options"  placeholder="search Restaurants"> -->
+          <!-- <button ng-click="MainSearch()">Search</button> -->
+    <!-- </div> -->
+	<!-- <div class="bs-example" align="center" style="width:100%;display:inline-block;" > -->
+<!-- <div style="width:40%;display:inline-block;"> -->
+          <!-- <md-datepicker ng-model="myDate" md-min-date="minDate" md-max-date="maxDate" md-placeholder="From date" ></md-datepicker> -->
 
-</div>
-<div style="width:40%;display:inline-block;">
-<md-datepicker ng-model="myDate" md-min-date="minDate" md-max-date="maxDate" md-placeholder="To date"></md-datepicker>
+<!-- </div> -->
+<!-- <div style="width:40%;display:inline-block;"> -->
+<!-- <md-datepicker ng-model="myDate" md-min-date="minDate" md-max-date="maxDate" md-placeholder="To date"></md-datepicker> -->
 
-</div>
+<!-- </div> -->
 
 
        
-    </div>
-      <div class="clear"></div>
-    </div>
+    <!-- </div> -->
+      <!-- <div class="clear"></div> -->
+    <!-- </div> -->
+	
+  <div class="row" align="center">
+  <div class="col-lg-6" align="center" style="float:inherit;">
+    <div class="input-group" align="center">
+      <span class="input-group-btn" align="center">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Search for hotels in your location..." ng-autocomplete="result" details="details" options="options">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+ 
+</div>
+
+
+
   </div>
+  <div style="width:100%;display:inline-block;padding-top:4%;" align="center">
+<div style="width:40%;display:inline-block;">
+ <md-datepicker ng-model="myDate" md-min-date="minDate" md-max-date="maxDate" md-placeholder="From date"></md-datepicker>
+</div>
+<div style="width:40%;display:inline-block;">
+ <md-datepicker ng-model="myDate" md-min-date="minDate" md-max-date="maxDate" md-placeholder="To date"></md-datepicker>
+</div>
+ </div>
 
 
 
@@ -204,10 +203,14 @@ $(window).load(function () {
 		  
 		  
           <div class="tab_cont" id="tabs-1">
-            <div class="extra_wrapper" ng-repeat="res in DetailsListInfo" style="padding-top:4%;padding-bottom:4%;border:1px solid black;">
+            <div class="extra_wrapper" ng-repeat="res in DetailsListInfo" style="padding-top:4%;padding-bottom:4%;border:1px solid #DEDBDB;">
 			<img src="../../assets/ResortsImages/{{res.photoUrl}}" alt="" height="150" width="150">
-              <div class="text1" style="padding-top:3%;">{{res.city}} </div>
-			  <div class="text1" style="padding-top:1%;">{{res.name}}</div>
+              <div class="text1" style="padding-top:3%; font-weight:bold;">{{res.name}} </div>
+			  <div class="text1" style="font-weight:bold;float:right;color:green;padding-right:2%;">{{res.minCost1}}</div>
+			  <div class="text1" style="padding-top:0%;">{{res.city}}</div>
+			   <div class="text1" style="padding-top:0%;">{{res.popularity}}</div>
+			   <div class="text1" style="padding-top:0%;">{{res.odRating}}/100</div>
+			   <div style="float:right;padding-right:1%;"><button type="button" class="btn btn-success">Deal</button></div>
               <p class="style1"><a class="col2" href="#"></a>  </p>
               
               <div class="clear "></div>
@@ -539,53 +542,55 @@ $(document).ready(function(){
 });  
 </script>
 <style type="text/css">
-.bs-example {
-	font-family: sans-serif;
-	position: relative;
-	margin: 100px;
-	
+.search-form .form-group {
+  float: right !important;
+  transition: all 0.35s, border-radius 0s;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 25px;
+  border: 1px solid #ccc;
 }
-.typeahead, .tt-query, .tt-hint {
-	border: 2px solid #CCCCCC;
-	border-radius: 8px;
-	font-size: 22px; /* Set input font size */
-	height: 30px;
-	line-height: 30px;
-	outline: medium none;
-	padding: 8px 12px;
-	width: 396px;
+.search-form .form-group input.form-control {
+  padding-right: 20px;
+  border: 0 none;
+  background: transparent;
+  box-shadow: none;
+  display:block;
 }
-.typeahead {
-	background-color: #FFFFFF;
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+  display: none;
 }
-.typeahead:focus {
-	border: 2px solid #0097CF;
+.search-form .form-group input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  display: none;
 }
-.tt-query {
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+.search-form .form-group input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  display: none;
 }
-.tt-hint {
-	color: #999999;
+.search-form .form-group input.form-control:-ms-input-placeholder {
+  display: none;
 }
-.tt-menu {
-	background-color: #FFFFFF;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 8px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	margin-top: 12px;
-	padding: 8px 0;
-	width: 422px;
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+  width: 100%;
+  border-radius: 4px 25px 25px 4px;
 }
-.tt-suggestion {
-	font-size: 22px;  /* Set suggestion dropdown font size */
-	padding: 3px 20px;
+.search-form .form-group span.form-control-feedback {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: #3596e0;
+  left: initial;
+  font-size: 14px;
 }
-.tt-suggestion:hover {
-	cursor: pointer;
-	background-color: #0097CF;
-	color: #FFFFFF;
-}
-.tt-suggestion p {
-	margin: 0;
-}
+
 </style>
