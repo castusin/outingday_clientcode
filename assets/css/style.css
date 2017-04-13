@@ -1086,3 +1086,25 @@ footer {
     max-width: 628px !important;
 	height:35px !important; 
 }
+
+.rating {
+    padding: 0;
+    margin: 0;
+
+    list-style-type: none;
+}
+
+/*.rating li {
+    display: inline-block;
+    white-space: nowrap;
+
+}*/
+
+.star {
+    cursor: pointer;
+    color: white;
+}
+
+.star.filled {
+    color: orange;
+}
