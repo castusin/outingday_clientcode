@@ -1,5 +1,6 @@
 
- app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope',function ($scope,$state,GetParksInfo,$rootScope) {
+ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$window',
+                            function ($scope,$state,GetParksInfo,$rootScope,$window) {
     debugger;
 
 
@@ -80,6 +81,12 @@
         });
 
 
+
+$scope.bookhotel= function(){
+
+    debugger;
+    $window.location='../Resorts/Resortdetail.html';
+}
 
 
 
