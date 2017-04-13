@@ -18,12 +18,16 @@
 <script src="../../assets/js/tms-0.4.1.js"></script>
 <script src="../../assets/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="../../assets/js/jquery.ui.totop.js"></script>
-
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
     <link data-require="bootstrap-css@*" data-semver="3.3.1" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
    <!-- <script data-require="angular.js@*" data-semver="1.3.15" src="//code.angularjs.org/1.3.15/angular.js"></script>-->
     <script src="../../assets/js/Angularjs/angular.min.js"></script>
     <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
@@ -78,6 +82,11 @@ $(window).load(function () {
         });
       });
     </script>
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $('#multiple-checkboxes').multiselect();
+    });
+</script>
 	 <style>
      
 
@@ -132,7 +141,7 @@ $(window).load(function () {
   <div class="col-lg-6" align="center" style="float:inherit;">
     <div class="input-group" align="center">
       <span class="input-group-btn" align="center">
-        <button class="btn btn-default" type="button">Go!</button>
+        <button class="btn btn-default" type="button">Search!</button>
       </span>
       <input type="text" class="form-control" placeholder="Search for hotels in your location..." ng-autocomplete="result" details="details" options="options">
     </div><!-- /input-group -->
@@ -193,11 +202,7 @@ $(window).load(function () {
       <!-- </div> -->
       <div class="grid_8">
         <div id="tabs">
-          <ul>
-            <!-- <li><a href="#tabs-1">last Minute</a></li> -->
-            <!-- <li><a href="#tabs-2">hot Deals</a></li> -->
-            <!-- <li><a href="#tabs-3">All-Inclusive</a></li> -->
-          </ul>
+         
           <div class="clear"></div>
 		  
 		  
@@ -208,8 +213,10 @@ $(window).load(function () {
               <div class="text1" style="padding-top:3%; font-weight:bold;">{{res.name}} </div>
 			  <div class="text1" style="font-weight:bold;float:right;color:green;padding-right:2%;">{{res.minCost1}}</div>
 			  <div class="text1" style="padding-top:0%;">{{res.city}}</div>
-			   <div class="text1" style="padding-top:0%;">{{res.popularity}}</div>
-			   <div class="text1" style="padding-top:0%;">{{res.odRating}}/100</div>
+			   <div class="text1" style="padding-top:0%;">{{res.odRating}}</div>
+			   <div class="text1" star-rating rating-value="res.odRating" max="5" style="display:inline-block;"></div>
+
+			   <div class="text1" style="padding-top:0%;">{{res.popularity}}/100</div>
 			   <div style="float:right;padding-right:1%;"><button type="button" class="btn btn-success">Deal</button></div>
               <p class="style1"><a class="col2" href="#"></a>  </p>
               
@@ -233,15 +240,14 @@ $(window).load(function () {
 </div>
 
       </div>
-	 
-      <div class="grid_4" style="padding-top:1%;">
-        <div class="newsletter_title">Ratings</div>
+	   <div class="grid_4">
+        <div class="newsletter_title">RATINGS</div>
         <div class="n_container">
          
 			<div style="padding-top:5%;"></div>
    <section class="fl-group clearfix moz-no-select" id="fg_stars">
         
-            <h4 class="fl-group__hdl moz-text-select">Ratings</h4>
+            <h4 class="fl-group__hdl moz-text-select">STARS</h4>
         
 
         
@@ -250,100 +256,24 @@ $(window).load(function () {
     
         
 
+<div class="checkbox">
+           <label><input type="checkbox" value="">5 </label>
+       </div>
+	    <div class="checkbox">
+           <label><input type="checkbox" value="">4</label>
+       </div>
+       <div class="checkbox ">
+           <label><input type="checkbox" value="" >3</label>
+       </div>
+       <div class="checkbox ">
+           <label><input type="checkbox" value="" >2</label>
+       </div>
+             <div class="checkbox ">
+                 <label><input type="checkbox" value="" >1</label>
+             </div>
+            
 
 
-
-
-
-<button class="fl-group__btn fl-group__btn--stars fl-group__btn--stars-1 pointer checked js_box btn--reset" title="0/ 1 star hotels" data-field="1" style="background-color:#f6ab3f;color:white;">
-    
-    
-        <span class="icon-ic fl-group__btn-icn icon-center moz-no-select"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 28 12">
-    <g fill="none" fill-rule="evenodd">
-        <path d="M.56 4.673c-.28.047-.493.26-.547.534-.053.28.074.553.314.7L3.2 7.627 2.033 11.12c-.093.28.007.593.254.76.113.08.246.12.38.12.147 0 .293-.047.413-.147L6 9.52l2.92 2.333c.12.1.267.147.413.147.134 0 .267-.04.38-.12.167-.113.267-.293.28-.48l-7.12-7.113-2.313.386m11.427.534c-.054-.274-.267-.487-.547-.534l-3.6-.6L6.634.453C6.54.187 6.287 0 6 0c-.287 0-.54.187-.634.453L4.494 3.08l4.453 4.46 2.726-1.633c.24-.147.367-.42.314-.7" class="svg-color--secondary" fill="white"></path>
-        <path class="svg-color--primary" fill="white" d="M27.157 4.676l-3.604-.6-1.206-3.62C22.257.183 22 0 21.714 0c-.287 0-.54.184-.633.455l-1.204 3.62-3.604.6c-.275.047-.492.26-.544.534-.052.273.072.55.312.694l2.875 1.725-1.164 3.492c-.094.28.008.588.25.758.115.08.25.12.38.12.15 0 .296-.05.418-.146l2.917-2.333 2.917 2.335c.123.097.27.146.417.146.133 0 .266-.04.38-.12.24-.17.344-.476.25-.756L24.516 7.63l2.876-1.725c.24-.143.365-.42.314-.696-.053-.276-.27-.49-.546-.535z"></path>
-    </g>
-</svg>
-</span>
-    
-
-</button>
-
-    
-        
-
-
-
-
-
-
-<button class="fl-group__btn fl-group__btn--stars fl-group__btn--stars-2 pointer js_box btn--reset checked" title="2 star hotels" data-field="2" style="background-color:#f6ab3f;color:white;">
-    
-    
-        <span class="icon-ic fl-group__btn-icn icon-center moz-no-select"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 28 12">
-    <path d="M11.443 4.676l-3.604-.6L6.63.456C6.542.182 6.287 0 6 0s-.542.184-.633.455L4.16 4.075l-3.603.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L3.198 7.63l-1.164 3.493c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.145L6 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L8.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535zm16 0l-3.604-.6-1.21-3.62C22.542.182 22.287 0 22 0s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L19.2 7.63l-1.165 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L22 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L24.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535z" class="svg-color--primary" fill="white" fill-rule="evenodd"></path>
-</svg>
-</span>
-    
-
-</button>
-
-    
-        
-
-
-
-
-
-
-<button class="fl-group__btn fl-group__btn--stars fl-group__btn--stars-3 pointer js_box btn--reset checked" title="3 star hotels" data-field="3" style="background-color:#f6ab3f;color:white;">
-    
-    
-        <span class="icon-ic fl-group__btn-icn icon-center moz-no-select"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 28 26">
-    <path d="M19.443 4.676l-3.604-.6-1.21-3.62C14.542.182 14.287 0 14 0s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L11.2 7.63l-1.165 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L14 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L16.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535zm8 14l-3.604-.6-1.21-3.62c-.09-.272-.344-.456-.63-.456-.288 0-.543.184-.634.455l-1.206 3.62-3.603.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694l2.874 1.725-1.164 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L22 23.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L24.8 21.63l2.878-1.725c.24-.143.363-.42.312-.696-.054-.276-.27-.49-.547-.535zm-16 0l-3.604-.6-1.21-3.62C6.543 14.183 6.288 14 6 14s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L3.2 21.63 2.034 25.12c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L6 23.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L8.802 21.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535z" class="svg-color--primary" fill="white" fill-rule="evenodd"></path>
-</svg>
-</span>
-    
-
-</button>
-
-    
-        
-
-
-
-
-
-
-<button class="fl-group__btn fl-group__btn--stars fl-group__btn--stars-4 pointer js_box btn--reset checked" title="4 star hotels" data-field="4" style="background-color:#f6ab3f;color:white;">
-    
-    
-        <span class="icon-ic fl-group__btn-icn icon-center moz-no-select"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 28 27">
-    <path d="M11.443 4.676l-3.604-.6L6.63.456C6.542.182 6.287 0 6 0s-.542.184-.633.455L4.16 4.075l-3.603.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L3.198 7.63l-1.164 3.493c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.145L6 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L8.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535zm16 0l-3.604-.6-1.21-3.62C22.542.182 22.287 0 22 0s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L19.2 7.63l-1.165 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L22 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L24.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535zm0 15l-3.604-.6-1.21-3.62c-.09-.272-.344-.456-.63-.456-.288 0-.543.184-.634.455l-1.206 3.62-3.603.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694l2.874 1.725-1.164 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L22 24.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L24.8 22.63l2.878-1.725c.24-.143.363-.42.312-.696-.054-.276-.27-.49-.547-.535zm-16 0l-3.604-.6-1.21-3.62C6.543 15.183 6.288 15 6 15s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L3.2 22.63 2.034 26.12c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L6 24.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L8.802 22.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535z" class="svg-color--primary" fill="white" fill-rule="evenodd"></path>
-</svg>
-</span>
-    
-
-</button>
-
-    
-        
-
-
-
-
-
-
-<button class="fl-group__btn fl-group__btn--stars fl-group__btn--stars-5 pointer js_box btn--reset checked" title="5 star hotels" data-field="5" style="background-color:#f6ab3f;color:white;">
-    
-    
-        <span class="icon-ic fl-group__btn-icn icon-center moz-no-select"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 30 30" style="color:white;">
-    <path d="M11.443 4.676l-3.604-.6L6.63.456C6.542.182 6.287 0 6 0s-.542.184-.633.455L4.16 4.075l-3.603.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L3.198 7.63l-1.164 3.493c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.145L6 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L8.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535zm18 0l-3.604-.6-1.21-3.62C24.542.182 24.287 0 24 0s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L21.2 7.63l-1.165 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L24 9.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L26.802 7.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535zm0 18l-3.604-.6-1.21-3.62c-.09-.272-.344-.456-.63-.456-.288 0-.543.184-.634.455l-1.206 3.62-3.603.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694l2.874 1.725-1.164 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L24 27.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L26.8 25.63l2.878-1.725c.24-.143.363-.42.312-.696-.054-.276-.27-.49-.547-.535zm-18 0l-3.604-.6-1.21-3.62C6.543 18.183 6.288 18 6 18s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L3.2 25.63 2.034 29.12c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L6 27.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L8.802 25.63l2.877-1.725c.24-.143.362-.42.31-.696-.053-.276-.27-.49-.546-.535zm9-9l-3.604-.6-1.21-3.62C15.543 9.183 15.288 9 15 9s-.542.184-.633.455l-1.206 3.62-3.602.6c-.276.047-.493.26-.545.534-.052.273.072.55.312.694L12.2 16.63l-1.165 3.492c-.094.28.01.588.25.758.116.08.25.12.382.12.148 0 .295-.05.417-.146L15 18.52l2.917 2.334c.12.097.268.146.416.146.134 0 .267-.04.382-.12.242-.17.344-.477.25-.757L17.8 16.63l2.878-1.725c.24-.143.363-.42.312-.696-.054-.276-.27-.49-.547-.535z" class="svg-color--primary" fill="white" fill-rule="evenodd"></path>
-</svg>
-</span>
-    
-
-</button>
 
     
 </div>
@@ -354,10 +284,18 @@ $(window).load(function () {
     </section>
 
 	
-    <!-- <p>My rating: <input type="number" name="your_awesome_parameter" id="rating-custom-icons" class="rating" data-clearable="remove" data-icon-lib="fa" data-active-icon="fa-heart" data-inactive-icon="fa-heart-o" data-clearable-icon="fa-trash-o" value="4"/></p> -->
-          <!-- <!-- </ul> -->
+    
         </div>
       </div>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	   <div class="grid_4">
         <div class="newsletter_title">TYPES OF RESTURANTS</div>
         <div class="n_container">
@@ -375,24 +313,18 @@ $(window).load(function () {
         
 
 <div class="checkbox">
-           <label><input type="checkbox" value="">Family </label>
+           <label><input type="checkbox" value="">Friends </label>
        </div>
 	    <div class="checkbox">
-           <label><input type="checkbox" value="">kids</label>
+           <label><input type="checkbox" value="">Family</label>
        </div>
        <div class="checkbox ">
-           <label><input type="checkbox" value="" >corporate</label>
+           <label><input type="checkbox" value="" >Kids</label>
        </div>
        <div class="checkbox ">
-           <label><input type="checkbox" value="" >friends</label>
+           <label><input type="checkbox" value="" >Solo</label>
        </div>
-             <div class="checkbox ">
-                 <label><input type="checkbox" value="" >Day out</label>
-             </div>
-             <div class="checkbox ">
-                 <label><input type="checkbox" value="" >Night life</label>
-             </div>
-
+            
 
 
     
@@ -404,16 +336,11 @@ $(window).load(function () {
     </section>
 
 	
-    <!-- <p>My rating: <input type="number" name="your_awesome_parameter" id="rating-custom-icons" class="rating" data-clearable="remove" data-icon-lib="fa" data-active-icon="fa-heart" data-inactive-icon="fa-heart-o" data-clearable-icon="fa-trash-o" value="4"/></p> -->
-          <!-- <!-- </ul> -->
+    
         </div>
       </div>
 	  
-	  
-	  
-      
-	  
-	  	   <div class="grid_4">
+	   <div class="grid_4">
         <div class="newsletter_title">DURATION OF STAY</div>
         <div class="n_container">
          
@@ -430,15 +357,59 @@ $(window).load(function () {
         
 
 <div class="radio">
+  <label><input type="radio" name="optradio">0-2 Hours</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio">2-5 Hours</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio" >Full</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio" >Multi day</label>
+</div>
+    
+</div>
+    
+      
+
+        
+    </section>
+
+	
+    
+        </div>
+      </div>
+	  
+	  
+      
+	  
+	  	   <div class="grid_4">
+        <div class="newsletter_title">NUMBER OF PEOPLE</div>
+        <div class="n_container">
+         
+			<div style="padding-top:5%;"></div>
+   <section class="fl-group clearfix moz-no-select" id="fg_stars">
+        
+            <h4 class="fl-group__hdl moz-text-select">PEOPLE</h4>
+        
+
+        
+            
+<div class="fl-group__btn-group clearfix">
+    
+        
+
+<div class="radio">
                    <label><input type="radio" name="optradio">1-5</label>
                </div>
                <div class="radio">
                    <label><input type="radio" name="optradio">6-10</label>
                </div>
-               <div class="radio disabled">
+               <div class="radio ">
                    <label><input type="radio" name="optradio" >11-20</label>
                </div>
-               <div class="radio disabled">
+               <div class="radio ">
                    <label><input type="radio" name="optradio" >20 +</label>
                </div>
            </div>
@@ -452,27 +423,287 @@ $(window).load(function () {
     </section>
 
 	
-    <!-- <p>My rating: <input type="number" name="your_awesome_parameter" id="rating-custom-icons" class="rating" data-clearable="remove" data-icon-lib="fa" data-active-icon="fa-heart" data-inactive-icon="fa-heart-o" data-clearable-icon="fa-trash-o" value="4"/></p> -->
-          <!-- <!-- </ul> -->
+   
+        </div>
+		   <div class="grid_4">
+        <div class="newsletter_title">NATURE RESTURANTS</div>
+        <div class="n_container">
+         
+			<div style="padding-top:5%;"></div>
+   <section class="fl-group clearfix moz-no-select" id="fg_stars">
+        
+            <h4 class="fl-group__hdl moz-text-select">NATURE</h4>
+        
+
+        
+            
+<div class="fl-group__btn-group clearfix">
+    
+        
+
+<div class="checkbox">
+           <label><input type="checkbox" value="">Dayout </label>
+       </div>
+	    <div class="checkbox">
+           <label><input type="checkbox" value="">Night Life</label>
+       </div>
+       
+            
+
+
+    
+</div>
+    
+      
+
+        
+    </section>
+
+	
+    
+        </div>
+      </div>
+	  
+	     <div class="grid_4">
+        <div class="newsletter_title">POPULARITY</div>
+        <div class="n_container">
+         
+			<div style="padding-top:5%;"></div>
+   <section class="fl-group clearfix moz-no-select" id="fg_stars">
+        
+            <h4 class="fl-group__hdl moz-text-select"></h4>
+        
+
+        
+            
+<div class="fl-group__btn-group clearfix">
+    
+        
+
+
+<div class="container">
+	<strong></strong>
+    <select id="multiple-checkboxes" multiple="multiple" >
+      <ul> <li> <option value="1">1</option></li>
+       <li> <option value="2">2</option></li>
+       <li> <option value="3">3</option></li>
+        <li><option value="4">4</option></li>
+        <li><option value="5">5</option></li>
+        <li><option value="6">6</option></li>
+		<li> <option value="7">7</option></li>
+        <li><option value="8">8</option></li>
+        <li><option value="9">9</option></li>
+        <li><option value="10">10</option></li>
+        <li><option value="11">11</option></li>
+        <li><option value="12">12</option></li>
+		<li><option value="13">13</option></li>
+        <li><option value="14">14</option></li>
+		<li> <option value="15">15</option></li>
+        <li><option value="16">16</option></li>
+        <li><option value="17">17</option></li>
+        <li><option value="18">18</option></li>
+        <li><option value="19">19</option></li>
+        <li><option value="20">20</option></li>
+		
+        <li><option value="21">21</option></li>
+        <li><option value="22">22</option></li>
+		<li><option value="23">23</option></li>
+        <li><option value="24">24</option></li>
+		<li> <option value="25">25</option></li>
+        <li><option value="26">26</option></li>
+        <li><option value="27">27</option></li>
+        <li><option value="28">28</option></li>
+        <li><option value="29">29</option></li>
+        <li><option value="30">30</option></li>
+		
+        <li><option value="31">31</option></li>
+        <li><option value="32">32</option></li>
+		<li><option value="33">33</option></li>
+        <li><option value="34">34</option></li>
+		<li> <option value="35">35</option></li>
+        <li><option value="36">36</option></li>
+        <li><option value="37">37</option></li>
+        <li><option value="38">38</option></li>
+        <li><option value="39">39</option></li>
+        <li><option value="40">40</option></li>
+		
+		 <li><option value="41">41</option></li>
+        <li><option value="42">42</option></li>
+		<li><option value="43">43</option></li>
+        <li><option value="44">44</option></li>
+		<li> <option value="45">45</option></li>
+        <li><option value="46">46</option></li>
+        <li><option value="47">47</option></li>
+        <li><option value="48">48</option></li>
+        <li><option value="49">49</option></li>
+        <li><option value="50">50</option></li>
+		
+		 <li><option value="51">51</option></li>
+        <li><option value="52">52</option></li>
+		<li><option value="53">53</option></li>
+        <li><option value="54">54</option></li>
+		<li> <option value="55">55</option></li>
+        <li><option value="56">56</option></li>
+        <li><option value="57">57</option></li>
+        <li><option value="58">58</option></li>
+        <li><option value="59">59</option></li>
+        <li><option value="60">60</option></li>
+		
+		 <li><option value="61">61</option></li>
+        <li><option value="62">62</option></li>
+		<li><option value="63">63</option></li>
+        <li><option value="64">64</option></li>
+		<li> <option value="65">65</option></li>
+        <li><option value="66">66</option></li>
+        <li><option value="67">67</option></li>
+        <li><option value="68">68</option></li>
+        <li><option value="69">69</option></li>
+        <li><option value="70">70</option></li>
+		
+		<li><option value="71">71</option></li>
+        <li><option value="72">72</option></li>
+		<li><option value="73">73</option></li>
+        <li><option value="74">74</option></li>
+		<li> <option value="75">75</option></li>
+        <li><option value="76">76</option></li>
+        <li><option value="77">77</option></li>
+        <li><option value="78">78</option></li>
+        <li><option value="79">79</option></li>
+        <li><option value="80">80</option></li>
+		
+		<li><option value="81">81</option></li>
+        <li><option value="82">82</option></li>
+		<li><option value="83">83</option></li>
+		<li><option value="84">84</option></li>
+		<li> <option value="85">85</option></li>
+        <li><option value="86">86</option></li>
+        <li><option value="87">87</option></li>
+        <li><option value="88">88</option></li>
+        <li><option value="89">89</option></li>
+        <li><option value="90">90</option></li>
+		
+		<li><option value="91">91</option></li>
+        <li><option value="92">92</option></li>
+		<li><option value="93">93</option></li>
+		<li><option value="94">94</option></li>
+		<li> <option value="95">95</option></li>
+        <li><option value="96">96</option></li>
+        <li><option value="97">97</option></li>
+        <li><option value="98">98</option></li>
+        <li><option value="99">99</option></li>
+        <li><option value="100">100</option></li>
+		</ul>
+    </select>
+</div>
+
+
+    
+</div>
+    
+      
+
+        
+    </section>
+
+	
+    
+        </div>
+      </div>
+	  
+	    <div class="grid_4">
+        <div class="newsletter_title">PRICES</div>
+        <div class="n_container">
+         
+			<div style="padding-top:5%;"></div>
+   <section class="fl-group clearfix moz-no-select" id="fg_stars">
+        
+            <h4 class="fl-group__hdl moz-text-select"></h4>
+        
+
+        
+            
+<div class="fl-group__btn-group clearfix">
+    
+    <div style="width:100%;display:inline-block;">
+	<div style="width:50%;display:inline-block;">
+	<button type="button" class="btn btn-success">Prices<i class="fa fa-level-up" aria-hidden="true"></i></button>
+</div>
+<div style="width:50%;display:inline-block;float:right;">
+<button type="button" class="btn btn-success">Prices <i class="fa fa-level-down" aria-hidden="true"></i></button>
+	
+</div>
+	
+</div>    
+
+
+
+
+
+    
+</div>
+    
+      
+
+        
+    </section>
+
+	
+    
         </div>
       </div>
 	  
 	  
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-    </div>
-  </div>
+		  	   <div class="grid_4">
+        <div class="newsletter_title">DISTANCE</div>
+        <div class="n_container">
+         
+			<div style="padding-top:5%;"></div>
+   <section class="fl-group clearfix moz-no-select" id="fg_stars">
+        
+            <h4 class="fl-group__hdl moz-text-select"></h4>
+        
+
+        
+            
+<div class="fl-group__btn-group clearfix">
+    
+        
+
+<div class="checkbox">
+           <label><input type="checkbox" value=""><10 Km </label>
+       </div>
+	    <div class="checkbox">
+           <label><input type="checkbox" value=""><25 Km</label>
+       </div>
+       <div class="checkbox ">
+           <label><input type="checkbox" value="" >>25 Km</label>
+       </div>
+     
+            
+               
+           </div>
+
+    
+</div>
+    
+      
+
+        
+    </section>
+
+	
+   
+        </div>
+		<div style="padding-top:10%;">
+		</div>
+		    <div class="grid_4" style="background-color:green;color:white;">
+        <div class="newsletter_title" style="background-color:green;color:white;"><a style="color:white;">RECENTLY ADDED</a></div>
+       
+      </div>
+		
+		
+      </div>
   
  
   <!-- <div class="bottom_block"> -->
@@ -541,7 +772,11 @@ $(document).ready(function(){
     });
 });  
 </script>
+<style>
+ul {height:250px;overflow-y:scroll;}
+</style>
 <style type="text/css">
+
 .search-form .form-group {
   float: right !important;
   transition: all 0.35s, border-radius 0s;
