@@ -468,8 +468,8 @@ a.gal:hover img {
 }
 
 .tab_cont {
-	border: 1px solid #dedbdb;
-	padding: 53px 16px 52px;
+	/*border: 1px solid #dedbdb;
+	padding: 53px 16px 52px;*/
 }
 
 .tab_cont a.btn {
@@ -516,10 +516,10 @@ a.gal:hover img {
 	float: left;
 	position: relative;
 	background-color: #fcfafa;
-	min-width: 181px;
+	/*min-width: 181px;*/
 	text-align: center;
-	border-top: 1px solid #dedbdb;
-	border-right: 1px solid #dedbdb;
+	/*border-top: 1px solid #dedbdb;
+	border-right: 1px solid #dedbdb;*/
 }
 
 #tabs ul li.ui-state-active  {
@@ -541,7 +541,7 @@ a.gal:hover img {
 }
 
 #tabs ul li:first-child {
-	border-left: 1px solid #dedbdb;
+	/*border-left: 1px solid #dedbdb;*/
 }
 
 #tabs ul li a {

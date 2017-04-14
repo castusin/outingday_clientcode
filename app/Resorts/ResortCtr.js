@@ -48,10 +48,11 @@
 
         GetParksInfo.GetParksService().then(function(ParksInfo){
             debugger;
-            if(ParksInfo.responseCode == 0){
+            if(ParksInfo.responseCode == 200){
 
                   debugger;
-                $scope.makeTodos = function() {
+
+                    $scope.makeTodos = function() {
                     $scope.todos = [];
                     debugger;
                         $scope.todos = ParksInfo.resultObject;
@@ -67,7 +68,7 @@
                 });
 
 
-                          /*  $scope.DetailsListInfo = ParksInfo.resultObject;*/
+                /*  $scope.DetailsListInfo = ParksInfo.resultObject;*/
             }
 
             else{

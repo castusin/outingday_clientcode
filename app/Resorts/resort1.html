@@ -163,6 +163,13 @@ $(window).load(function () {
 
 
 
+    <!-- <div ng-repeat="res in DetailsListInfo" ng-show="res.sponsoredFeaturedFlag == 'y'">
+         <div class="text1" style="padding-top:3%; font-weight:bold;">{{res.name}} </div>
+
+     </div>
+-->
+
+
 <div class="main">
   <div class="container_12">
     
@@ -211,11 +218,12 @@ $(window).load(function () {
             <div class="extra_wrapper" ng-repeat="res in DetailsListInfo" style="padding-top:4%;padding-bottom:4%;border:1px solid #DEDBDB;">
 			<img src="../../assets/ResortsImages/{{res.photoUrl}}" alt="" height="150" width="150">
               <div class="text1" style="padding-top:3%; font-weight:bold;">{{res.name}} </div>
-			  <div class="text1" style="font-weight:bold;float:right;color:green;padding-right:2%;">{{res.minCost1}}</div>
-			  <div class="text1" style="padding-top:0%;">{{res.city}}</div>
-			   <div class="text1" style="padding-top:0%;">{{res.odRating}}</div>
-			   <div class="text1" star-rating rating-value="res.odRating" max="5" style="display:inline-block;"></div>
+                <div class="text1" style="padding-top:3%;" star-rating rating-value="res.odRating" max="5" ></div>
+			  <div class="text1" style="font-weight:bold;float:right;color:green;padding-right:2%;">{{ res.minCost1 | INR }}</div>  <!--{{res.minCost1}}-->
+			  <div class="text1" style="padding-top:3%;">{{res.city}}</div>
+			   <!--<div class="text1" style="padding-top:0%;">{{res.odRating}}</div>-->
 
+               <!-- style="display:inline-block;"-->
 			   <div class="text1" style="padding-top:0%;">{{res.popularity}}/100</div>
 			   <div style="float:right;padding-right:1%;"><button type="button" class="btn btn-success" ng-click=bookhotel()>Book</button></div>
               <p class="style1"><a class="col2" href="#"></a>  </p>
@@ -773,7 +781,7 @@ $(document).ready(function(){
 });  
 </script>
 <style>
-ul {height:250px;overflow-y:scroll;}
+ul {}     /*height:250px;*/   /* overflow-y:scroll;*/
 </style>
 <style type="text/css">
 

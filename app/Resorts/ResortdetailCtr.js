@@ -5,7 +5,7 @@ app.controller('ResortDetailCtr',['$scope','$state','GetParkDetailInfo','$rootSc
 
     GetParkDetailInfo.GetParkDetail().then(function(parkDetailRes){
         debugger;
-        if(parkDetailRes.responseCode == 0){
+        if(parkDetailRes.responseCode == 200){
 
             debugger;
             $scope.ParkDetail = parkDetailRes.parkDetails;
