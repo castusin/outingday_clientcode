@@ -9,9 +9,9 @@
 
         return{
 
-            GetParksService :  function(){
+            GetParksService :  function(parks){
                 debugger;
-                var promise = $http.get(webServiceUrl+'getParksinfo?metro=Hyderabad&localArea=Madhapur&parkType=resort',config) .then(function(response) {
+                var promise = $http.get(webServiceUrl+'getParksinfo?metro='+parks.metro+'&localArea='+parks.localArea+'&parkType=resort',config) .then(function(response) {
                     debugger;
                     console.log('Response -- '+response.data);
                     return response.data;

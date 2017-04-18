@@ -9,10 +9,57 @@
 
 a.facebook{ background-image:url(../images/facebook.png); display:inline-block; width:31px; height:31px;}
 a.facebook:hover{ background-image:url(../images/facebook_hover.png);}
+
+a.twitter{ background-image:url(../images/twitter.png); display:inline-block; width:31px; height:31px;}
+a.twitter:hover{ background-image:url(../images/twitter_hover.png);}
+
+a.instagram{ background-image:url(../images/instagram.png); display:inline-block; width:31px; height:31px;}
+a.instagram:hover{ background-image:url(../images/instagram_hover.png);}
+
+a.pinterest{ background-image:url(../images/pinterest.png); display:inline-block; width:31px; height:31px;}
+a.pinterest:hover{ background-image:url(../images/pinterest_hover.png);}
 a.footerlinks{ color:#fff; text-decoration:none;}
 a.footerlinks:hover{color:#FFCC00;}
 .footerlist{list-style:none; padding:0; margin:0;}
 .carousel-caption {padding-bottom:200px !important; left:60%;}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.autocomplete-custom-template li {
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    white-space: normal;
+}
+.autocomplete-custom-template .item-title,
+.autocomplete-custom-template .item-metadata {
+    display: block;
+    line-height: 2;
+}
+md-autocomplete {
+    border-radius: 0px 2px 2px 0px !important;
+    display: block;
+    height: 34px !important;
+    position: relative;
+    overflow: visible;
+    min-width: 190px;
+}
+md-autocomplete input:not(.md-input) {
+    font-size: 14px !important;
+    
+   
+    width: 100% !important;
+    padding: 0 15px !important;
+    line-height: 34px !important;
+    height: 34px !important;
+}
+
+.md-whiteframe-1dp, .md-whiteframe-z1 {
+   box-shadow:none !important; 
+}
 
 
 

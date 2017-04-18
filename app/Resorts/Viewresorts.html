@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+    
+    <link href="../../assets/css/modern-business.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+<link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+
+    <script src="../../assets/app.js"></script>
+    <script src="../../assets/js/Angularjs/common.js"></script>
+    <script src="../../app/Resorts/ResortCtr.js"></script>
+    <script src="../../app/Resorts/ResortService.js"></script>
+
+
+
+	<style>
+	.checkbox{margin:0 !important;}
+	</style>
+	
+</head>
+
+<body   ng-controller="ResortCtr as ctrl" class="ng-cloak">
+
+   
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class=" navbar-top">
+		<span style="padding-left:5%; line-height:3;">
+		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
+		</span>
+		<span style=" float:right;color:white;padding-right:5%; line-height:3;">
+		<a href="index.html" style="color:#ffbb39;margin-right:10px;">ComiCon</i></a>
+		<a href="index.html" style="color:white;margin-right:10px;">Blog</i></a>
+		<a href="index.html" style="color:white;margin-right:10px;">Hyderabad</i></a>
+		<a href="index.html"><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></a>
+		</span>
+		</div>
+        <div class="container" style="height:60px; margin-top:10px;">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+                <a class="navbar-brand" href="index.html">Outing<span>Day</span></a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row" align="center" style=" margin-top:10px;background-color:#313496; padding-bottom:5px;">
+                    <div class="col-lg-1 col-md-hidden col-xs-hidden" ></div>
+                    <div class="col-lg-7 col-md-7 col-xs-12 " style="" align="center">
+                        <div class="input-group" align="center">
+                            <span class="input-group-btn" align="center">
+                                <select class="form-control  btn-warning search-button"   ng-click="MainSearch()" >
+                                    <option>Resorts</option>
+                                    <option>Hotels</option>
+                                    <option>Restaurents</option>
+                                 </select>
+                            </span>
+                            <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                             md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                             md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" ng-enter="MainSearch()">
+                                <md-item-template >
+                                  <span class="item-title">
+                                 <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                 <span> {{item.localArea}} </span>
+                                     </span>
+                                 <span class="item-metadata">
+                                  <span>
+                              <strong>{{item.metro}}</strong>
+                                 </span>
+                                 <span>
+                             <strong>{{item.forks}}</strong>
+                                 </span>
+                             </span>
+                                </md-item-template>
+                            </md-autocomplete>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    
+	  <header>
+      
+       <div style="padding-top:5%;">
+	   
+	   </div>
+
+      
+       
+    </header>
+	 
+
+	 <div class="container">
+	  
+
+	 <div class="row" style="padding:5px 5px ;">
+		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="color:black;">
+			<h5>Resort Day Outs Tours In Hyderabad</h5>
+		</div> 
+		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" align="right">
+			<div class="row">
+				<div class="col-lg-10" align="right" style="text-align:right;color:black;"><h4>Compare</h4></div>
+				<div class=" col-lg-2">
+					<span class="badge badge-success pull-right" >2</span>
+					<span>
+					<a class="pull-right" href="#">
+						
+						<img  src="../../assets/images/compare.png" width="40px" height="40px"  >
+					</a>
+					</span>
+					
+				</div>
+			</div>
+		</div> 
+	 </div>
+<!--	 
+	 <div style="display:inline-block; width:100%;">
+		 <div style="display:inline-block; width:70%;float:left;text-align:left;color:black;">
+		 <h4> <strong>Resort Day Outs Tours In Hyderabad</strong></h4>
+		 </div>
+		 <div style="display:inline-block; width:30%;float:right;color:black;text-align:right;">
+		 <h4> <strong>Compare</strong><span class="media">
+	  <a class="pull-right" href="#">
+	  <span class="badge badge-success pull-right">2</span>
+		  <img class="media-object" src="../../assets/images/compare.png" / width="35" height="35">
+		  
+	  </a>
+	 
+	</span></h4>
+		 
+		 </div>
+	 </div>
+-->	 
+ <div class="row" >
+    <div class="col-sm-3 sidenav" >
+		
+		  <div class="left-panel"style="background-color:white;">
+		  <h4 style="font-weight:bold;">Filters</h4>
+		  </div>
+	  
+		  <div class="left-panel"style="background-color:white;">
+			<div class="row" style="margin:0 0 20px 0; padding:0;" >
+			
+				<h4 style="font-weight:bold;">Sort By</h4>
+				<ul style="padding:0;margin:0;">
+					<li> Popularity high to low</a></li>
+					<li> Rating high to low</a></li>
+					<li> Cost high to low</a></li>
+					<li> Cost low to high</a></li>
+					<li> Recently added </a></li>
+				</ul>
+			</div>
+			<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+				<h4 style="font-weight:bold;">Number of People</h4>
+				<ul style="padding:0;margin:0;">
+				   <li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;1-5</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;6-10</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;11-20</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;20 +</label>
+					</div></li>
+				</ul>
+			</div>
+		 
+			<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+				<h4 style="font-weight:bold;">Type of Traveller</h4>
+			   <ul style="padding:0;margin:0;">
+				   <li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Friends (30)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Family&Kids (32)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Corpotare Team (23)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Couples (28)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Join a group (3)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Solo(1)</label>
+					</div></li>
+					
+				  </ul>	
+			</div> 
+		  
+			<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+		  <h4 style="font-weight:bold;">Number of Tours</h4>
+	   <ul style="padding:0;margin:0;">
+           <li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Day Out's (28)</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Family fun (13)</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Perfect for Monsoon (12)</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Sports & Games (4)</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Adventure Special (4)</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Team Experiances (2)</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Food & Drinks (2)</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Spa & Rejuvanation (1)</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Night life (1)</label>
+			</div></li>
+            
+          </ul>
+		  </div>
+		  
+		  <div class="row" style="padding-bottom:20px;  margin:0 0 20px 0; padding:0;">
+		  <h4 style="font-weight:bold;">Duration</h4>
+	   <ul style="padding:0;margin:0;">
+           <li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;0-2</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;2-5</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Full Day</label>
+			</div></li>
+			<li><div class="checkbox">
+			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Multi Day</label>
+			</div></li>
+            
+          </ul>
+		  </div>
+		  </div>
+	  
+	 
+     
+	  
+	  
+	
+	 
+    </div>
+	
+    <div class="col-sm-6 text-left" style=""  >
+		<div class="w3-card-4" style="width:100%;background-color:white;"ng-repeat="res in DetailsListInfo" >
+			<div class="w3-container" style="padding-top:3%;">
+				<img src="../../assets/ResortsImages/{{res.photoUrl}}"  alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:70px;height:70px;">
+				<h4>{{res.name}}<span><button type="button" class="btn btn-success btn-xs" style="float:right;">4.2</button></span></h4>
+				<h6 style="padding-left:16%;">{{res.city}}</h6>
+				<h6 style="padding-left:16%;"><b>About :</b> Upscale rooms with private terraces, plus 3 restaurants, indoor & outdoor pools, a spa & 2 bars.</h6>
+				<h6 style="padding-left:16%;"><b>Cost :</b> {{ res.minCost1 | INR }}</h6>
+				<h6 style="padding-left:16%;"><b>Avalability :</b> Tommorow.</h6><br>
+			</div>
+			<div style="padding-left:2%;padding-right:2%;padding-bottom:3%;">
+				<div class="btn-group btn-group-justified">
+				  <div class="btn-group"><button type="button" class="btn btn-primary" style="background-color:#F3F3F3;border:1px solid #d2d2d2;color:black;">Add to compare</button>
+				  </div>
+				  <div class="btn-group"><button type="button" class="btn btn-primary" style="background-color:#F3F3F3;border:1px solid #d2d2d2;color:black;"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;&nbsp;Share</button>
+				  </div>
+				  <div class="btn-group"><button type="button" class="btn btn-primary" style="background-color:#313496;border:1px solid #313496;">Book Now</button>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+			<pagination
+			ng-model="currentPage"
+			total-items="todos.length"
+			max-size="maxSize"
+			items-per-page="numPerPage"
+			boundary-links="true">
+			</pagination>
+			</div>
+		</div>
+ 
+	</div>
+    
+	 <div class="col-sm-3 sidenav">
+		<div class="left-panel"style="background-color:white;">
+			<h4 style="font-weight:bold;">Kenilworth Beach Resort & Spa</h4>
+			<ul style="padding:2%;">
+				<div class="row no-pad-mar">
+					<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/right.jpg" alt="" ></a>
+				</div>
+				<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+					Posh resort with beach access & elegant dining, plus a spa & a swim-up poolside cafe. </div>
+			</ul>
+		</div>
+
+		<div class="left-panel"style="background-color:white;">
+			<h4 style="font-weight:bold;">Chalston Beach Resort</h4>
+			<div class="row no-pad-mar">
+				<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/right1.jpg" alt="" ></a>
+			</div>
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
+			</div>
+		</div>
+	</div>
+	
+</DIV>
+</DIV>
+
+
+
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+ <!-- <div class="container-fluid">    -->
+   
+        <!-- <div class="row" style="background-color:#0c0e1b; "> -->
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
+            	<!-- <div class="row" style="background-color:#121528;padding:10px 30px 10px 30px;"> -->
+                   <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"  style="color:#fff; padding-top:6px;">Certified Logos</div> -->
+                   <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" > -->
+                    <!-- <a href="portfolio-item.html" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a> -->
+                    <!-- <a href="portfolio-item.html" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a> -->
+                    <!-- <a href="portfolio-item.html" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a> -->
+                    <!-- <a href="portfolio-item.html" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a> -->
+                   <!-- </div> -->
+                <!-- </div> -->
+             
+             	<!-- <div class="row" style="padding:30px;"> -->
+                	<!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center"> -->
+                    	<!-- <img  src="../../assets/images/Logo_Footer.png" alt=""><br><span style="color:#fff;">2017@outingday.com</span> -->
+                    <!-- </div>	 -->
+                    <!-- <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-top:20px;"> -->
+                    	<!-- <div class="row"> -->
+                        	<!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">  -->
+                            	<!-- <p class="h4">COMPANY</p> -->
+                                <!-- <ul class="footerlist"> -->
+                                    <!-- <li ><a href="#" class="footerlinks">Career</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                <!-- </ul> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">  -->
+                            	<!-- <p class="h4">COMPANY</p> -->
+                                 <!-- <ul class="footerlist"> -->
+                                    <!-- <li ><a href="#" class="footerlinks">Career</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                <!-- </ul> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">  -->
+                            	<!-- <p class="h4">COMPANY</p> -->
+                                 <!-- <ul class="footerlist"> -->
+                                    <!-- <li ><a href="#" class="footerlinks">Career</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                <!-- </ul> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">  -->
+                            	<!-- <p class="h4">COMPANY</p> -->
+                                 <!-- <ul class="footerlist"> -->
+                                    <!-- <li ><a href="#" class="footerlinks">Career</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                <!-- </ul> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    <!-- </div>	 -->
+                <!-- </div> -->
+             
+            <!-- </div> -->
+        <!-- </div> -->
+   
+ <!-- </div> -->
+    
+    
+  
+    <script src="../../assets/js/jquery.js"></script>
+
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>
