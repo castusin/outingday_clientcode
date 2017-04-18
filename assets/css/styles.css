@@ -1,0 +1,19 @@
+.navbar-inverse{background-color:#313496 !important;}
+.navbar-top{background-color:#121444 !important; height:40px;}
+.navbar-brand{color:#ffffff !important; font-size:30px;}
+.navbar-brand span{color:#ffbb39 !important;}
+.search-button{width:120px !important; border-radius: 5px 0 0 5px !important; color:#000;}
+.btn-warning{color:#000 !important;}
+.offers-columns-padding{padding:0 5px 0 5px !important;}
+.no-pad-mar{padding:0; margin:0;}
+
+a.facebook{ background-image:url(../images/facebook.png); display:inline-block; width:31px; height:31px;}
+a.facebook:hover{ background-image:url(../images/facebook_hover.png);}
+a.footerlinks{ color:#fff; text-decoration:none;}
+a.footerlinks:hover{color:#FFCC00;}
+.footerlist{list-style:none; padding:0; margin:0;}
+.carousel-caption {padding-bottom:200px !important; left:60%;}
+
+
+
+
