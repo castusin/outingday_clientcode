@@ -61,6 +61,13 @@ md-autocomplete input:not(.md-input) {
    box-shadow:none !important; 
 }
 
+.btn:hover
+{
+    background-image:none !important;
+    background-color:#313496 !important;
+    color:#ffffff !important;
+}
+
 
 
 

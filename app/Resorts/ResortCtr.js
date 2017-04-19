@@ -66,7 +66,13 @@
                                             'forks'     : 'India'
                                         },
                                         {
-                                            'localArea'      : 'Ameerpet',
+                                            'localArea'      : ' Adibatla ',
+
+                                            'metro'  : 'Hyderabad',
+                                            'forks'     : 'India'
+                                        },
+                                        {
+                                            'localArea'      : ' Hitech City ',
 
                                             'metro'  : 'Hyderabad',
                                             'forks'     : 'India'
@@ -175,10 +181,10 @@
 
 
 
-$scope.bookhotel= function(){
+$scope.bookResort= function(){
 
     debugger;
-    $window.location='../Resorts/Resortdetail.html';
+    $window.location='../Resorts/Details.html';
 }
 
 

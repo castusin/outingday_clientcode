@@ -71,7 +71,13 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
                     'forks'     : 'India'
                 },
                 {
-                    'localArea'      : 'Ameerpet',
+                    'localArea'      : 'Adibatla',
+
+                    'metro'  : 'Hyderabad',
+                    'forks'     : 'India'
+                },
+                {
+                    'localArea'      : 'Hitech City',
 
                     'metro'  : 'Hyderabad',
                     'forks'     : 'India'
