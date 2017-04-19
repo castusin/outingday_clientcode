@@ -28,7 +28,7 @@ a.footerlinks:hover{color:#FFCC00;}
 }
 
 .autocomplete-custom-template li {
-    border-bottom: 1px solid #ccc;
+  /*  border-bottom: 1px solid #ccc;*/
     height: auto;
     padding-top: 8px;
     padding-bottom: 8px;

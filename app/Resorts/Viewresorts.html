@@ -64,8 +64,8 @@
 		<span style=" float:right;color:white;padding-right:5%; line-height:3;">
 		<a href="index.html" style="color:#ffbb39;margin-right:10px;">ComiCon</i></a>
 		<a href="index.html" style="color:white;margin-right:10px;">Blog</i></a>
-		<a href="index.html" style="color:white;margin-right:10px;">Hyderabad</i></a>
-		<a href="index.html"><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></a>
+		<!--<a href="index.html" style="color:white;margin-right:10px;">Hyderabad</i></a>
+		<a href="index.html"><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></a>-->
 		</span>
 		</div>
         <div class="container" style="height:60px; margin-top:10px;">
@@ -87,7 +87,7 @@
                     <div class="col-lg-7 col-md-7 col-xs-12 " style="" align="center">
                         <div class="input-group" align="center">
                             <span class="input-group-btn" align="center">
-                                <select class="form-control  btn-warning search-button"   ng-click="MainSearch()" >
+                                <select class="form-control  btn-warning search-button">
                                     <option>Resorts</option>
                                     <option>Hotels</option>
                                     <option>Restaurents</option>
@@ -98,7 +98,7 @@
                                              md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" ng-enter="MainSearch()">
                                 <md-item-template >
                                   <span class="item-title">
-                                 <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                 <md-icon ><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></md-icon>
                                  <span> {{item.localArea}} </span>
                                      </span>
                                  <span class="item-metadata">
@@ -138,7 +138,7 @@
 
 	 <div class="row" style="padding:5px 5px ;">
 		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="color:black;">
-			<h5>Resort Day Outs Tours In Hyderabad</h5>
+			<h5>Resort Day Outs Tours in Hyderabad</h5>
 		</div> 
 		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" align="right">
 			<div class="row">
@@ -186,11 +186,11 @@
 			
 				<h4 style="font-weight:bold;">Sort By</h4>
 				<ul style="padding:0;margin:0;">
-					<li> Popularity high to low</a></li>
-					<li> Rating high to low</a></li>
-					<li> Cost high to low</a></li>
-					<li> Cost low to high</a></li>
-					<li> Recently added </a></li>
+					<li><span style="color: #000000"> Popularity high to low</span></li>
+                    <li> <span style="color: #000000">Rating high to low</span> </li>
+                    <li><span style="color: #000000"> Cost high to low</span>  </li>
+                    <li> <span style="color: #000000">Cost low to high</span>  </li>
+                    <li> <span style="color: #000000"> Recently added </span>  </li>
 				</ul>
 			</div>
 			<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
@@ -302,9 +302,9 @@
 		<div class="w3-card-4" style="width:100%;background-color:white;"ng-repeat="res in DetailsListInfo" >
 			<div class="w3-container" style="padding-top:3%;">
 				<img src="../../assets/ResortsImages/{{res.photoUrl}}"  alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:70px;height:70px;">
-				<h4>{{res.name}}<span><button type="button" class="btn btn-success btn-xs" style="float:right;">4.2</button></span></h4>
+				<h4>{{res.name}}<span><button type="button" class="btn btn-success btn-xs" style="float:right;">{{res.odRating}}</button></span></h4>
 				<h6 style="padding-left:16%;">{{res.city}}</h6>
-				<h6 style="padding-left:16%;"><b>About :</b> Upscale rooms with private terraces, plus 3 restaurants, indoor & outdoor pools, a spa & 2 bars.</h6>
+				<h6 style="padding-left:16%;"><b>About :</b> {{res.description}}</h6>
 				<h6 style="padding-left:16%;"><b>Cost :</b> {{ res.minCost1 | INR }}</h6>
 				<h6 style="padding-left:16%;"><b>Avalability :</b> Tommorow.</h6><br>
 			</div>
@@ -334,18 +334,18 @@
 	</div>
     
 	 <div class="col-sm-3 sidenav">
-		<div class="left-panel"style="background-color:white;">
-			<h4 style="font-weight:bold;">Kenilworth Beach Resort & Spa</h4>
+		<div class="left-panel"style="background-color:white;" ng-repeat="res in DetailsListInfo" ng-show="res.sponsoredFeaturedFlag == 'y'">
+			<h4 style="font-weight:bold;">{{res.name}}</h4>
 			<ul style="padding:2%;">
 				<div class="row no-pad-mar">
-					<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/right.jpg" alt="" ></a>
+					<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/ResortsImages/{{res.photoUrl}}" alt="" ></a>
 				</div>
 				<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-					Posh resort with beach access & elegant dining, plus a spa & a swim-up poolside cafe. </div>
+                    {{res.description}} </div>
 			</ul>
 		</div>
 
-		<div class="left-panel"style="background-color:white;">
+		<!--<div class="left-panel"style="background-color:white;">
 			<h4 style="font-weight:bold;">Chalston Beach Resort</h4>
 			<div class="row no-pad-mar">
 				<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/right1.jpg" alt="" ></a>
@@ -353,7 +353,7 @@
 			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
 				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
 			</div>
-		</div>
+		</div>-->
 	</div>
 	
 </DIV>

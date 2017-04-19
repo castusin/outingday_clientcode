@@ -2,8 +2,8 @@
 
 
 
-app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorage' ,'$timeout','$q','$log'
-                           ,function ($scope,$state,$window,$rootScope,$localStorage,$timeout,$q,$log) {
+app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorage' ,'$timeout','$q','$log','$mdUtil'
+                           ,function ($scope,$state,$window,$rootScope,$localStorage,$timeout,$q,$log,$mdUtil) {
     debugger;
 
        /* $('#myModal').modal('show');*/
@@ -46,7 +46,7 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
         function selectedItemChange(item) {
             $log.info('Item changed to ' + JSON.stringify(item));
         }
-
+        $mdUtil.enableScrolling();
         /**
          * Build `components` list of key/value pairs
          */
