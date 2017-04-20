@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -47,10 +48,6 @@
 
 
 
-	<style>
-	.checkbox{margin:0 !important;}
-	</style>
-	
 </head>
 
 <body   ng-controller="ResortCtr as ctrl" class="ng-cloak">
@@ -83,8 +80,8 @@
             
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
             	<div class="row" align="center" style=" margin-top:10px;background-color:#313496; padding-bottom:5px;">
-                    <div class="col-lg-1 col-md-hidden col-xs-hidden" ></div>
-                    <div class="col-lg-7 col-md-7 col-xs-12 " style="" align="center">
+                    <div class="col-lg-1 col-sm-hidden col-md-hidden col-xs-hidden" ></div>
+                    <div class="col-lg-7 col-sm-6 col-md-7 col-xs-12 " style="" align="center">
                         <div class="input-group" align="center">
                             <span class="input-group-btn" align="center">
                                 <select class="form-control  btn-warning search-button">
@@ -95,7 +92,7 @@
                             </span>
                             <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
                                              md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)"
-                                             md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" ng-enter="MainSearch()">
+                                             md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" ng-enter="viewResortsCall()">
                                 <md-item-template >
                                   <span class="item-title">
                                  <md-icon ><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></md-icon>
@@ -113,7 +110,7 @@
                             </md-autocomplete>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div>
+                    <div class="col-lg-2  col-sm-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div>
                 </div>
             </div>
             
@@ -193,15 +190,19 @@
                     <li> <span style="color: #000000"> Recently added </span>  </li>
 				</ul>
 			</div>
-			<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+
+              <div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+                  <h4 style="font-weight:bold;">Number of People</h4>
+                  <ul style="padding:0;margin:0;" ng-repeat="pepl in GetNoOfPeopleMastersList">
+                      <li><div class="checkbox" >
+                          <label class="checkboxline"><input type="checkbox" value="" ng-click="GetPeoplesFilter(pepl.Id)">{{pepl.NoofPeopleDesc}}</label>
+                      </div></li>
+                  </ul>
+              </div>
+			<!--<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
 				<h4 style="font-weight:bold;">Number of People</h4>
-				<ul style="padding:0;margin:0;" ng-repeat="pepl in GetNoOfPeopleMastersList">
-					<li><div class="checkbox" >
-						<label class="checkboxline"><input type="checkbox" value="" ng-click="GetPeoplesFilter(pepl.Id)">{{pepl.NoofPeopleDesc}}</label>
-					</div></li>
-				</ul>
-				<!--<ul style="padding:0;margin:0;">
-				   <li><div class="checkbox" >
+				<ul style="padding:0;margin:0;">
+				   <li><div class="checkbox">
 					<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;1-5</label>
 					</div></li>
 					<li><div class="checkbox">
@@ -213,47 +214,53 @@
 					<li><div class="checkbox">
 					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;20 +</label>
 					</div></li>
-				</ul>-->
-			</div>
-		 
-			<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
-				<h4 style="font-weight:bold;">Type of Traveller</h4>
-				<ul style="padding:0;margin:0;" ng-repeat="typ in GetTypesMastersList">
-					<li><div class="checkbox">
-						<label class="checkboxline"><input type="checkbox" value="" ng-checked="TypSelection.indexOf(typ.Id)>-1"  ng-click="GetTypesFilter(typ.Id)">{{typ.typename}}</label>
-					</div></li>
 				</ul>
-				<!--<ul style="padding:0;margin:0;">
-                    <li><div class="checkbox">
-                     <label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Friends (30)</label>
-                     </div></li>
-                     <li><div class="checkbox">
-                     <label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Family&Kids (32)</label>
-                     </div></li>
-                     <li><div class="checkbox">
-                     <label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Corpotare Team (23)</label>
-                     </div></li>
-                     <li><div class="checkbox">
-                     <label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Couples (28)</label>
-                     </div></li>
-                     <li><div class="checkbox">
-                     <label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Join a group (3)</label>
-                     </div></li>
-                     <li><div class="checkbox">
-                     <label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Solo(1)</label>
-                     </div></li>
+			</div>-->
 
-                   </ul>	-->
-			</div> 
-		  
-			<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
-		  <h4 style="font-weight:bold;">Number of Tours</h4>
-				<ul style="padding:0;margin:0;" ng-repeat="netr in GetNatureMastersList">
-					<li><div class="checkbox">
-						<label class="checkboxline"><input type="checkbox" value="" ng-checked="NatureSelection.indexOf(netr.Id)>-1" ng-click="GetNatureFilter(netr.Id)">{{netr.NatureName}}</label>
+              <div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+                  <h4 style="font-weight:bold;">Type of Traveller</h4>
+                  <ul style="padding:0;margin:0;" ng-repeat="typ in GetTypesMastersList">
+                      <li><div class="checkbox">
+                          <label class="checkboxline"><input type="checkbox" value="" ng-checked="TypSelection.indexOf(typ.Id)>-1"  ng-click="GetTypesFilter(typ.Id)">{{typ.typename}}</label>
+                      </div></li>
+                  </ul>
+                  </div>
+			<!--<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+				<h4 style="font-weight:bold;">Type of Traveller</h4>
+			   <ul style="padding:0;margin:0;">
+				   <li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Friends (30)</label>
 					</div></li>
-				</ul>
-	   			<!--<ul style="padding:0;margin:0;">
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Family&Kids (32)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Corpotare Team (23)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Couples (28)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Join a group (3)</label>
+					</div></li>
+					<li><div class="checkbox">
+					<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Solo(1)</label>
+					</div></li>
+					
+				  </ul>	
+			</div> -->
+
+              <div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+                  <h4 style="font-weight:bold;">Number of Tours</h4>
+                  <ul style="padding:0;margin:0;" ng-repeat="netr in GetNatureMastersList">
+                      <li><div class="checkbox">
+                          <label class="checkboxline"><input type="checkbox" value="" ng-checked="NatureSelection.indexOf(netr.Id)>-1" ng-click="GetNatureFilter(netr.Id)">{{netr.NatureName}}</label>
+                      </div></li>
+                  </ul>
+              </div>
+		<!--	<div class="row" style="padding-bottom:20px; margin:0 0 20px 0; padding:0;">
+		  <h4 style="font-weight:bold;">Number of Tours</h4>
+	   <ul style="padding:0;margin:0;">
            <li><div class="checkbox">
 			<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;Day Out's (28)</label>
 			</div></li>
@@ -282,17 +289,20 @@
 			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Night life (1)</label>
 			</div></li>
             
-          </ul>-->
-		  </div>
-		  
-		  <div class="row" style="padding-bottom:20px;  margin:0 0 20px 0; padding:0;">
+          </ul>
+		  </div>-->
+
+              <div class="row" style="padding-bottom:20px;  margin:0 0 20px 0; padding:0;">
+                  <h4 style="font-weight:bold;">Duration</h4>
+                  <ul style="padding:0;margin:0;" ng-repeat="hr in GetDurationMasterList">
+                      <li><div class="checkbox">
+                          <label class="checkboxline"><input type="checkbox" value="" ng-click="GetHoursFilter(hr.Id)">{{hr.durationName}}</label>
+                      </div></li>
+                  </ul>
+                  </div>
+		<!--  <div class="row" style="padding-bottom:20px;  margin:0 0 20px 0; padding:0;">
 		  <h4 style="font-weight:bold;">Duration</h4>
-			  <ul style="padding:0;margin:0;" ng-repeat="hr in GetDurationMasterList">
-				  <li><div class="checkbox">
-					  <label class="checkboxline"><input type="checkbox" value="" ng-click="GetHoursFilter(hr.Id)">{{hr.durationName}}</label>
-				  </div></li>
-			  </ul>
-	   		<!--<ul style="padding:0;margin:0;">
+	   <ul style="padding:0;margin:0;">
            <li><div class="checkbox">
 			<label class="checkboxline"><input type="checkbox" value="">&nbsp;&nbsp;0-2</label>
 			</div></li>
@@ -306,8 +316,8 @@
 			<label class="checkboxline"><input type="checkbox" value="" >&nbsp;&nbsp;Multi Day</label>
 			</div></li>
             
-          </ul>-->
-		  </div>
+          </ul>
+		  </div>-->
 		  </div>
 	  
 	 

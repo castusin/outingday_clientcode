@@ -91,11 +91,13 @@
                                     <option>Restaurents</option>
                                  </select>
                             </span>
+
+
                             <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
                                              md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)"
-                                             md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" ng-enter="MainSearch()">
-                                <md-item-template>
-                                  <span class="item-title">
+                                             md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" ng-enter="MainSearch()" >
+                                <md-item-template >
+                                  <span class="item-title" >
                                  <md-icon><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i> </md-icon>
                                  <span> {{item.localArea}} </span>
                                      </span>
@@ -109,6 +111,7 @@
                              </span>
                                 </md-item-template>
                             </md-autocomplete>
+
                         </div><!-- /input-group -->
                     </div><!-- /.col-lg-6 -->
                     <div class="col-lg-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div>

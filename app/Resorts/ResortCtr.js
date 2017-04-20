@@ -103,9 +103,7 @@
                                 }
 
 
-
-
-       /*-----Latest Filter Code bk start------*/
+                                /*-----Latest Filter Code bk start------*/
 
                                 /*---------------------------------------*/
 
@@ -116,12 +114,12 @@
 
 
                                 /*$scope.GetRattingMastersList=[
-                                    {Id:5,ratting:'5'},
-                                    {Id:4,ratting:'4'},
-                                    {Id:3,ratting:'3'},
-                                    {Id:2,ratting:'2'},
-                                    {Id:1,ratting:'1'}
-                                ];*/
+                                 {Id:5,ratting:'5'},
+                                 {Id:4,ratting:'4'},
+                                 {Id:3,ratting:'3'},
+                                 {Id:2,ratting:'2'},
+                                 {Id:1,ratting:'1'}
+                                 ];*/
 
                                 $scope.GetNoOfPeopleMastersList=[
                                     {Id:1,NoofPeopleDesc:'1-5'},
@@ -161,14 +159,13 @@
 
 
 
-       /*-------------------------------------*/
+                                /*-------------------------------------*/
 
 
 
 
 
-
-     this.myDate = new Date();
+      this.myDate = new Date();
      this.isOpen = false;
 
      this.minDate = new Date(
@@ -207,7 +204,7 @@
         }*/
 
 
-        var parks =  $localStorage.searchInput;
+                var parks =  $localStorage.searchInput;
 
         GetParksInfo.GetParksService(parks).then(function(ParksInfo){
             debugger;
@@ -216,9 +213,8 @@
                   debugger;
 
                     $scope.makeTodos = function() {
-                   /* $scope.todos = [];*/
+                    $scope.todos = [];
                     debugger;
-                        $scope.GetOurSearchInfoList=ParksInfo.resultObject;
                         $scope.todos = ParksInfo.resultObject;
                     var data = $.grep($scope.todos,function(td){}).parktype;
                 };
@@ -236,46 +232,90 @@
             }
 
             else{
+
+
             }
+
         });
 
 
-        /*//-------------Ratting Filter Start----------------//*/
-                                /*$scope.RtgSelection=[];
-                                $scope.GetRtgFilter = function(idVal) {
+
+                $scope.viewResortsCall=function(){
+
+                                var parks =  $scope.ctrl.selectedItem;
+
+                                GetParksInfo.GetParksService(parks).then(function(ParksInfo){
                                     debugger;
-                                    var GetVal = $scope.RtgSelection.indexOf(idVal);
-                                    if(GetVal>-1) {
-                                        $scope.RtgSelection.splice(GetVal,1);
-                                    }
-                                    else {
-                                        $scope.RtgSelection.push(idVal);
-                                    }
-                                    $scope.currentPage = 1;
-                                    $scope.numPerPage = 10;
-                                    debugger;
-                                    $scope.RattingFiltter=[];
-                                    for(i=0;i<$scope.RtgSelection.length;i++) {
-                                        debugger;
-                                        $scope.SearchedList = $scope.GetOurSearchInfoList;    //----Org Data
+                                    if(ParksInfo.responseCode == 200){
 
                                         debugger;
-                                        $scope.SelectedRattings = $.grep($scope.SearchedList, function (srList) {
-                                            return srList.odRating == $scope.RtgSelection[i];
-                                        });
-                                        for(j=0;j<$scope.SelectedRattings.length;j++) {
+
+                                        $scope.makeTodos = function() {
+                                            $scope.todos = [];
                                             debugger;
-                                            $scope.RattingFiltter.push($scope.SelectedRattings[j]);
-                                        }
-                                        $scope.$watch('currentPage + numPerPage', function () {
+                                            $scope.todos = ParksInfo.resultObject;
+                                            var data = $.grep($scope.todos,function(td){}).parktype;
+                                        };
+                                        $scope.makeTodos();
+
+                                        $scope.$watch('currentPage + numPerPage', function() {
                                             var begin = (($scope.currentPage - 1) * $scope.numPerPage)
                                                 , end = begin + $scope.numPerPage;
-                                            debugger;
-                                            $scope.DetailsListInfo = $scope.RattingFiltter.slice(begin, end);
+
+                                            $scope.DetailsListInfo = $scope.todos.slice(begin, end);
                                         });
+
+
+                                        /*  $scope.DetailsListInfo = ParksInfo.resultObject;*/
                                     }
+
+                                    else{
+
+
+                                    }
+
+                                });
+
                                 }
-                                debugger;*/
+
+
+
+                                /*//-------------Ratting Filter Start----------------//*/
+                                /*$scope.RtgSelection=[];
+                                 $scope.GetRtgFilter = function(idVal) {
+                                 debugger;
+                                 var GetVal = $scope.RtgSelection.indexOf(idVal);
+                                 if(GetVal>-1) {
+                                 $scope.RtgSelection.splice(GetVal,1);
+                                 }
+                                 else {
+                                 $scope.RtgSelection.push(idVal);
+                                 }
+                                 $scope.currentPage = 1;
+                                 $scope.numPerPage = 10;
+                                 debugger;
+                                 $scope.RattingFiltter=[];
+                                 for(i=0;i<$scope.RtgSelection.length;i++) {
+                                 debugger;
+                                 $scope.SearchedList = $scope.GetOurSearchInfoList;    //----Org Data
+
+                                 debugger;
+                                 $scope.SelectedRattings = $.grep($scope.SearchedList, function (srList) {
+                                 return srList.odRating == $scope.RtgSelection[i];
+                                 });
+                                 for(j=0;j<$scope.SelectedRattings.length;j++) {
+                                 debugger;
+                                 $scope.RattingFiltter.push($scope.SelectedRattings[j]);
+                                 }
+                                 $scope.$watch('currentPage + numPerPage', function () {
+                                 var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                                 , end = begin + $scope.numPerPage;
+                                 debugger;
+                                 $scope.DetailsListInfo = $scope.RattingFiltter.slice(begin, end);
+                                 });
+                                 }
+                                 }
+                                 debugger;*/
                                 /*//-------------Ratting Filter End----------------//*/
 
                                 /*---------------Type Filter start-----------------*/
@@ -396,7 +436,8 @@
 
 
 
-                                $scope.bookResort= function(){
+
+$scope.bookResort= function(){
 
     debugger;
     $window.location='../Resorts/Details.html';

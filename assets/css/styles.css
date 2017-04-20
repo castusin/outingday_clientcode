@@ -68,6 +68,37 @@ md-autocomplete input:not(.md-input) {
     color:#ffffff !important;
 }
 
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 94px !important;
+    }
+
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 144px !important;
+    }
+}
+
+@media screen and (min-device-width: 1023px) and (max-device-width: 1400px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 94px !important;
+    }
+}
+
+.md-virtual-repeat-container.md-autocomplete-suggestions-container {
+    left: 451px;
+    min-width: 532px;
+    max-width: 975px;
+    bottom: auto;
+    max-height: 240px;
+    z-index: 100000 !important;
+    border:solid 1px #ccc;
+    position:fixed !important;
+}
+
+.checkbox{margin:0 !important;}
 
 
 
