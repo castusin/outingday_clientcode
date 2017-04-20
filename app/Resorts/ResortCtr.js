@@ -103,6 +103,71 @@
                                 }
 
 
+
+
+       /*-----Latest Filter Code bk start------*/
+
+                                /*---------------------------------------*/
+
+                                $scope.todos = [];
+                                $scope.GetOurSearchInfoList='';
+
+                                /*---------------------------------------*/
+
+
+                                /*$scope.GetRattingMastersList=[
+                                    {Id:5,ratting:'5'},
+                                    {Id:4,ratting:'4'},
+                                    {Id:3,ratting:'3'},
+                                    {Id:2,ratting:'2'},
+                                    {Id:1,ratting:'1'}
+                                ];*/
+
+                                $scope.GetNoOfPeopleMastersList=[
+                                    {Id:1,NoofPeopleDesc:'1-5'},
+                                    {Id:2,NoofPeopleDesc:'6-10'},
+                                    {Id:3,NoofPeopleDesc:'11-20'},
+                                    {Id:4,NoofPeopleDesc:'20+'}
+                                ];
+
+                                $scope.GetTypesMastersList=[
+                                    {Id:1,typename:'Friends (30)'},
+                                    {Id:2,typename:'Family&Kids (32)'},
+                                    {Id:3,typename:'Corpotare Team (23)'},
+                                    {Id:4,typename:'Couples (28)'},
+                                    {Id:5,typename:'Join a group (3)'},
+                                    {Id:6,typename:'Solo(1)'}
+                                ];
+
+                                $scope.GetNatureMastersList=[
+                                    {Id:1,NatureName:'Day Outs (28)'},
+                                    {Id:2,NatureName:'Family fun (13)'},
+                                    {Id:3,NatureName:'Perfect for Monsoon (12)'},
+                                    {Id:4,NatureName:'Sports & Games (4)'},
+                                    {Id:5,NatureName:'Adventure Special (4)'},
+                                    {Id:6,NatureName:'Team Experiances (2)'},
+                                    {Id:7,NatureName:'Food & Drinks (2)'},
+                                    {Id:8,NatureName:'Spa & Rejuvanation (1)'},
+                                    {Id:9,NatureName:'Night life (1)'}
+                                ];
+
+                                $scope.GetDurationMasterList=[
+                                    {Id:1,durationName:'0-2 Hours'},
+                                    {Id:2,durationName:'2-5 Hours'},
+                                    {Id:3,durationName:'Full'},
+                                    {Id:4,durationName:'Multi Day'}
+                                ];
+
+
+
+
+       /*-------------------------------------*/
+
+
+
+
+
+
      this.myDate = new Date();
      this.isOpen = false;
 
@@ -142,7 +207,7 @@
         }*/
 
 
-                var parks =  $localStorage.searchInput;
+        var parks =  $localStorage.searchInput;
 
         GetParksInfo.GetParksService(parks).then(function(ParksInfo){
             debugger;
@@ -151,8 +216,9 @@
                   debugger;
 
                     $scope.makeTodos = function() {
-                    $scope.todos = [];
+                   /* $scope.todos = [];*/
                     debugger;
+                        $scope.GetOurSearchInfoList=ParksInfo.resultObject;
                         $scope.todos = ParksInfo.resultObject;
                     var data = $.grep($scope.todos,function(td){}).parktype;
                 };
@@ -170,18 +236,167 @@
             }
 
             else{
-
-
             }
-
-
-
-
         });
 
 
+        /*//-------------Ratting Filter Start----------------//*/
+                                /*$scope.RtgSelection=[];
+                                $scope.GetRtgFilter = function(idVal) {
+                                    debugger;
+                                    var GetVal = $scope.RtgSelection.indexOf(idVal);
+                                    if(GetVal>-1) {
+                                        $scope.RtgSelection.splice(GetVal,1);
+                                    }
+                                    else {
+                                        $scope.RtgSelection.push(idVal);
+                                    }
+                                    $scope.currentPage = 1;
+                                    $scope.numPerPage = 10;
+                                    debugger;
+                                    $scope.RattingFiltter=[];
+                                    for(i=0;i<$scope.RtgSelection.length;i++) {
+                                        debugger;
+                                        $scope.SearchedList = $scope.GetOurSearchInfoList;    //----Org Data
 
-$scope.bookResort= function(){
+                                        debugger;
+                                        $scope.SelectedRattings = $.grep($scope.SearchedList, function (srList) {
+                                            return srList.odRating == $scope.RtgSelection[i];
+                                        });
+                                        for(j=0;j<$scope.SelectedRattings.length;j++) {
+                                            debugger;
+                                            $scope.RattingFiltter.push($scope.SelectedRattings[j]);
+                                        }
+                                        $scope.$watch('currentPage + numPerPage', function () {
+                                            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                                                , end = begin + $scope.numPerPage;
+                                            debugger;
+                                            $scope.DetailsListInfo = $scope.RattingFiltter.slice(begin, end);
+                                        });
+                                    }
+                                }
+                                debugger;*/
+                                /*//-------------Ratting Filter End----------------//*/
+
+                                /*---------------Type Filter start-----------------*/
+
+                                $scope.TypSelection=[];
+                                $scope.GetTypesFilter=function(TypeVal) {
+                                    debugger;
+                                    var GetVal = $scope.TypSelection.indexOf(TypeVal);
+                                    if (GetVal > -1) {
+                                        $scope.TypSelection.splice(GetVal, 1);
+                                    }
+                                    else {
+                                        $scope.TypSelection.push(TypeVal);
+                                    }
+                                    $scope.currentPage = 1;
+                                    $scope.numPerPage = 10;
+
+                                    $scope.TypeFiltter = [];
+                                    for (i = 0; i < $scope.TypSelection.length; i++) {
+                                        $scope.SearchedListTypes = $scope.GetOurSearchInfoList;
+                                        $scope.SelectedTypes = $.grep($scope.SearchedListTypes, function (typs) {
+                                            return typs.typeString.match($scope.TypSelection[i]);
+                                        });
+                                        for (j = 0; j < $scope.SelectedTypes.length; j++) {
+                                            $scope.TypeFiltter.push($scope.SelectedTypes[j]);
+                                        }
+                                        $scope.$watch('currentPage + numPerPage', function () {
+                                            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                                                , end = begin + $scope.numPerPage;
+                                            debugger;
+                                            $scope.DetailsListInfo = $scope.TypeFiltter.slice(begin, end);
+                                        });
+                                    }
+                                };
+
+                                /*----------------Type Filter End-----------------*/
+
+                                /*--------------Duration Filter Start------------------*/
+
+                                $scope.GetHoursFilter=function (hrVal) {
+                                    debugger;
+                                    $scope.HoursFilter=[];
+                                    $scope.SearchedList = $scope.GetOurSearchInfoList;    //----Org Data
+                                    $scope.SelectedRattings = $.grep($scope.SearchedList, function (srList) {
+                                        return srList.durationString == hrVal;
+                                    });
+                                    for (j = 0; j < $scope.SelectedRattings.length; j++) {
+                                        $scope.HoursFilter.push($scope.SelectedRattings[j]);
+                                    }
+                                    debugger;
+                                    $scope.$watch('currentPage + numPerPage', function () {
+                                        var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                                            , end = begin + $scope.numPerPage;
+                                        debugger;
+                                        $scope.DetailsListInfo = $scope.HoursFilter.slice(begin, end);
+                                    });
+                                    debugger;
+                                };
+                                /*--------------Duration Filter End------------------*/
+
+
+                                /*--------------Peoples Filter Start----------------------*/
+
+                                $scope.GetPeoplesFilter=function(pplVal){
+                                    $scope.PeoplesFilter=[];
+                                    $scope.SearchedList=$scope.GetOurSearchInfoList;    //----Org Data
+                                    $scope.SelectedPeoples = $.grep($scope.SearchedList,function(ppl){
+                                        return ppl.maxPeople==pplVal;
+                                    });
+                                    for(j=0;j<$scope.SelectedPeoples.length;j++){
+                                        $scope.PeoplesFilter.push($scope.SelectedPeoples[j]);
+                                    }
+                                    $scope.$watch('currentPage + numPerPage', function () {
+                                        var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                                            , end = begin + $scope.numPerPage;
+                                        debugger;
+                                        $scope.DetailsListInfo = $scope.PeoplesFilter.slice(begin, end);
+                                    });
+                                };
+                                /*--------------Peoples Filter End-----------------------*/
+
+
+                                /*--------------Nature Filter Start----------------------*/
+                                $scope.NatureSelection=[];
+                                $scope.GetNatureFilter=function(NatVal){
+                                    debugger;
+                                    var GetVal = $scope.NatureSelection.indexOf(NatVal);
+                                    if (GetVal > -1) {
+                                        $scope.NatureSelection.splice(GetVal, 1);
+                                    }
+                                    else {
+                                        $scope.NatureSelection.push(NatVal);
+                                    }
+                                    $scope.currentPage = 1;
+                                    $scope.numPerPage = 10;
+
+                                    $scope.NatureFiltter = [];
+                                    for (i = 0; i < $scope.NatureSelection.length; i++) {
+                                        $scope.SearchedListNatures = $scope.GetOurSearchInfoList;
+                                        debugger;
+                                        $scope.SelectedNatures = $.grep($scope.SearchedListNatures, function (ntr) {
+                                            return ntr.natureString.match($scope.NatureSelection[i]);
+                                        });
+                                        debugger;
+                                        for (j = 0; j < $scope.SelectedNatures.length; j++) {
+                                            $scope.NatureFiltter.push($scope.SelectedNatures[j]);
+                                        }
+                                        $scope.$watch('currentPage + numPerPage', function () {
+                                            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                                                , end = begin + $scope.numPerPage;
+                                            debugger;
+                                            $scope.DetailsListInfo = $scope.NatureFiltter.slice(begin, end);
+                                        });
+                                    }
+                                };
+                                /*--------------Nature Filter End----------------------*/
+
+
+
+
+                                $scope.bookResort= function(){
 
     debugger;
     $window.location='../Resorts/Details.html';
