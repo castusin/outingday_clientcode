@@ -329,14 +329,14 @@
     </div>
 	
     <div class="col-sm-6 text-left" style=""  >
-		<div class="w3-card-4" style="width:100%;background-color:white;"ng-repeat="res in DetailsListInfo" >
+		<div class="w3-card-4" style="width:100%;background-color:white;margin-bottom:5px;"ng-repeat="res in DetailsListInfo" >
 			<div class="w3-container" style="padding-top:3%;">
-				<img src="../../assets/ResortsImages/{{res.photoUrl}}"  alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:70px;height:70px;">
-				<h4>{{res.name}}<span><button type="button" class="btn btn-success btn-xs" style="float:right;">{{res.odRating}}</button></span></h4>
+				<img src="../../assets/ResortsImages/{{res.photoUrl}}"  alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:100px;height:100px;">
+				<h4 style="color:#313496;">{{res.name}}<span><button type="button" class="btn btn-success btn-xs" style="float:right;">{{res.odRating}}</button></span></h4>
 				<h6 style="padding-left:16%;">{{res.city}}</h6>
 				<h6 style="padding-left:16%;"><b>About :</b> {{res.description}}</h6>
-				<h6 style="padding-left:16%;"><b>Cost :</b> {{ res.minCost1 | INR }}</h6>
-				<h6 style="padding-left:16%;"><b>Avalability :</b> Tommorow.</h6><br>
+				<h6 style="padding-left:22%;"><b>Cost :</b> {{ res.minCost1 | INR }}</h6>
+				<h6 style="padding-left:22%;"><b>Avalability :</b> Tommorow.</h6><br>
 			</div>
 			<div style="padding-left:2%;padding-right:2%;padding-bottom:3%;">
 				<div class="btn-group btn-group-justified">
