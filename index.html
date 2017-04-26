@@ -49,8 +49,6 @@
 
     <script src="assets/app.js"></script>
     <script src="assets/js/Angularjs/common.js"></script>
-
-
 </head>
 
 <body style="background-color:#f3f3f3;" ng-app="MyApp" ng-controller="MainCtr as ctrl" class="ng-cloak">
@@ -59,15 +57,13 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     	<div class=" navbar-top">
 		<span style="padding-left:5%; line-height:4;">
-		<a href="index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
-		</span>
+		<a href="index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>		</span>
 		<span style=" float:right;color:white;padding-right:5%; line-height:3;">
 		<a href="index.html" style="color:#ffbb39;margin-right:10px;">ComiCon</i></a>
 		<a href="index.html" style="color:white;margin-right:10px;">Blog</i></a>
 		<!--<a href="index.html" style="color:white;margin-right:10px;">Hyderabad</i></a>
 		<a href="index.html"><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></a>-->
-		</span>
-		</div>
+		</span>		</div>
         <div class="container" style="height:60px; margin-top:10px;">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -75,11 +71,8 @@
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    
-                </button>
-                <a class="navbar-brand" href="index.html">Outing<span>Day</span></a>
-            </div>
+                    <span class="icon-bar"></span>                </button>
+                <a class="navbar-brand" href="index.html">Outing<span>Day</span></a>            </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
             	<div class="row" align="center" style=" margin-top:10px;background-color:#313496; padding-bottom:5px;">
@@ -101,19 +94,13 @@
                                 <md-item-template >
                                   <span class="item-title" >
                                  <md-icon><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i> </md-icon>
-                                 <span> {{item.localArea}} </span>
-                                     </span>
+                                 <span> {{item.localArea}} </span>                                     </span>
                                  <span class="item-metadata">
                                   <span>
-                              <strong>{{item.metro}}</strong>
-                                 </span>
+                              <strong>{{item.metro}}</strong>                                 </span>
                                  <span>
-                             <strong>{{item.forks}}</strong>
-                                 </span>
-                             </span>
-                                </md-item-template>
+                             <strong>{{item.forks}}</strong>                                 </span>                             </span>                                </md-item-template>
                             </md-autocomplete>
-
                         </div><!-- /input-group -->
                     </div><!-- /.col-lg-6 -->
                     <div class="col-lg-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div>
@@ -134,13 +121,12 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" style="padding:0 5% 0 5%; background-image:url(assets/images/Outing_bg.jpg); background-position:center;">
+        <div class="carousel-inner carousel_BG" style="">
             <div class="item active">
                 <div class="fill" style=" background-image:url(assets/images/resort_1.jpg);"></div>
                 <div class="carousel-caption">
                     <h2 style="color:#ffec00">Starting Price<br> @ 2500/- Only</h2>
                     <h2><a href="#" style="color:#fff;">Book Now</a></h2>
-                  
                 </div>
             </div>
             <div class="item">
@@ -161,61 +147,13 @@
 
         <!-- Controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
+            <span class="icon-prev"></span>        </a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
+            <span class="icon-next"></span>        </a>    </header>
 
     <!-- Page Content -->
     <div class="container">
-
-        <!-- Marketing Icons Section -->
-        <!--
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    Welcome to Modern Business
-                </h1>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.3.7</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-        <!-- /.row -->
-
-        <!-- Portfolio Offers -->
+		<!-- Portfolio Offers -->
         <div class="row">
         	<div class="col-lg-12">
                 <h2 class="page-header" style="text-align:center;">Offers</h2>
@@ -225,59 +163,47 @@
             
             <div class="col-md-3 col-sm-6 offers-columns-padding" >
                 <div class="row no-pad-mar">
-                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_1.jpg" alt="" ></a>
-                </div>
+                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_1.jpg" alt="" ></a>                </div>
                 <div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .
-                </div>
+                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .                </div>
                 
                 <div class="row">&nbsp;</div>
                 
                 <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;" >
-                	Starting rating - 1500/-
-                </div>
+                	Starting rating - 1500/-                </div>
             </div>
             
             <div class="col-md-3 col-sm-6 offers-columns-padding" >
                 <div class="row no-pad-mar">
-                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_2.jpg" alt="" ></a>
-                </div>
+                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_2.jpg" alt="" ></a>                </div>
                 <div class="row" style="margin:0 6px 0 6px;" >
-                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .
-                </div>
+                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .                </div>
                  <div class="row">&nbsp;</div>
                 
                 <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;" >
-                	Starting rating - 1500/-
-                </div>
+                	Starting rating - 1500/-                </div>
             </div>
             
             <div class="col-md-3 col-sm-6 offers-columns-padding">
                 <div class="row no-pad-mar" >
-                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_3.jpg" alt="" ></a>
-                </div>
+                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_3.jpg" alt="" ></a>                </div>
                 <div class="row no-pad-mar" style="margin:0 6px 0 6px;" >
-                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .
-                </div>
+                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .                </div>
                  <div class="row">&nbsp;</div>
                 
                 <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;" >
-                	Starting rating - 1500/-
-                </div>
+                	Starting rating - 1500/-                </div>
             </div>
             
             <div class="col-md-3 col-sm-6 offers-columns-padding" >
                 <div class="row no-pad-mar">
-                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_4.jpg" alt="" ></a>
-                </div>
+                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_4.jpg" alt="" ></a>                </div>
                 <div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .
-                </div>
+                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .                </div>
                  <div class="row">&nbsp;</div>
                 
                 <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;" >
-                	Starting rating - 1500/-
-                </div>
+                	Starting rating - 1500/-                </div>
             </div>
         </div>
         <!-- /.row -->
@@ -299,23 +225,19 @@
                     <div class="col-md-6 col-sm-6 offers-columns-padding" >
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;">
                         	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/images/pop_1.jpg" alt="" >
-                            </div>
+                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/images/pop_1.jpg" alt="" >                            </div>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
                             	<div class="row no-pad-mar" style="padding:5px 0 5px 0;">
-                                	<strong>Resort Name</strong>
-                                </div>
+                                	<strong>Resort Name</strong>                                </div>
                             	<div class="row no-pad-mar h6 " >
-                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.
-                                </div>
+                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.                                </div>
                                 <div class="row no-pad-mar">
                                 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
                                     	<div class="row "><meter value="4.1" min="0" max="5" >&nbsp;</meter></div>
                                     	<div class="row">reviews</div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
-                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">4.1</span>
-                                    </div>
+                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">4.1</span>                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -326,23 +248,19 @@
                     <div class="col-md-6 col-sm-6 offers-columns-padding" >
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;">
                         	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/images/pop_2.jpg" alt="" >
-                            </div>
+                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/images/pop_2.jpg" alt="" >                            </div>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
                             	<div class="row no-pad-mar" style="padding:5px 0 5px 0;">
-                                	<strong>Resort Name</strong>
-                                </div>
+                                	<strong>Resort Name</strong>                                </div>
                             	<div class="row no-pad-mar h6 ">
-                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.
-                                </div>
+                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.                                </div>
                                 <div class="row no-pad-mar">
                                 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
                                     	<div class="row "><meter value="4.8" min="0" max="5" >&nbsp;</meter></div>
                                     	<div class="row">reviews</div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
-                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">4.8</span>
-                                    </div>
+                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">4.8</span>                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -357,23 +275,19 @@
                     <div class="col-md-6 col-sm-6 offers-columns-padding" >
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;">
                         	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/images/pop_3.jpg" alt="" >
-                            </div>
+                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/images/pop_3.jpg" alt="" >                            </div>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
                             	<div class="row no-pad-mar" style="padding:5px 0 5px 0;">
-                                	<strong>Resort Name</strong>
-                                </div>
+                                	<strong>Resort Name</strong>                                </div>
                             	<div class="row no-pad-mar h6 " >
-                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.
-                                </div>
+                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.                                </div>
                                 <div class="row no-pad-mar">
                                 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
                                     	<div class="row "><meter value="3.5" min="0" max="5" >&nbsp;</meter></div>
                                     	<div class="row">reviews</div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
-                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">3.5</span>
-                                    </div>
+                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">3.5</span>                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -384,23 +298,19 @@
                     <div class="col-md-6 col-sm-6 offers-columns-padding" >
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;">
                         	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/images/pop_4.jpg" alt="" >
-                            </div>
+                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/images/pop_4.jpg" alt="" >                            </div>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
                             	<div class="row no-pad-mar" style="padding:5px 0 5px 0;">
-                                	<strong>Resort Name</strong>
-                                </div>
+                                	<strong>Resort Name</strong>                                </div>
                             	<div class="row no-pad-mar h6 ">
-                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.
-                                </div>
+                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.                                </div>
                                 <div class="row no-pad-mar">
                                 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
                                     	<div class="row "><meter value="3.8" min="0" max="5" >&nbsp;</meter></div>
                                     	<div class="row">reviews</div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
-                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">3.8</span>
-                                    </div>
+                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">3.8</span>                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -408,7 +318,6 @@
                     <!-- Popular 4  Ends -->
                 </div>
                  <!-- Popular Row 2 Ends -->
-                
             </div>
             <!-- New Letter Begins -->
             <div class="col-md-4 col-sm-6" style="padding-top:10px;">
@@ -416,13 +325,11 @@
                 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border:solid 1px #ccc; height:270px; background-color:#fff;">
                     	<div class="row">
                         	<div style="background-color:#121528; font-size:16px; border:solid 1px #fff; font-weight:bold; padding:10px 0 10px 0; text-align:center; color:#fff;">
-                            	Subscribe to News Letter
-                            </div>
+                            	Subscribe to News Letter                            </div>
                         </div>
                         <div class="row" style="background-color:#fff;">
                         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;">
-                            	The point of using Lorem Ipsum is that it has a more or less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                            </div>
+                            	The point of using Lorem Ipsum is that it has a more or less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.                            </div>
                         </div>
                         <div class="row" style="background-color:#fff;">
                         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;">
@@ -431,15 +338,12 @@
                         </div>
                         <div class="row" style="background-color:#fff;">
                         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;">
-                            	 <a class="btn btn-lg btn-primary btn-block" style="background-color:#2c3091;" href="#">Subscribe Now</a>
-                            </div>
+                            	 <a class="btn btn-lg btn-primary btn-block" style="background-color:#2c3091;" href="#">Subscribe Now</a>                            </div>
                         </div>
                     </div>
                 </div>
-            
             </div>
              <!-- New Letter Ends -->
-            
         </div>
         
         
@@ -460,52 +364,37 @@
             
             <div class="col-md-3 col-sm-6 offers-columns-padding" >
                 <div class="row no-pad-mar" align="center">
-                	<a href="index.html"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_vta.png" alt="" ></a>
-                </div>
+                	<a href="index.html"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_vta.png" alt="" ></a>                </div>
                 <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;">Verified Travel Agents</div>
                  <div class="row no-pad-mar h5 " style="margin:0 10px 0 10px; text-align:justify;" >
-                	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                </div>
+                	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.                </div>
             </div>
             
             <div class="col-md-3 col-sm-6 offers-columns-padding" >
                 <div class="row no-pad-mar" align="center">
-                	<a href="index.html"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_cp.png" alt="" ></a>
-                </div>
+                	<a href="index.html"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_cp.png" alt="" ></a>                </div>
                  <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;">Customer Packages</div>
                  <div class="row no-pad-mar h5 " style="margin:0 10px 0 10px; text-align:justify;" >
-                	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                </div>
+                	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.                </div>
             </div>
             
             <div class="col-md-3 col-sm-6 offers-columns-padding">
                 <div class="row no-pad-mar" align="center">
-                	<a href="index.html"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_cmq.png" alt="" ></a>
-                </div>
+                	<a href="index.html"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_cmq.png" alt="" ></a>                </div>
                  <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;">Compare Multiple Quotes</div>
                 <div class="row no-pad-mar h5 " style="margin:0 10px 0 10px; text-align:justify;" >
-                	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                </div>
+                	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.                </div>
             </div>
             
             <div class="col-md-3 col-sm-6 offers-columns-padding" >
                 <div class="row no-pad-mar" align="center">
-                	<a href="index.html"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_ms.png" alt="" ></a>
-                </div>
+                	<a href="index.html"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_ms.png" alt="" ></a>                </div>
                  <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0 ; font-size:20px;">100% Money Safe</div>
                <div class="row no-pad-mar h5 " style="margin:0 10px 0 10px; text-align:justify;" >
-                	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                </div>
+                	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.                </div>
             </div>
-			
         </div>
         <!-- Why book with us ends-->
-
-
-
-
-        
-
     </div>
     <!-- Containter Ends-->
      <!-- Footer -->
@@ -519,14 +408,12 @@
                     <a href="#" class="facebook"><img  src="assets/images/social_blank.png" alt="" ></a>
                     <a href="#" class="twitter"><img  src="assets/images/social_blank.png" alt="" ></a>
                     <a href="#" class="instagram"><img  src="assets/images/social_blank.png" alt="" ></a>
-                    <a href="#" class="pinterest"><img  src="assets/images/social_blank.png" alt="" ></a>
-                   </div>
+                    <a href="#" class="pinterest"><img  src="assets/images/social_blank.png" alt="" ></a>                   </div>
                 </div>
              
              	<div class="row" style="padding:30px;">
                 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center">
-                    	<img  src="assets/images/Logo_Footer.png" alt=""><br><span style="color:#fff;">© 2016 Outingday Pvt. Ltd.</span>
-                    </div>	
+                    	<img  src="assets/images/Logo_Footer.png" alt=""><br><span style="color:#fff;">© 2016 Outingday Pvt. Ltd.</span>                    </div>	
                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-top:20px;">
                     	<div class="row">
                         	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;"> 
@@ -564,10 +451,8 @@
                         </div>
                     </div>	
                 </div>
-             
             </div>
         </div>
-   
  </div>
     
     
@@ -585,7 +470,5 @@
         interval: 5000 //changes the speed
     })
     </script>
-
 </body>
-
 </html>
