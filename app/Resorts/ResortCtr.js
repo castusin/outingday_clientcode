@@ -1,6 +1,6 @@
 
- app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$window', '$localStorage','$timeout','$q','$log',
-                            function ($scope,$state,GetParksInfo,$rootScope,$window,$localStorage,$timeout,$q,$log) {
+ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$window', '$localStorage','$timeout','$q','$log','ngProgressFactory',
+                            function ($scope,$state,GetParksInfo,$rootScope,$window,$localStorage,$timeout,$q,$log,ngProgressFactory) {
     debugger;
 
 
@@ -202,14 +202,17 @@
             var localArea = "Madhapur";
             var odRating = "5";
         }*/
-
+              $scope.progressbar = ngProgressFactory.createInstance();
+              $scope.progressbar.start();
+              $scope.progressbar.setColor('#EC971F');
+              $scope.progressbar.setHeight('4px');
 
                 var parks =  $localStorage.searchInput;
 
         GetParksInfo.GetParksService(parks).then(function(ParksInfo){
             debugger;
             if(ParksInfo.responseCode == 200){
-
+                $timeout($scope.progressbar.complete(), 1000);
                   debugger;
 
                     $scope.makeTodos = function() {
@@ -232,7 +235,7 @@
             }
 
             else{
-
+                $timeout($scope.progressbar.complete(), 1000);
 
             }
 
@@ -241,13 +244,18 @@
 
 
                 $scope.viewResortsCall=function(){
+                         debugger;
+                    $scope.progressbar = ngProgressFactory.createInstance();
+                    $scope.progressbar.start();
+                    $scope.progressbar.setColor('#EC971F');
+                    $scope.progressbar.setHeight('4px');
 
                                 var parks =  $scope.ctrl.selectedItem;
 
                                 GetParksInfo.GetParksService(parks).then(function(ParksInfo){
                                     debugger;
                                     if(ParksInfo.responseCode == 200){
-
+                                        $timeout($scope.progressbar.complete(), 1000);
                                         debugger;
 
                                         $scope.makeTodos = function() {
@@ -271,7 +279,7 @@
 
                                     else{
 
-
+                                        $timeout($scope.progressbar.complete(), 1000);
                                     }
 
                                 });

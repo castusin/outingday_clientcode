@@ -1,5 +1,5 @@
 
-var app = angular.module('MyApp', ['ngRoute','ui.router','ui.bootstrap','ngMaterial','ngStorage']);
+var app = angular.module('MyApp', ['ngRoute','ui.router','ui.bootstrap','ngMaterial','ngStorage','ngProgress']);
 debugger;
 
 app.config(function($stateProvider, $urlRouterProvider) {
