@@ -1,7 +1,6 @@
 
 
-
-app.factory('GetParkDetailInfo',function ($http) {
+app.factory('getParksLocalArea',function ($http) {
     var webServiceUrl   = "http://od.littlepandits.com/";
     var config = {
         headers: {'Content-Type': 'application/json; charset=utf-8', 'Authorization': 'OD1@34'}
@@ -9,9 +8,9 @@ app.factory('GetParkDetailInfo',function ($http) {
 
     return{
 
-        GetParkDetail :  function(){
+        ParksLocalAreaDataService :  function(localArea){
             debugger;
-            var promise = $http.get(webServiceUrl+'getParksDetails?parkId=100003',config) .then(function(response) {
+            var promise = $http.get(webServiceUrl+'getParksLocalAreaData?cityId='+localArea,config) .then(function(response) {
                 debugger;
                 console.log('Response -- '+response.data);
                 return response.data;

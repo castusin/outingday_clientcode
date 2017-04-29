@@ -9,7 +9,7 @@ GLOBALS & GENERAL CASES
 }
 a {
 	text-decoration:none;
-	color:#e63636;
+    color:#2c3091;
 }
 .button {
 	width:100px;
@@ -630,7 +630,7 @@ Copyrights Styles Start
 	color:#8b8b8b;
 }
 .left-panel ul li a:hover {
-	color:#e63636;
+	/*color:#e63636;*/
 }
 .left-panel ul li.no-border {
 	border-bottom:none;

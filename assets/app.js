@@ -1,5 +1,5 @@
 
-var app = angular.module('MyApp', ['ngRoute','ui.router','ui.bootstrap','ngMaterial','ngStorage','ngProgress']);
+var app = angular.module('MyApp', ['ngRoute','ui.router','ui.bootstrap','ngMaterial','ngStorage','ngProgress','angularModalService']);
 debugger;
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -116,3 +116,17 @@ app.filter('INR', function () {
         }
     }
 });
+
+app.directive('onLoadClicker', ['$timeout',
+    function($timeout) {
+        return {
+            restrict: 'A',
+            priority: -1,
+            link: function($scope, iElm, iAttrs, controller) {
+                $timeout(function() {
+                    iElm.triggerHandler('click');
+                }, 0);
+            }
+        };
+    }
+])

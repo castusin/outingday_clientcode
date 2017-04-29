@@ -46,7 +46,8 @@
                                  * Build `components` list of key/value pairs
                                  */
                                 function loadAll() {
-                                    var repos = [
+                                    var repos = $localStorage.localAreas;
+                                    /*[
                                         {
                                             'localArea'      : 'Madhapur',
 
@@ -83,7 +84,7 @@
                                             'metro'  : 'Hyderabad',
                                             'forks'     : 'India'
                                         }
-                                    ];
+                                    ];*/
                                     return repos.map( function (repo) {
                                         repo.value = repo.localArea.toLowerCase();
                                         return repo;

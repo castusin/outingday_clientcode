@@ -36,6 +36,7 @@
     <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
     <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
     <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
 
     <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
     <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
@@ -61,10 +62,8 @@
 		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
 		</span>
 		<span style=" float:right;color:white;padding-right:5%; line-height:3;">
-		<a href="index.html" style="color:#ffbb39;margin-right:10px;">ComiCon</i></a>
-		<a href="index.html" style="color:white;margin-right:10px;">Blog</i></a>
-		<!--<a href="index.html" style="color:white;margin-right:10px;">Hyderabad</i></a>
-		<a href="index.html"><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></a>-->
+		    <span style="color:white;margin-right:10px; ">Blog</span>
+
 		</span>
 		</div>
         <div class="container" style="height:60px; margin-top:10px;">
@@ -92,14 +91,21 @@
                                     <option>Restaurents</option>
                                  </select>
                                  -->
-                                     <div class="dropdown">
-                                      <button class="dropbtn">Dropdown</button>
-                                      <div class="dropdown-content">
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                      </div>
-                                    </div>
+
+             <div class="dropdown">
+                 <button class="dropbtn"><a href="#"><span><img src="../../assets/images/all.png" width="19px" height="13px margin:0px 5px 0px 2px;"></span><span style="padding-top:4px;">All</span><img src="../../assets/images/icon_arrow.png" width="10px" height="10px"></span></a> </button>
+                            <div class="dropdown-content">
+                                <div style="width:100%; float:left;">
+                                    <a href="#"><span ><img src="../../assets/images/resorts.png" width="20px" height="20px"></span><span >Resorts</span></a>
+                                </div>
+                                <div style="width:100%; float:left;">
+                                    <a href="#"><span ><img src="../../assets/images/hotel.png" width="20px" height="20px"></span><span >Hotels</span></a>
+                                </div>
+                                <div style="width:100%;float:left;">
+                                    <a href="#"><span ><img src="../../assets/images/restaurants.png" width="20px" height="20px"></span><span >Restaurants</span></a>
+                                </div>
+                            </div>
+                        </div>
                			 
                             </span>
                             <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
@@ -153,7 +159,7 @@
 			<div class="row">
 				<div class="col-lg-10" align="right" style="text-align:right;color:black;"><h4>Compare</h4></div>
 				<div class=" col-lg-2">
-					<span class="badge badge-success pull-right" >2</span>
+					<!--<span class="badge badge-success pull-right" >2</span>-->
 					<span>
 					<a class="pull-right" href="#">
 						
@@ -195,11 +201,11 @@
 			
 				<h4 style="font-weight:bold;">Sort By</h4>
 				<ul style="padding:0;margin:0;">
-					<li><span style="color: #000000"> Popularity high to low</span></li>
-                    <li> <span style="color: #000000">Rating high to low</span> </li>
-                    <li><span style="color: #000000"> Cost high to low</span>  </li>
-                    <li> <span style="color: #000000">Cost low to high</span>  </li>
-                    <li> <span style="color: #000000"> Recently added </span>  </li>
+					<li><a href="#"><span style="color: #000000"> Popularity high to low</span></a></li>
+                    <li> <a href="#"><span style="color: #000000">Rating high to low</span> </a></li>
+                    <li><a href="#"><span style="color: #000000"> Cost high to low</span> </a> </li>
+                    <li> <a href="#"><span style="color: #000000">Cost low to high</span> </a> </li>
+                    <li><a href="#"> <span style="color: #000000"> Recently added </span></a>  </li>
 				</ul>
 			</div>
 
@@ -355,7 +361,7 @@
 						<h6>{{res.city}}</h6>
 						<h6><b>About :</b> {{res.description}}</h6>
 						<h6><b>Cost :</b> {{ res.minCost1 | INR }}</h6>
-						<h6><b>Avalability :</b> Tommorow.</h6><br>
+						<!--<h6><b>Availability :</b> Tomorrow.</h6><br>-->
                     </div>
                 </div>
 				
