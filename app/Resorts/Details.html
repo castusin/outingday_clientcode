@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MyApp">
+<html lang="en">
 
 <head>
 
@@ -19,7 +19,7 @@
     <link href="../../assets/css/modern-business.css" rel="stylesheet">
     <link href="../../assets/css/styles.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+    
    
     <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
@@ -47,16 +47,198 @@
     <script src="../../app/Resorts/ResortCtr.js"></script>
     <script src="../../app/Resorts/ResortService.js"></script>
 
+   <script src="../../assets/js/jquery.js"></script>
+
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+	
 
 
 	<style>
 	.checkbox{margin:0 !important;}
 	</style>
 	
+	
+	 <!-- #region Jssor Slider Begin -->
+    <script src="../../assets/js/jssor.slider-23.1.5.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jssor_1_slider_init = function() {
+
+            var jssor_1_options = {
+              $AutoPlay: 1,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 9,
+                $SpacingX: 3,
+                $SpacingY: 3,
+                $Align: 260
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            /*responsive code begin*/
+            /*remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 600);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            /*responsive code end*/
+        };
+
+
+$(document).ready(function() {
+	var showChar = 100;
+	var ellipsestext = "...";
+	var moretext = "more";
+	var lesstext = "less";
+	$('.more').each(function() {
+		var content = $(this).html();
+
+		if(content.length > showChar) {
+
+			var c = content.substr(0, showChar);
+			var h = content.substr(showChar-1, content.length - showChar);
+
+			var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+			$(this).html(html);
+		}
+
+	});
+
+	$(".morelink").click(function(){
+		if($(this).hasClass("less")) {
+			$(this).removeClass("less");
+			$(this).html(moretext);
+		} else {
+			$(this).addClass("less");
+			$(this).html(lesstext);
+		}
+		$(this).parent().prev().toggle();
+		$(this).prev().toggle();
+		return false;
+	});
+});
+
+    </script>
+
+	<style>
+        /* jssor slider arrow navigator skin 02 css */
+        /*
+        .jssora02l                  (normal)
+        .jssora02r                  (normal)
+        .jssora02l:hover            (normal mouseover)
+        .jssora02r:hover            (normal mouseover)
+        .jssora02l.jssora02ldn      (mousedown)
+        .jssora02r.jssora02rdn      (mousedown)
+        .jssora02l.jssora02lds      (disabled)
+        .jssora02r.jssora02rds      (disabled)
+        */
+        .jssora02l, .jssora02r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url('../../assets/images/a02.png') no-repeat;
+            overflow: hidden;
+        }
+        .jssora02l { background-position: -3px -33px; }
+        .jssora02r { background-position: -63px -33px; }
+        .jssora02l:hover { background-position: -123px -33px; }
+        .jssora02r:hover { background-position: -183px -33px; }
+        .jssora02l.jssora02ldn { background-position: -3px -33px; }
+        .jssora02r.jssora02rdn { background-position: -63px -33px; }
+        .jssora02l.jssora02lds { background-position: -3px -33px; opacity: .3; pointer-events: none; }
+        .jssora02r.jssora02rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
+        /* jssor slider thumbnail navigator skin 03 css *//*.jssort03 .p            (normal).jssort03 .p:hover      (normal mouseover).jssort03 .pav          (active).jssort03 .pdn          (mousedown)*/.jssort03 .p {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;}.jssort03 .t {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;    border: none;}.jssort03 .w, .jssort03 .pav:hover .w {    position: absolute;    width: 60px;    height: 30px;    border: white 1px dashed;    box-sizing: content-box;}.jssort03 .pdn .w, .jssort03 .pav .w {    border-style: solid;}.jssort03 .c {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;    background-color: #000;    filter: alpha(opacity=45);    opacity: .45;    transition: opacity .6s;    -moz-transition: opacity .6s;    -webkit-transition: opacity .6s;    -o-transition: opacity .6s;}.jssort03 .p:hover .c, .jssort03 .pav .c {    filter: alpha(opacity=0);    opacity: 0;}.jssort03 .p:hover .c {    transition: none;    -moz-transition: none;    -webkit-transition: none;    -o-transition: none;}* html .jssort03 .w {    width /**/: 62px;    height /**/: 32px;}
+
+		/* Writing for More/Less in Info */
+
+			a {
+				color: #0254EB
+			}
+			a:visited {
+				color: #0254EB
+			}
+			a.morelink {
+				text-decoration:none;
+				outline: none;
+			}
+			.morecontent span {
+				display: none;
+			}
+			.comment {
+								
+				margin: 10px;
+			}
+
+			.imgContainer{
+                    float:left;
+					width:200px;
+             }
+
+			/* Writing for More/Less in Info - End */
+
+				.post-container {
+				margin: 20px 20px 0 0;  
+				
+				overflow: auto
+				}
+				.post-thumb {
+				float: left
+				}
+				.post-thumb img {
+				display: block
+				}
+				.post-content {
+				margin-left: 210px
+				}
+				.post-title {
+				font-weight: bold;
+				font-size: 200%
+				}
+
+				.dupa {
+                 text-decoration: line-through;
+              }
+
+			#ret_but {
+			background: #FFF;
+			border: 2px solid #FF0000;
+			border-radius: 5px;
+			color: #FF0000;
+			cursor: pointer;
+			display: block;
+			font-family: Tahoma;
+			font-size: 14px;
+			font-weight: bold;
+			height: 30px;
+			line-height: normal;
+			width: 80px;
+			}
+
+    </style>
 </head>
 
-<body    class="ng-cloak">
-
+<body ng-app="MyApp">
+   
    
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     	<div class=" navbar-top">
@@ -137,7 +319,25 @@
 
 	 <div class="container">
 	  
+<div class="left-panel1"style="background-color:#ffffff;padding-bottom:3%;position: fixed;
+ 
+  height: 48px; z-index: 999999; background: #eeeeee; margin-bottom:50px;">
+			
+			
+			
+ 
+  <ul class="nav nav-pills nav-justified" style="background-color:#e8e8e8;border:1px solid:#9c9c9c;" >
+    <li class="active" style=""><a href="#" style="background-color:white;border:1px solid #9c9c9c;color:black;border-bottom:4px solid #302c9a;border-radius:none;">Overview</a></li>
+    <li  style=""><a href="#itinerary" style="background-color:transparent;color:black; border-right:1px solid #9c9c9c;border-radius:none;">Itinerary</a></li>
+    <li  style=""><a href="#review" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Reviews</a></li>
+    <li  style=""><a href="#faq" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">FAQ</a></li>
+	<li style=""> <a href="#map" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Map</a></li>
+	<li style=""> <a href="#video" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Video</a></li>
+  </ul>
 
+		</div>
+
+		<div style="height:60px;">&nbsp;</div>
 	
 
  <div class="row" >
@@ -146,98 +346,332 @@
 		 
 		  <div class="left-panel"style="background-color:white;">
 			
-			<ul style="padding:2%;">
-				<div class="row no-pad-mar">
-					<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/right.jpg" alt="" ></a>
-				</div>
-				<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-					<h4 style="font-weight:bold;">Kenilworth Beach Resort & Spa <span style="padding-left:30%;"><i class="fa fa-star" aria-hidden="true" style="color:#EC971F;"></i><i class="fa fa-star" aria-hidden="true" style="color:#EC971F;"></i><i class="fa fa-star" aria-hidden="true" style="color:#EC971F;"></i><i class="fa fa-star" aria-hidden="true" style="color:#EC971F;"></i><i class="fa fa-star" aria-hidden="true"></i></span> <span><button type="button" class="btn btn-success btn-xs" style="float:right;">4.2</button></span></h4> </div>
-			</ul>
+			 <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:600px;height:300px;overflow:hidden;visibility:hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position:absolute;top:0px;left:0px;background-color:rgba(0,0,0,0.7);">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:600px;height:300px;overflow:hidden;">
+            <div>
+                <img data-u="image" src="../../assets/images/002.jpg" />
+                <img data-u="thumb" src="../../assets/images/thumb-002.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/003.jpg" />
+                <img data-u="thumb" src="../../assets/images/thumb-003.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/004.jpg" />
+                <img data-u="thumb" src="../../assets/images/thumb-004.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/005.jpg" />
+                <img data-u="thumb" src="../../assets/images/thumb-005.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/006.jpg" />
+                <img data-u="thumb" src="../../assets/images/thumb-006.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/007.jpg" />
+                <img data-u="thumb" src="../../assets/images/thumb-007.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/008.jpg" />
+                <img data-u="thumb" src="../../assets/images/008.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/009.jpg" />
+                <img data-u="thumb" src="../../assets/images/009.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/010.jpg" />
+                <img data-u="thumb" src="../../assets/images/010.jpg" />
+            </div>
+            <div>
+                <img data-u="image" src="../../assets/images/011.jpg" />
+                <img data-u="thumb" src="../../assets/images/thumb-011.jpg" />
+            </div>
+        </div>
+        <!-- Thumbnail Navigator -->
+        <div data-u="thumbnavigator" class="jssort03" style="position:absolute;left:0px;bottom:0px;width:600px;height:60px;" data-autocenter="1">
+            <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;filter:alpha(opacity=30.0);opacity:0.3;"></div>
+            <!-- Thumbnail Item Skin Begin -->
+            <div data-u="slides" style="cursor: default;">
+                <div data-u="prototype" class="p">
+                    <div class="w">
+                        <div data-u="thumbnailtemplate" class="t"></div>
+                    </div>
+                    <div class="c"></div>
+                </div>
+            </div>
+            <!-- Thumbnail Item Skin End -->
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora02r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+    </div>
+    <script type="text/javascript">jssor_1_slider_init();</script>
+    <!-- #endregion Jssor Slider End -->
 		</div>
+
+        <div class="left-panel"style="background-color:white;">
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">About Hotel VITS</h4>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+				CHECK-IN 2 PM | CHECK-OUT 12 PM
+			</div>
+			
+		</div>
+
+
+		 <div class="left-panel" style="background-color:white;">
+			
+			
+				
+			
+			<div class="comment more">
+				Location: Located close to the Mumbai International Airport in Andheri East, VITS Mumbai Hotel is known for its plush interiors and quality service. Thus luxury destination for business travelers is located close to modes of connectivity such as JB Nagar Bus Station (300 m), Chhatrapati Shivaji International Airport (2km) and Andheri Railway Station (3 Km). Major tourist attractions near the location are Siddhivinayak Temple (14.5 Km), Elephanta Caves (30 Km) and Gateway of India (30 Km).
+				
+				<br>
+				Room Amenities: The rooms of Hotel VITS are elegantly furnished and tastefully designed in warm color tones for a luxurious stay. These rooms are classified into Standard Rooms, Superior Rooms and Suite Room/OBA. Basic room amenities offered by the hotel are Wi-Fi, hot water, air conditioning, Television, complimentary breakfast, tea/coffee maker, in-room safe, wardrobe, and bathrobe and bathroom slippers.
+                 <br>
+				Hotel Facilities: There is Ayur Kshetra Spa at Hotel VITS which offers Ayurvedic, Swedish, Aroma and other therapies along with beauty treatments. Other prominent hotel facilities include a large swimming pool, well equipped fitness centre, travel desk and well equipped business centre. Hotel VITS has a total of 10 banquet halls for holding meetings and private functions. These are classified into Topaz Hall, Coral Hall, Ruby Hall, Onyx Hall (1, 2, 3, 4), Emerald Hall, Sapphire Hall, swimming pool, fitness centre, Crystal hall and the Rooftop area.
+                <br>
+				Dining: Poolside cafe, a Chinese restaurant and a bar delivers food and drinks of the highest standard. This is one of the perfect places in the hotel to relax and enjoy refreshing beverages along with host of multi-cuisine dishes and it stays open 24 X 7. Dimsum, the hotel restaurant serves delectable dishes of Chinese cuisine. Q Bar The Quarter Club offers a variety of quarters, sodas, mixer, shots and on the rock stuff which is definitely going to enthrall the guests.
+				Less
+			</div>
+
+
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+
+			<br>
+			<span style="font-size:14px;padding-top:10px;"><strong>Facilities offered here:</strong></span>
+
+
+			<div class="image123">
+			
+			<div class="imgContainer">
+			<img src="../../assets/images/wifi.png" height="40"/>
+			<p>Free WiFi Internet</p>
+			</div>
+			
+			<div class="imgContainer">
+			<img src="../../assets/images/swimming.png" height="40"/>
+			<p>Swimming Pool</p>
+			</div>
+
+
+			<div class="imgContainer">
+			<img src="../../assets/images/parking.png" height="40"/>
+			<p>Parking</p>
+			</div>
+
+			<div class="imgContainer">
+			<img src="../../assets/images/bar.png" height="40"/>
+			<p>Bar</p>
+			</div>
+
+			<div class="imgContainer">
+			<img src="../../assets/images/gym.png" height="40"/>
+			<p>Gymnasium/Health Club</p>
+			</div>
+
+			<div class="imgContainer">
+			<img src="../../assets/images/ban.png" height="40"/>
+			<p>Banquet facilities</p>
+			</div>
+
+
+
+			</div>
+
+
+
+			</div>
+
+			</div>
 	 
      
 	  
 	  
-	<div class="left-panel1"style="background-color:#ffffff;padding-bottom:3%;">
+	
+		
+		
+		 <div class="left-panel"style="background-color:white;" style="height:500px;width:800px;">
 			
 			
+				<h4 style="font-weight:bold;padding-left:1%;">Standard</h4>
+				<hr>
 			
- 
-  <ul class="nav nav-pills nav-justified" style="background-color:#e8e8e8;border:1px solid:#9c9c9c;" >
-    <li class="active" style=""><a href="#" style="background-color:white;border:1px solid #9c9c9c;color:black;border-bottom:4px solid #302c9a;border-radius:none;">Overview</a></li>
-    <li  style=""><a href="#" style="background-color:transparent;color:black; border-right:1px solid #9c9c9c;border-radius:none;">Itinerary</a></li>
-    <li  style=""><a href="#" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Reviews</a></li>
-    <li  style=""><a href="#" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">FAQ</a></li>
-	<li style=""> <a href="#" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Map</a></li>
-	<li style=""> <a href="#" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Video</a></li>
-  </ul>
+			<div class="post-container">                
+    <div class="post-thumb"><img src="../../assets/images/hote_stan.jpg" height="200" width="200" /><br>
+	<!-- <span style="font-size:12px;">Air conditioning,Hair dryer<br> on request,Telephone,<br>Television,<br>Electronic Safe,Chairs,<br>Bathroom,Tea/Coffee<br> maker,Hot & Cold<br> Running Water,Mini Bar</span> --></div>
+    <div class="post-content">
+
+
+
+	<div><h3 class="post-title">Room Only</h3>    <span style="float:right;"><input type="submit" value="Book" id="ret_but"/></span>
+	
+	    <div style="float:left;width:280px;font-size:12px;">
+        
+		<br>Outside food, liquor and beverages will not be permitted ,No Early Departure Clause on the MLOS 2 ni ... More
+		</div>
+        
+        <div style="float:right;float:right;font-size:12px;">
+
+		
+		<span style="font-size:12px;color:#FF0000" class="dupa">Rs 6200</span>
+		<br><span style="float:right;font-size:12px;color:#FF0000">Rs 5,806<br>All Inclusive for Per Room/ Night</span>
+
+		   </div>
+		   
+		   
+		 </div>
+		   
+		   
+		   </div>
+
+		    <!--<hr>
+
+
+		    <div class="post-content">
+        <h3 class="post-title">Break Fast</h3>
+        <p>Room Only
+           Outside food, liquor and beverages will not be permitted ,No Early Departure Clause on the MLOS 2 ni ... More</p></div> -->
+
+
 
 		</div>
+
+		</div>
+
+
+
+
+	  <div class="left-panel"style="background-color:white;" style="height:500px;width:800px;">
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">Superior</h4>
+			<hr>
+			<div class="post-container">                
+    <div class="post-thumb"><img src="../../assets/images/hote_stan.jpg" height="200" width="200" /><br>
+	<!-- <span style="font-size:12px;">Air conditioning,Hair dryer<br> on request,Telephone,<br>Television,<br>Electronic Safe,Chairs,<br>Bathroom,Tea/Coffee<br> maker,Hot & Cold<br> Running Water,Mini Bar</span> --></div>
+    <div class="post-content">
+
+
+
+	<div><h3 class="post-title">Breakfast</h3><span style="float:right;"><input type="submit" value="Book" id="ret_but"/></span>
+	    <div style="float:left;width:280px;font-size:12px;">
+        
+		<br>Outside food, liquor and beverages will not be permitted ,No Early Departure Clause on the MLOS 2 ni ... More
+		</div>
+        
+        <div style="float:right;float:right;font-size:12px;">
+
 		
-		
-		 <div class="left-panel"style="background-color:white;">
-			
-			
-				<h4 style="font-weight:bold;padding-left:1%;">Resort Overview</h4>
-			
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
-			</div>
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:2%;"  >
-				<a href="#" style="color:#19a8b9;"> Show More >></a>
-			</div>
+		<span style="font-size:12px;color:#FF0000" class="dupa">Rs 6200</span>
+		<br><span style="float:right;font-size:12px;color:#FF0000">Rs 5,806<br>All Inclusive for Per Room/ Night</span>
+
+		   </div>
+		   
+		   
+		 </div>
+		   
+		   
+		   </div>
+
+		    <!--<hr>
+
+
+		    <div class="post-content">
+        <h3 class="post-title">Break Fast</h3>
+        <p>Room Only
+           Outside food, liquor and beverages will not be permitted ,No Early Departure Clause on the MLOS 2 ni ... More</p></div> -->
+
+
+
+		</div>
+
 		</div>
 	 
 	 
-	 <div class="left-panel"style="background-color:white;">
+	 <div class="left-panel"style="background-color:white;" id="itinerary">
 			
 			
-				<h4 style="font-weight:bold;padding-left:1%;">Itinerary</h4>
+				<h4 style="font-weight:bold;padding-left:1%;">Location</h4>
 			
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-				<i class="fa fa-map-marker" aria-hidden="true"></i> <span>Day 1 -</span>
-			</div>
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:3%;"  >
-				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
-			</div>
-			<!-- <div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:2%;"  > -->
-				<!-- <a href="#" style="color:#3c9ca8;"> Show More >></a> -->
-			<!-- </div> -->
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:3%;"  >
-				<i class="fa fa-map-marker" aria-hidden="true"></i> <span>Day 2 -</span>
-			</div>
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:3%;"  >
-				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
-			</div>
-			<!-- <div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:2%;"  > -->
-				<!-- <a href="#" style="color:#3c9ca8;"> Show More >></a> -->
-			<!-- </div> -->
-			<hr />
-			<h4 style="font-weight:bold;padding-left:1%;">Stay</h4>
 			
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
-			</div>
-			
-			<h4 style="font-weight:bold;padding-left:1%;padding-top:3%;">Meal</h4>
-			
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
-			</div>
+			<!-- Adding For Google Maps-->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script> -->
+
+	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB-mcyCyJyMvU-OdX45HHvrvnRTyF6UeAs'></script>
+	
+	<div style='overflow:hidden;height:400px;width:720px;'><div id='gmap_canvas' style='height:400px;width:720px;'></div>
+	
+	<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+	</div> <a href='https://indiatvnow.com/'>INDIA TV</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=bd9274247c220b2197793a046b0a8af752baf53f'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:7,center:new google.maps.LatLng(17.4482929,78.39148509999995),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(17.4482929,78.39148509999995)});infowindow = new google.maps.InfoWindow({content:'<strong>Castus</strong><br>Madhapur<br>500028 Hyderabad<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
 			
 			
 		</div>
+		
+
+		
+
+			
+
+
+<div class="left-panel"style="background-color:white;">
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">Hotel policies</h4>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;line-height:20px;font-size:12px;"  >
+				<strong>Check in/out:</strong> Hotel Check-in Time is 2 PM, Check-out Time is 12 PM.<br>
+
+				<strong>Cancellation Policy:</strong> Cancellation and prepayment policies vary according to room type.<br>Please check the Fare policy associated with your room.<br>
+
+				<strong>Extra Bed:</strong> The inclusion of extra bed with a booking is facilitated with a folding cot or a mattress as an extra bed.<br>
+
+				<strong>Payment Mode:</strong> You can pay now or you can pay at the hotel if your selected room type has this option.
+			</div>
+			
+		</div>
+
+
 		<div class="left-panel"style="background-color:white;">
 			
 			
-				<h4 style="font-weight:bold;padding-left:1%;">Write your story</h4>
+				<h4 style="font-weight:bold;padding-left:1%;">User rating & reviews</h4>
+<br><span style="font-size:9px;">Read about experiences of fellow travellers who have stayed at this hotel.</span>
 			
-			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-				<div class="form-group">
-  <label for="comment"></label>
-  <textarea class="form-control" rows="5" id="comment" placeholder="your reviews "></textarea>
-</div>
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;line-height:20px;"  >
+				
 			</div>
+			
+		</div>
+
+
+
+		
+
+
+
+
+
+
+
+		<div class="left-panel"style="background-color:white;" id="video">
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">Video</h4>
+			
+			   <iframe src="http://www.youtube.com/embed/W7qWa52k-nE"
+   width="720" height="400" frameborder="0" allowfullscreen></iframe>
+			
 			
 		</div>
 	 
@@ -323,10 +757,7 @@
 	 
 
   
-    <script src="../../assets/js/jquery.js"></script>
-
    
-    <script src="../../assets/js/bootstrap.min.js"></script>
 
    
     <script>

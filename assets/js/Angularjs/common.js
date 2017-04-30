@@ -154,7 +154,7 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
         $scope.loadEditForm = function () {
             $scope.checkItem = "yes";
             $modal.open({
-                templateUrl: 'modal.html',
+                templateUrl: 'app/Resorts/modal.html',
                 controller: 'modalController as ctrl',
                 scope: $scope ,
                 backdrop: 'static',
@@ -211,8 +211,8 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
 }]);
 
 
-app.controller('modalController', ['$scope','$state','$window','$rootScope','$localStorage' ,'$timeout','$q','$log','$mdUtil','getParksLocalArea',
-                            function($scope,$state,$window,$rootScope,$localStorage,$timeout,$q,$log,$mdUtil,getParksLocalArea) {
+app.controller('modalController', ['$scope','$state','$window','$rootScope','$localStorage' ,'$timeout','$q','$log','$mdUtil','getParksLocalArea','$mdDialog',
+                            function($scope,$state,$window,$rootScope,$localStorage,$timeout,$q,$log,$mdUtil,getParksLocalArea,$mdDialog) {
 
 
         debugger;
@@ -261,135 +261,19 @@ app.controller('modalController', ['$scope','$state','$window','$rootScope','$lo
         {stateId:10000002,
             stateName:"Telangana",
             cityId:"10000002",
-            cityName : "Warangal"
+            cityName : "Delhi"
         },
         {stateId:10000002,
             stateName:"Telangana",
             cityId:"10000003",
-            cityName : "Nizamabad"
+            cityName : "Mumbai"
         },
         {stateId:10000002,
             stateName:"Telangana",
             cityId:"10000004",
-            cityName : "Khammam"
-
-        },
-        {stateId:10000002,
-            stateName:"Telangana",
-            cityId:"10000005",
-            cityName : "Karimnagar"
-
-        },
-        {stateId:10000002,
-            stateName:"Telangana",
-            cityId:"10000006",
-            cityName : "Peddapalli"
-
-        },
-        {stateId:10000002,
-            stateName:"Telangana",
-            cityId:"10000007",
-            cityName : "Mahbubnagar"
-
-        },
-        {stateId:10000002,
-            stateName:"Telangana",
-            cityId:"10000008",
-            cityName : "Nalgonda"
-
-        },
-        {stateId:10000002,
-            stateName:"Telangana",
-            cityId:"10000009",
-            cityName : "Adilabad"
-
-        } ,
-
-        {stateId:10000002,
-            stateName:"Telangana",
-            cityId:"100000010",
-            cityName : "Siddipet"
-
-        },
-
-        {stateId:10000002,
-            stateName:"Telangana",
-            cityId:"100000011",
-            cityName : "Suryapet"
-
-        },
-        {stateId:10000001,
-            stateName:"Andhra Pradesh",
-            cityId:"100000012",
-            cityName : "Visakhapatnam"
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000013",
-            cityName : "Vijayawada"
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000014",
-            cityName : "Guntur"
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000015",
-            cityName : "Nellore"
-
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000016",
-            cityName : "Kurnool"
-
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000017",
-            cityName : "Kadapa"
-
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000018",
-            cityName : "Rajahmundry"
-
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000019",
-            cityName : "Kakinada"
-
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000020",
-            cityName : "Tirupati"
-
-        } ,
-
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000021",
-            cityName : "Anantapur"
-
-        },
-
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000022",
-            cityName : "Vizianagaram"
-
-        },
-        {stateId:10000001,
-            stateName:"Telangana",
-            cityId:"100000023",
-            cityName : "Eluru"
+            cityName : "Bangalore"
 
         }
-
 
     ];
     return repos.map( function (repo) {
@@ -434,14 +318,34 @@ app.controller('modalController', ['$scope','$state','$window','$rootScope','$lo
 
        };
 
+                                $scope.status = '  ';
+                                $scope.customFullscreen = false;
 
+                                $scope.showAdvanced = function(ev) {
+                                    debugger;
+                                    $scope.$close();
+                                    $mdDialog.show({
 
-    $scope.allCities = function () {
+                                        templateUrl: 'app/Resorts/AllCities.html',
+                                        controller: 'modalController as ctrl',
+                                        parent: angular.element(document.body),
+                                        targetEvent: ev,
+                                        clickOutsideToClose:true,
+                                        fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                                    })
+                                        .then(function(answer) {
+                                            $scope.status = 'You said the information was "' + answer + '".';
+                                        }, function() {
+                                            debugger;
+                                            $scope.status = 'You cancelled the dialog.';
+                                        });
+                                };
 
-        debugger;
+                                $scope.hidecitymodal = function () {
 
-        };
+                                    debugger;
 
-
+                                    $mdDialog.hide();
+                                };
 
 }]);

@@ -144,9 +144,9 @@ md-autocomplete input:not(.md-input) {
 /* Links inside the dropdown */
 .dropbtn {
     background-color: #feb824;
-    color: #000;
+    color: #2c3091;
     padding: 8px 8px 6px 8px;
-    font-size: 12px !important;
+    font-size: 13px !important;
     border: none;
     font-weight:bold;
     cursor: pointer;
@@ -162,7 +162,7 @@ md-autocomplete input:not(.md-input) {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #ffcc00;
+    background-color: #feb824;
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -171,25 +171,26 @@ md-autocomplete input:not(.md-input) {
 
 .dropdown-content a {
     color: black;
-    padding: 7px 8px 7px 8px;
+    padding: 12px 8px 7px 8px;
     text-decoration: none;
     display: block;
-    font-size: 16px !important;
+    font-weight:bold;
+    font-size: 13px !important;
     color:#000 !important;
 
 }
 
 
-.dropdown-content a span{color:#000 !important;}
+.dropdown-content a span{color:#2c3091 !important;}
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {background-color: #d19007}
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
 .dropdown:hover .dropdown {
-    background-color: #ffcc00;
+    background-color: #feb824;
 }
 
 /* Date Picker */

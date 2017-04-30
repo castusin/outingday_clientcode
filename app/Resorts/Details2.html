@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+    
+    <link href="../../assets/css/modern-business.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+<link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+     <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+
+    <script src="../../assets/app.js"></script>
+    <script src="../../assets/js/Angularjs/common.js"></script>
+    <script src="../../app/Resorts/ResortCtr.js"></script>
+    <script src="../../app/Resorts/ResortService.js"></script>
+
+
+
+	<style>
+	.checkbox{margin:0 !important;}
+	</style>
+	
+</head>
+
+<body    class="ng-cloak">
+
+   
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class=" navbar-top">
+		<span style="padding-left:5%; line-height:3;">
+		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
+		</span>
+		<span style=" float:right;color:white;padding-right:5%; line-height:3;">
+		<a href="#" style="color:#ffbb39;margin-right:10px;">ComiCon</i></a>
+		<a href="#" style="color:white;margin-right:10px;">Blog</i></a>
+		<!-- <a href="index.html" style="color:white;margin-right:10px;">Hyderabad</i></a> -->
+		<!-- <a href="index.html"><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></a> -->
+		</span>
+		</div>
+        <div class="container" style="height:60px; margin-top:10px;">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+                <a class="navbar-brand" href="index.html">Outing<span>Day</span></a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row" align="center" style=" margin-top:10px;background-color:#313496; padding-bottom:5px;">
+                    <div class="col-lg-1 col-md-hidden col-xs-hidden" ></div>
+                    <div class="col-lg-7 col-md-7 col-xs-12 " style="" align="center">
+                        <div class="input-group" align="center">
+                            <span class="input-group-btn" align="center">
+                                <select class="form-control  btn-warning search-button"   ng-click="MainSearch()" >
+                                    <option>Resorts</option>
+                                    <option>Hotels</option>
+                                    <option>Restaurents</option>
+                                 </select>
+                            </span>
+                            <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                             md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                             md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" ng-enter="MainSearch()">
+                                <md-item-template >
+                                  <span class="item-title">
+                                 <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                 <span> {{item.localArea}} </span>
+                                     </span>
+                                 <span class="item-metadata">
+                                  <span>
+                              <strong>{{item.metro}}</strong>
+                                 </span>
+                                 <span>
+                             <strong>{{item.forks}}</strong>
+                                 </span>
+                             </span>
+                                </md-item-template>
+                            </md-autocomplete>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    
+	  <header>
+      
+       <div style="padding-top:5%;">
+	   
+	   </div>
+
+      
+       
+    </header>
+	 
+
+	 <div class="container">
+	  
+
+	
+
+ <div class="row" >
+    <div class="col-sm-8 sidenav" >
+		
+		 
+		  <div class="left-panel"style="background-color:white;">
+			
+			<ul style="padding:2%;">
+				<div class="row no-pad-mar">
+					<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/right.jpg" alt="" ></a>
+				</div>
+				<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+					<h4 style="font-weight:bold;">Kenilworth Beach Resort & Spa <span style="padding-left:30%;"><i class="fa fa-star" aria-hidden="true" style="color:#EC971F;"></i><i class="fa fa-star" aria-hidden="true" style="color:#EC971F;"></i><i class="fa fa-star" aria-hidden="true" style="color:#EC971F;"></i><i class="fa fa-star" aria-hidden="true" style="color:#EC971F;"></i><i class="fa fa-star" aria-hidden="true"></i></span> <span><button type="button" class="btn btn-success btn-xs" style="float:right;">4.2</button></span></h4> </div>
+			</ul>
+		</div>
+	 
+     
+	  
+	  
+	<div class="left-panel1"style="background-color:#ffffff;padding-bottom:3%;">
+			
+			
+			
+ 
+  <ul class="nav nav-pills nav-justified" style="background-color:#e8e8e8;border:1px solid:#9c9c9c;" >
+    <li class="active" style=""><a href="#" style="background-color:white;border:1px solid #9c9c9c;color:black;border-bottom:4px solid #302c9a;border-radius:none;">Overview</a></li>
+    <li  style=""><a href="#" style="background-color:transparent;color:black; border-right:1px solid #9c9c9c;border-radius:none;">Itinerary</a></li>
+    <li  style=""><a href="#" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Reviews</a></li>
+    <li  style=""><a href="#" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">FAQ</a></li>
+	<li style=""> <a href="#" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Map</a></li>
+	<li style=""> <a href="#" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Video</a></li>
+  </ul>
+
+		</div>
+		
+		
+		 <div class="left-panel"style="background-color:white;">
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">Resort Overview</h4>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
+			</div>
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:2%;"  >
+				<a href="#" style="color:#19a8b9;"> Show More >></a>
+			</div>
+		</div>
+	 
+	 
+	 <div class="left-panel"style="background-color:white;">
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">Itinerary</h4>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+				<i class="fa fa-map-marker" aria-hidden="true"></i> <span>Day 1 -</span>
+			</div>
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:3%;"  >
+				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
+			</div>
+			<!-- <div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:2%;"  > -->
+				<!-- <a href="#" style="color:#3c9ca8;"> Show More >></a> -->
+			<!-- </div> -->
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:3%;"  >
+				<i class="fa fa-map-marker" aria-hidden="true"></i> <span>Day 2 -</span>
+			</div>
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:3%;"  >
+				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
+			</div>
+			<!-- <div class="row no-pad-mar" style="margin:0 6px 0 6px; padding-top:2%;"  > -->
+				<!-- <a href="#" style="color:#3c9ca8;"> Show More >></a> -->
+			<!-- </div> -->
+			<hr />
+			<h4 style="font-weight:bold;padding-left:1%;">Stay</h4>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
+			</div>
+			
+			<h4 style="font-weight:bold;padding-left:1%;padding-top:3%;">Meal</h4>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+				Refined getaway offering colourful rooms & cottages, plus an outdoor pool & a poolside bar/cafe.
+			</div>
+			
+			
+		</div>
+		<div class="left-panel"style="background-color:white;">
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">Write your story</h4>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+				<div class="form-group">
+  <label for="comment"></label>
+  <textarea class="form-control" rows="5" id="comment" placeholder="your reviews "></textarea>
+</div>
+			</div>
+			
+		</div>
+	 
+	 
+    </div>
+	
+	
+   
+    
+	 <div class="col-sm-4 sidenav">
+		<div class="left-panel"style="background-color:white;">
+			<div class="row">
+            <h4 style="font-weight:bold;padding-left:2%;">Package Summary</h4>
+            <div class="col-md-3 col-sm-6 offers-columns-padding" >
+			
+			
+                <div class="row no-pad-mar" align="center">
+                	<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/image_vta.png" alt="" height="40px" width="40px" ></a>
+                </div>
+                <div class="row no-pad-mar h4" align="center" style=" font-size:12px;">Upto 3 Stars</div>
+                
+            </div>
+            
+            <div class="col-md-3 col-sm-6 offers-columns-padding" >
+                <div class="row no-pad-mar" align="center">
+                	<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/image_cp.png" alt=""  height="40px" width="40px"></a>
+                </div>
+                 <div class="row no-pad-mar h4" align="center" style=" font-size:12px;">Meals</div>
+                
+            </div>
+            
+            <div class="col-md-3 col-sm-6 offers-columns-padding">
+                <div class="row no-pad-mar" align="center">
+                	<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/image_cmq.png" alt=""  height="40px" width="40px"></a>
+                </div>
+                 <div class="row no-pad-mar h4" align="center" style=" font-size:12px;">Activities</div>
+               
+            </div>
+            
+            <div class="col-md-3 col-sm-6 offers-columns-padding" >
+                <div class="row no-pad-mar" align="center">
+                	<a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/image_ms.png" alt="" height="40px" width="40px" ></a>
+                </div>
+                 <div class="row no-pad-mar h4" align="center" style=" font-size:12px;">Transport</div>
+              
+            </div>
+			
+			
+        </div>
+		<div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;"  >
+				<strong>Subscribe for best resorts</strong> <span style="float:right;font-size:12px;"><strong>Best Price Guarantee</strong></span>
+			</div>
+			<div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;"  >
+				<strong>RS/- 5000</strong> <span style="float:right;font-size:12px;"><strong>Verified Local Operation</strong></span>
+			</div>
+			<div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;"  >
+				 <span style="float:right;font-size:12px;"><strong>No Booking Fees</strong></span>
+			</div>
+			<div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;"  >
+				<button type="button" class="btn btn-primary btn-block" style="background-color:#313496;color:white;text-transform:upper;border:1px solid #313496;">customize & quotes</button>
+			</div>
+			<div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;" align="center" >
+				 <span style="font-size:12px;"><strong>Use Categery Gift Card</strong></span>
+			</div>
+		</div>
+
+		
+		
+	</div>
+	
+</DIV>
+</DIV>
+
+
+
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+  
+    <script src="../../assets/js/jquery.js"></script>
+
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>
