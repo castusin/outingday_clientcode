@@ -264,10 +264,10 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
 */
         $scope.viewResortsCall=function(){
                  debugger;
-            $scope.progressbar = ngProgressFactory.createInstance();
+          /*  $scope.progressbar = ngProgressFactory.createInstance();
             $scope.progressbar.start();
             $scope.progressbar.setColor('#EC971F');
-            $scope.progressbar.setHeight('4px');
+            $scope.progressbar.setHeight('4px');*/
 
             var parks =  $scope.ctrl.selectedItem;
 
@@ -275,7 +275,7 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
                 debugger;
                 if(ParksInfo.responseCode == 200){
 
-                    $timeout($scope.progressbar.complete(), 1000);
+                  /*  $timeout($scope.progressbar.complete(), 1000);*/
 
                     debugger;
 
@@ -301,7 +301,7 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
 
                 else{
 
-                    $timeout($scope.progressbar.complete(), 1000);
+                   /* $timeout($scope.progressbar.complete(), 1000);*/
 
 
                 }

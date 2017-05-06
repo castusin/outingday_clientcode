@@ -51,17 +51,19 @@ a.footerlinks:hover{color:#FFCC00;}
 
 
     font-size: 12px !important;
-    width: 342px !important;
+    width: 330px !important;
     padding: 0 15px !important;
     line-height: 34px !important;
     height: 34px !important;
-
+    top:13%;
 
 }
 
 
 .modal-footer{
-
+top:13%;
+color:#C34F5E;
+text-align:left;
 }
 
 
@@ -498,4 +500,6 @@ md-icon {
 .Aminitiestext{
 	color:black;
 }
-
+body{
+	background-color:#f3f3f3 !important;
+}

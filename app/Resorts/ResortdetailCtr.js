@@ -13,14 +13,14 @@ app.controller('ResortDetailCtr',['$scope','$state','GetParkDetailInfo','$rootSc
                                $scope.slides.push({"image":$scope.arrString[i]});
                            }*/
 
-                           $scope.photos = [
-                               {src: 'http://farm9.staticflickr.com/8042/7918423710_e6dd168d7c_b.jpg', desc: 'Image 01'},
-                               {src: 'http://farm9.staticflickr.com/8449/7918424278_4835c85e7a_b.jpg', desc: 'Image 02'},
-                               {src: 'http://farm9.staticflickr.com/8457/7918424412_bb641455c7_b.jpg', desc: 'Image 03'},
-                               {src: 'http://farm9.staticflickr.com/8179/7918424842_c79f7e345c_b.jpg', desc: 'Image 04'},
-                               {src: 'http://farm9.staticflickr.com/8315/7918425138_b739f0df53_b.jpg', desc: 'Image 05'},
-                               {src: 'http://farm9.staticflickr.com/8461/7918425364_fe6753aa75_b.jpg', desc: 'Image 06'}
-                           ];
+                        /*   $scope.photos = [
+                               {src: 'http://farm9.staticflickr.com/8042/7918423710_e6dd168d7c_b.jpg'},
+                               {src: 'http://farm9.staticflickr.com/8449/7918424278_4835c85e7a_b.jpg'},
+                               {src: 'http://farm9.staticflickr.com/8457/7918424412_bb641455c7_b.jpg'},
+                               {src: 'http://farm9.staticflickr.com/8179/7918424842_c79f7e345c_b.jpg'},
+                               {src: 'http://farm9.staticflickr.com/8315/7918425138_b739f0df53_b.jpg'},
+                               {src: 'http://farm9.staticflickr.com/8461/7918425364_fe6753aa75_b.jpg'}
+                           ];*/
 // initial image index
                            $scope._Index = 0;
 // if a current image is the same as requested image
@@ -51,8 +51,19 @@ app.controller('ResortDetailCtr',['$scope','$state','GetParkDetailInfo','$rootSc
             debugger;
             $scope.resultParkDetail = parkDetailRes.resultObject;
 
+            $scope.resultParkDetailSubImg = parkDetailRes.resultObject[0].parkSubImages;
+
+            $scope.arrString = new Array();
+            $scope.arrString = $scope.resultParkDetailSubImg.split(',');
+
+            $scope.photos = [];
+            for (var i = 0; i < $scope.arrString.length; i++) {
+                $scope.photos.push({"src":$scope.arrString[i]});
+            }
+
             $scope.ParkDetail = parkDetailRes.parkDetails;
 
+            $localStorage.parkDetails = parkDetailRes.parkDetails;
 
         }
 
@@ -71,10 +82,10 @@ app.controller('ResortDetailCtr',['$scope','$state','GetParkDetailInfo','$rootSc
 
 
 
-                           $scope.BookPkgCall= function(){
+                           $scope.BookPkgCall= function(park){
 
                                debugger;
-
+                               $localStorage.bookPark = park;
                                $window.location='../Resorts/packageDetails.html';
                            }
 

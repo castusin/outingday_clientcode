@@ -198,7 +198,7 @@
         </div>
         <div class="row" style="background-color:#fff; padding:10px 5px 10px 5px; ">
             
-            <div class="col-md-3 col-sm-6 offers-columns-padding" ng-repeat="offer in offersList">
+            <div class="col-md-3 col-sm-6 offers-columns-padding" ng-repeat="offer in offersList" href="#" ng-click="offerCall(offer.offerparkId)">
                 <div class="row no-pad-mar">
                 	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/ResortsImages/offers/{{offer.offerimg}}" alt="" ></a>                </div>
                 <div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
@@ -259,7 +259,7 @@
             <!-- Popular Row 1 Begins -->
             	<div class="row" style=" padding:10px 5px 10px 5px; "  >
             		<!-- Popular 1 Begins -->
-                    <div class="col-md-6 col-sm-6 offers-columns-padding"  ng-repeat="popularCategory in popularCategoryList" >
+                    <div class="col-md-6 col-sm-6 offers-columns-padding"  ng-repeat="popularCategory in popularCategoryList" href="#" ng-click="popularCall(popularCategory.popularparkId)">
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;margin:1%;" >
                         	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
                             	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/ResortsImages/PopularCategory/{{popularCategory.popularimg}}" alt="" >                            </div>

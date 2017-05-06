@@ -464,7 +464,7 @@ $(document).ready(function() {
 			<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
 				<div class=" slider">
-					<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+					<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="../../assets/ResortsImages/{{photo.src}}" />
 
 				<p class="arrow prev" href="#" ng-click="showPrev()"></p>
 
@@ -475,7 +475,7 @@ $(document).ready(function() {
 
 				<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
 
-				<img class="img-responsive" src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+				<img class="img-responsive" src="../../assets/ResortsImages/{{photo.src}}"  ng-click="showPhoto($index);" />
 
 				</li>
 
@@ -663,7 +663,7 @@ $(document).ready(function() {
 		<h6 class="result_title14" style="color:#C34F6B;font-weight:bold;">{{park.currentPrice | INR}}</h6>
 		</div>
 		<div class="col-xs-3" align="right">
-		<button type="button" class="btn  btn-md" style="background-color:#C34F6B;border:1px solid #C34F6B;color:white;" ng-click="BookPkgCall()">Book</button>
+		<button type="button" class="btn  btn-md" style="background-color:#C34F6B;border:1px solid #C34F6B;color:white;" ng-click="BookPkgCall(park)">Book</button>
 		</div>
 		</div>
 

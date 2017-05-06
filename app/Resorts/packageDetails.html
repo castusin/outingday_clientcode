@@ -222,7 +222,7 @@ background-color:#f3f3f3 !important;
       <h5 class="result_title14">Choose your date</h5>
 	  <div class="input-group">
     <span class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true" style="color:black;"></i></span>
-    <input id="email" type="text" class="form-control" name="email" placeholder="Date">
+    <input id="email" type="text" class="form-control" ng-model="bookParkDate" name="email" placeholder="Date">
   </div>
   
  
@@ -252,18 +252,18 @@ background-color:#f3f3f3 !important;
   
 	 	<div class="row" style=" padding:10px 5px 10px 5px; ">
             		<!-- Popular 1 Begins -->
-                    <div class="col-md-6 col-sm-6 offers-columns-padding" >
+                    <div class="col-md-6 col-sm-6 offers-columns-padding" ng-repeat="bookpark in bookParkList" ng-show="bookpark.facilityType == 'O'">
 					
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;">
                         	<div class="">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar img-rounded" src="../../assets/images/pop_1.jpg" alt="" >                            </div>
+                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar img-rounded" src="../../assets/ResortsImages/{{bookpark.facilityImage}}" alt="" >                            </div>
                             <div class="row">
 							<div class="col-sm-8">
-							  <h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Fe</h6>
+                                <h6 class="result_title14" style="word-wrap:break-word;font-size:13px;" ng-text-truncate="bookpark.facilityInRoomFacilites"ng-tt-chars-threshold="100" ></h6>
 							</div>
 							<div class="col-sm-4">
 							
-							<h5 class="result_title14" style="color:#C34F5E;font-weight:bold;text-align:right;">RS 600</h5>
+							<h5 class="result_title14" style="color:#C34F5E;font-weight:bold;text-align:right;">{{bookpark.currentPrice | INR}}</h5>
 							
 							
 							
@@ -301,7 +301,7 @@ background-color:#f3f3f3 !important;
                     <!-- Popular 1  Ends -->
                     
                     <!-- Popular 2 Begins -->
-                    <div class="col-md-6 col-sm-6 offers-columns-padding" >
+                   <!-- <div class="col-md-6 col-sm-6 offers-columns-padding" >
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;">
                         	<div>
                             	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="../../assets/images/pop_2.jpg" alt="" >                            </div>
@@ -344,7 +344,7 @@ background-color:#f3f3f3 !important;
 							</div>
                         </div>
 						
-                    </div>
+                    </div>-->
                     <!-- Popular 2  Ends -->
                 </div>
 	  

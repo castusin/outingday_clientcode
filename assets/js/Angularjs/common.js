@@ -16,23 +16,26 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
                 offerimg : "offer_1.jpg",
                 offerdes : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .",
 
-                offerrating : "Starting rating - 1500/-"
-
+                offerrating : "Starting rating - 1500/-",
+                offerparkId : "100001"
             },
             {
                 offerimg : "offer_2.jpg",
                 offerdes : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .",
-                offerrating : "Starting rating - 1200/-"
+                offerrating : "Starting rating - 1200/-",
+                offerparkId : "100002"
             },
             {
                 offerimg : "offer_3.jpg",
                 offerdes : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .",
-                offerrating : "Starting rating - 2000/-"
+                offerrating : "Starting rating - 2000/-",
+                offerparkId : "100003"
             },
             {
                 offerimg : "offer_4.jpg",
                 offerdes : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .",
-                offerrating : "Starting rating - 2500/-"
+                offerrating : "Starting rating - 2500/-" ,
+                offerparkId : "100004"
             }
         ]
 
@@ -43,7 +46,8 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
                 popularimg : "pop_1.jpg",
                 populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
 
-                popularrating : "4.1"
+                popularrating : "4.1" ,
+                popularparkId : "100001"
 
             },
             {
@@ -51,35 +55,24 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
                 popularimg : "pop_2.jpg",
                 populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
 
-                popularrating : "4.1"
+                popularrating : "4.1" ,
+                popularparkId : "100002"
             },
             {
-                popularname : "Dream Valley Resort",
+                popularname : "Dream Valley Resort & Spa",
                 popularimg : "pop_3.jpg",
                 populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
 
-                popularrating : "4.1"
+                popularrating : "4.1" ,
+                popularparkId : "100003"
             },
             {
                 popularname : "Mrugavani Resort and Spa",
                 popularimg : "pop_4.jpg",
                 populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
 
-                popularrating : "4.1"
-            } ,
-            {
-                popularname : "Mrugavani Resort and Spa",
-                popularimg : "pop_4.jpg",
-                populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
-
-                popularrating : "4.1"
-            },
-            {
-                popularname : "Mrugavani Resort and Spa",
-                popularimg : "pop_4.jpg",
-                populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
-
-                popularrating : "4.1"
+                popularrating : "4.1",
+                popularparkId : "100004"
             }
         ]
 
@@ -288,6 +281,24 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
         $window.location='../../app/Resorts/Viewresorts.html';
 
     }
+
+
+
+        $scope.offerCall= function(parkId){
+
+            debugger;
+            $localStorage.parkId = parkId;
+            $window.location='../../app/Resorts/Details.html';
+        }
+
+        $scope.popularCall= function(parkId){
+
+            debugger;
+            $localStorage.parkId = parkId;
+            $window.location='../../app/Resorts/Details.html';
+        }
+
+
 
 }]);
 
