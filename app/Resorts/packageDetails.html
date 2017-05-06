@@ -21,6 +21,7 @@
     <link href="../../assets/css/modern-business.css" rel="stylesheet">
     <link href="../../assets/css/styles.css" rel="stylesheet">
 	<link href="../../assets/css/detail.css" rel="stylesheet">
+    <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
    
@@ -46,6 +47,8 @@
     <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
     <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
     <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
 
     <script src="../../assets/app.js"></script>
     <script src="../../assets/js/Angularjs/common.js"></script>
@@ -76,7 +79,7 @@ background-color:#f3f3f3 !important;
 }
 </style>
 
-<body style="background-color:#f3f3f3;" ng-controller="packageDetailCtr" class="ng-cloak">
+<body style="background-color:#f3f3f3;" ng-controller="packageDetailCtr as ctrl" class="ng-cloak">
 
    
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -221,8 +224,27 @@ background-color:#f3f3f3 !important;
 	  <div class="col-sm-3 sidenav details">
       <h5 class="result_title14">Choose your date</h5>
 	  <div class="input-group">
-    <span class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true" style="color:black;"></i></span>
-    <input id="email" type="text" class="form-control" ng-model="bookParkDate" name="email" placeholder="Date">
+  <!--  <span class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true" style="color:black;"></i></span>-->
+
+          <div class="input-group"
+               moment-picker="ctrl.datepicker"
+               format="MMM d, YYYY">
+    <span class="input-group-addon">
+        <i class="fa fa-calendar-o"></i>
+    </span>
+              <input class="form-control"
+                     placeholder="Select a date"
+                     ng-model="ctrl.datepicker"
+                     ng-model-options="{ updateOn: 'blur' }">
+          </div>
+          <!--<input class="form-control"
+                 placeholder="Select a date..."
+                 moment-picker="ctrl.input.stringDate"
+                 locale="en"
+                 format="MMM d, yyyy"
+                 ng-model="bookParkDate"
+                 ng-model-options="{ updateOn: 'blur' }">-->
+   <!-- <input id="email" type="text" class="form-control" ng-model="bookParkDate" name="email" placeholder="Date">-->
   </div>
   
  

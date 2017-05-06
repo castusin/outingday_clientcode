@@ -4,8 +4,8 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
 
         debugger;
 
-
-        $scope.bookParkDate = $localStorage.bookPark.date;
+        var ctrl = this;
+        $scope.ctrl.datepicker = $localStorage.bookPark.date;
         $scope.bookParkImg = $localStorage.bookPark.facilityImage;
         $scope.bookParkDes = $localStorage.bookPark.description;
 
