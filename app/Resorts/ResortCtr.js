@@ -3,7 +3,8 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
     function ($scope,$state,GetParksInfo,$rootScope,$window,$localStorage,$timeout,$q,$log,ngProgressFactory) {
         debugger;
 
-
+        $scope.ctrl.selectedItem = $localStorage.searchInput;
+        $scope.cityName =  $localStorage.modelsearch.cityName;
         var self = this;
 
         self.simulateQuery = false;
@@ -214,10 +215,12 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
         $scope.progressbar.setHeight('4px');
 
         var parks =  $localStorage.searchInput;
+		$('#img-load').show();
         GetParksInfo.GetParksService(parks).then(function(ParksInfo){
             debugger;
             if(ParksInfo.responseCode == 200){
                 $timeout($scope.progressbar.complete(), 1000);
+				$('#img-load').hide();
                 debugger;
 
                 $scope.makeTodos = function() {
@@ -231,10 +234,12 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
                 $scope.makeTodos();
 
                 $scope.$watch('currentPage + numPerPage', function() {
-                    var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                    $timeout(function() {
+                        var begin = (($scope.currentPage - 1) * $scope.numPerPage)
                         , end = begin + $scope.numPerPage;
 
                     $scope.DetailsListInfo = $scope.todos.slice(begin, end);
+                }, 10);
                 });
 
 
@@ -243,11 +248,20 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
 
             else{
                 $timeout($scope.progressbar.complete(), 1000);
+				$('#img-load').hide();
 
             }
 
         });
 
+       /* $(document).ready(function () {
+            $('div img').hide();
+        });
+
+        $(window).load(function () {
+            $('div img').show();
+        });
+*/
         $scope.viewResortsCall=function(){
                  debugger;
             $scope.progressbar = ngProgressFactory.createInstance();
@@ -260,7 +274,9 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
             GetParksInfo.GetParksService(parks).then(function(ParksInfo){
                 debugger;
                 if(ParksInfo.responseCode == 200){
+
                     $timeout($scope.progressbar.complete(), 1000);
+
                     debugger;
 
                     $scope.makeTodos = function() {
@@ -284,7 +300,9 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
                 }
 
                 else{
+
                     $timeout($scope.progressbar.complete(), 1000);
+
 
                 }
 
@@ -474,9 +492,10 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
 
 
 
-        $scope.bookResort= function(){
+        $scope.bookResort= function(parkId){
 
             debugger;
+            $localStorage.parkId = parkId;
             $window.location='../Resorts/Details.html';
         }
 

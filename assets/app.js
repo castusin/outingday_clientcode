@@ -1,5 +1,5 @@
 
-var app = angular.module('MyApp', ['ngRoute','ui.router','ui.bootstrap','ngMaterial','ngStorage','ngProgress','angularModalService']);
+var app = angular.module('MyApp', ['ngRoute','ui.router','ui.bootstrap','ngMaterial','ngStorage','ngProgress','ngAnimate','ngTouch','angularModalService',"ngTextTruncate"]);
 debugger;
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -41,7 +41,7 @@ app.directive('starRating', function() {
     return {
         restrict: 'A',
         template: '<ul class="rating">' +
-            '<li class="star" ng-repeat="star in stars" ng-class="{ filled: star.filled }" ng-click="toggle($index)" ng-mouseenter="onMouseEnter($event, $index + 1)" ng-mouseleave="onMouseLeave($event)">' +
+            '<li class="star" ng-repeat="star in stars" ng-class="{ filled: star.filled }" ng-click="toggle($index)"  ng-mouseleave="onMouseLeave($event)">' +
             '\u2605' +
             '</li>' +
             '</ul>',
@@ -130,3 +130,11 @@ app.directive('onLoadClicker', ['$timeout',
         };
     }
 ])
+
+   app.filter("foo", function(){
+        return function(inputArray){
+            return inputArray.map(function(item){
+                return {a: item};
+            });
+        };
+    });

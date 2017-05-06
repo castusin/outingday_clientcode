@@ -9,9 +9,9 @@ app.factory('GetParkDetailInfo',function ($http) {
 
     return{
 
-        GetParkDetail :  function(){
+        GetParkDetail :  function(parkId){
             debugger;
-            var promise = $http.get(webServiceUrl+'getParksDetails?parkId=100003',config) .then(function(response) {
+            var promise = $http.get(webServiceUrl+'getParksDetails?parkId='+parkId,config) .then(function(response) {
                 debugger;
                 console.log('Response -- '+response.data);
                 return response.data;

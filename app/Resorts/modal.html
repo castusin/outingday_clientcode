@@ -1,6 +1,31 @@
-<div class="modal-header">
+<html>
+<body>
+<head>
+<style type="text/css">
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 84px !important;
+    }
 
-</div>
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 144px !important;
+    }
+}
+
+@media screen and (min-device-width: 1023px) and (max-device-width: 1400px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 75px !important;
+    }
+}
+
+
+</style>
+</head>
+
+<div style="width:100%;height:240px;" align="right">
 <div class="modal-body">
     <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
                      md-search-text="ctrl.searchText" md-selected-item-change="citySearchCall()" md-items="item in ctrl.querySearch(ctrl.searchText)"
@@ -23,3 +48,6 @@
 
     <a href="#" ng-click="showAdvanced($event)">   ALL CITIES    </a>
 </div>
+</div>
+</body>
+</html>

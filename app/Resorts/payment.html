@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/ngProgress.css" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+    
+    <link href="../../assets/css/modern-business.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+<link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+    <script src="../../assets/js/Angularjs/ng-text-truncate.js"></script>
+
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+
+    <script src="../../assets/app.js"></script>
+    <script src="../../assets/js/Angularjs/common.js"></script>
+    <script src="../../app/Resorts/ResortCtr.js"></script>
+    <script src="../../app/Resorts/ResortService.js"></script>
+    <script src="../../app/Resorts/ResortdetailCtr.js"></script>
+    <script src="../../app/Resorts/ResortdetailService.js"></script>
+    <script src="../../app/Resorts/packageDetailsCtr.js"></script>
+    <script src="../../app/Resorts/confirmationDetailsCtr.js"></script>
+    <script src="../../app/Resorts/paymentCtr.js"></script>
+
+
+
+
+
+</head>
+
+<body   ng-controller="paymentCtr" class="ng-cloak">
+
+   
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class=" navbar-top">
+		<span style="padding-left:5%; line-height:3;">
+		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
+		</span>
+		<span style=" float:right;color:white;padding-right:5%; line-height:3;">
+		<a href="index.html" style="color:#ffbb39;margin-right:10px;">ComiCon</i></a>
+		<a href="index.html" style="color:white;margin-right:10px;">Blog</i></a>
+		<!--<a href="index.html" style="color:white;margin-right:10px;">Hyderabad</i></a>
+		<a href="index.html"><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></a>-->
+		</span>
+		</div>
+        <div class="container" style="height:60px; margin-top:10px;">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+                <a class="navbar-brand" href="index.html">Outing<span>Day</span></a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row" align="center" style=" margin-top:10px;background-color:#313496; padding-bottom:5px;">
+                    <div class="col-lg-1 col-sm-hidden col-md-hidden col-xs-hidden" ></div>
+                    <div class="col-lg-7 col-sm-6 col-md-7 col-xs-12 " style="" align="center">
+                        <div class="input-group" align="center">
+                            <span class="input-group-btn" align="center">
+                                <!--<select class="form-control  btn-warning search-button">
+                                    <option>Resorts</option>
+                                    <option>Hotels</option>
+                                    <option>Restaurents</option>
+                                 </select>
+                                 -->
+                                     
+               			 
+                            </span>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-2  col-sm-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    
+	  <header>
+      
+       <div style="padding-top:5%;">
+	   
+	   </div>
+
+      
+       
+    </header>
+	 
+
+	 <div class="container">
+	  
+
+	 <div class="row" style="padding:5px 5px ;">
+		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="color:black;">
+			<h5>PAYMENT OPTIONS</h5>
+		</div> 
+		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" align="right">
+		<h5>The session will expire in <span style="color:red;">29</span> m<span style="color:red;">53</span> sec </h5>
+		</div> 
+	 </div>
+
+ <div class="row" >
+    <div class="col-sm-4 sidenav" >
+		
+		 
+		  <div class="left-panel"style="background-color:white;">
+			<div class="row" style="margin:0 0 20px 0; padding:0;" >
+			
+				
+				<ul style="padding:0;margin:0;">
+					<li style="padding:0;margin:0;border-bottom:1px solid #d5d5d5;"><span style="color: #000000;"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;&nbsp;Credit / Debit Card</span></li>
+                    <li style="padding:0;margin:0;border-bottom:1px solid #d5d5d5;"> <span style="color: #000000;"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;&nbsp;Net Banking</span> </li>
+                    <li style="padding:0;margin:0;border-bottom:1px solid #d5d5d5;"><span style="color: #000000;"> <i class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp;&nbsp;Debit + AtmPin</span>  </li>
+					<li><span style="color: #000000;"> <i class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp;&nbsp;EMI on Credit Card</span>  </li>
+                    
+				</ul>
+			</div>
+
+             
+			
+             
+		
+		  </div>
+	  
+	 
+     
+	  
+	  
+	
+	 
+    </div>
+	
+    <div class="col-sm-8 text-left">
+		<div class="result_bg"  >
+			<div class="result_container">
+            	<div class="row">
+                	
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    	<h4 class="result_title1"><i class="fa fa-credit-card" aria-hidden="true" style="color:#4D9EC7 !important;"></i>&nbsp;<b>100%SECURITY GUARANTEED</b></h4>
+						<h6><img class="img-responsive " src="http://i76.imgup.net/accepted_c22e0.png"></h6>
+						<div class="row" style="padding-left:3%;">
+						<form>
+  <div class="form-group">
+    <h5 for="email"style="font-size:14px;font-weight:600;">CARD NUMBER</h5>
+    <input type="number" class="form-control" id="number">
+  </div>
+  <div class="form-group">
+    <h5 for="pwd"style="font-size:14px;font-weight:600;">NAME ON THE CARD</h5>
+    <input type="text" class="form-control" id="name">
+  </div>
+   <form role="form" class="form-inline">  
+     
+      <div class="form-inline">
+       <h5 style="font-size:14px;font-weight:600;">EXPIRY DATE</h5>
+        <select id="selectUser" style="width:25%;" class="form-control selectWidth">
+          <option class="">Month</option>
+          <option class="">jan</option>
+          <option class="">feb</option>
+        </select>
+		<select id="selectUser" style="width:25%;" class="form-control selectWidth">
+          <option class="">Year</option>
+          <option class="">2017</option>
+          <option class="">2018</option>
+        </select>
+		
+		<input type="text" class="form-control" id="name" style="width:25%;" placeholder="CVV">
+		<i class="fa fa-credit-card" aria-hidden="true" style="color:#4D9EC7;font-size:25px;"></i>
+		<!-- <span style="padding-left:83%;"> printed on the back side of the card</span> -->
+      </div>
+     
+      </form>
+	  <div style="padding-top:2%;">
+	  </div>
+  <div class="checkbox">
+    <label><input type="checkbox">Save your card for faster checkout CVV is not stored</label>
+  </div>
+  
+</form>
+<div class="row" style="padding-left:3%;padding-top:3%;">
+ <div style="width:100%;display:inline-block;">
+ <div style="width:50%;display:inline-block;">
+ <h4><i class="fa fa-inr" aria-hidden="true" style="color:#3B3B3B;"></i>&nbsp;&nbsp;<span style="color:#3B3B3B;">12890/-</span></h4>
+ <h6>Total in INR</h6>
+ </div>
+ <div style="width:50%;display:inline-block;float:right;">
+ <button type="button" class="btn btn-danger"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;&nbsp;Make Payment</button>
+ <h6>You will be redirected to your bank</h6>
+ </div>
+ </div>
+</div>
+						</div>
+                    </div>
+                </div>
+				
+                
+				
+			</div>
+            
+			
+       </div>
+		
+       
+ 
+	</div>
+    
+	
+</DIV>
+</DIV>
+
+
+
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+ <!-- <div class="container-fluid">    -->
+   
+        <!-- <div class="row" style="background-color:#0c0e1b; "> -->
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
+            	<!-- <div class="row" style="background-color:#121528;padding:10px 30px 10px 30px;"> -->
+                   <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"  style="color:#fff; padding-top:6px;">Certified Logos</div> -->
+                   <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" > -->
+                    <!-- <a href="portfolio-item.html" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a> -->
+                    <!-- <a href="portfolio-item.html" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a> -->
+                    <!-- <a href="portfolio-item.html" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a> -->
+                    <!-- <a href="portfolio-item.html" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a> -->
+                   <!-- </div> -->
+                <!-- </div> -->
+             
+             	<!-- <div class="row" style="padding:30px;"> -->
+                	<!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center"> -->
+                    	<!-- <img  src="../../assets/images/Logo_Footer.png" alt=""><br><span style="color:#fff;">2017@outingday.com</span> -->
+                    <!-- </div>	 -->
+                    <!-- <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-top:20px;"> -->
+                    	<!-- <div class="row"> -->
+                        	<!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">  -->
+                            	<!-- <p class="h4">COMPANY</p> -->
+                                <!-- <ul class="footerlist"> -->
+                                    <!-- <li ><a href="#" class="footerlinks">Career</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                <!-- </ul> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">  -->
+                            	<!-- <p class="h4">COMPANY</p> -->
+                                 <!-- <ul class="footerlist"> -->
+                                    <!-- <li ><a href="#" class="footerlinks">Career</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                <!-- </ul> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">  -->
+                            	<!-- <p class="h4">COMPANY</p> -->
+                                 <!-- <ul class="footerlist"> -->
+                                    <!-- <li ><a href="#" class="footerlinks">Career</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                <!-- </ul> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">  -->
+                            	<!-- <p class="h4">COMPANY</p> -->
+                                 <!-- <ul class="footerlist"> -->
+                                    <!-- <li ><a href="#" class="footerlinks">Career</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                <!-- </ul> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    <!-- </div>	 -->
+                <!-- </div> -->
+             
+            <!-- </div> -->
+        <!-- </div> -->
+   
+ <!-- </div> -->
+    
+    
+  
+    <script src="../../assets/js/jquery.js"></script>
+
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>

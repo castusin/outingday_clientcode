@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+    
+    <link href="../../assets/css/modern-business.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+	 <link href="../../assets/css/detail.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+<link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+     <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+	 
+	  <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+ <script src="../../assets/js/Angularjs/ng-text-truncate.js"></script>
+
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+
+    <script src="../../assets/app.js"></script>
+    <script src="../../assets/js/Angularjs/common.js"></script>
+    <script src="../../app/Resorts/ResortCtr.js"></script>
+    <script src="../../app/Resorts/ResortService.js"></script>
+    <script src="../../app/Resorts/ResortdetailCtr.js"></script>
+    <script src="../../app/Resorts/ResortdetailService.js"></script>
+
+   <script src="../../assets/js/jquery.js"></script>
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+   $(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+
+	<style>
+	.checkbox{margin:0 !important;}
+	.left-panel ul {
+    list-style: none !important;
+    margin-top: -10px !important;
+}
+body{
+background-color:#f3f3f3 !important;
+}
+
+
+
+.member {
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    vertical-align: top;
+}
+
+.name {
+    display: inline;
+    text-align:center
+}
+.member img {
+    width: 100%;
+    display: block;
+}
+ .slider {
+          
+          
+         
+           position: relative;
+           width: 100%;
+           -webkit-perspective: 1000px;
+           -moz-perspective: 1000px;
+           -ms-perspective: 1000px;
+           -o-perspective: 1000px;
+           perspective: 1000px;
+           -webkit-transform-style: preserve-3d;
+           -moz-transform-style: preserve-3d;
+           -ms-transform-style: preserve-3d;
+           -o-transform-style: preserve-3d;
+           transform-style: preserve-3d;
+		   
+       }
+       .slide {
+           position: absolute;
+           top: 0;
+           left: 0;
+		   width:100%;
+		   height:auto;
+       }
+       .slide.ng-hide-add {
+           opacity:1;
+           -webkit-transition:1s linear all;
+           -moz-transition:1s linear all;
+           -o-transition:1s linear all;
+           transition:1s linear all;
+           -webkit-transform: rotateX(50deg) rotateY(30deg);
+           -moz-transform: rotateX(50deg) rotateY(30deg);
+           -ms-transform: rotateX(50deg) rotateY(30deg);
+           -o-transform: rotateX(50deg) rotateY(30deg);
+           transform: rotateX(50deg) rotateY(30deg);
+           -webkit-transform-origin: right top 0;
+           -moz-transform-origin: right top 0;
+           -ms-transform-origin: right top 0;
+           -o-transform-origin: right top 0;
+           transform-origin: right top 0;
+       }
+       .slide.ng-hide-add.ng-hide-add-active {
+           opacity:0;
+       }
+       .slide.ng-hide-remove {
+           -webkit-transition:1s linear all;
+           -moz-transition:1s linear all;
+           -o-transition:1s linear all;
+           transition:1s linear all;}
+		    .arrow {
+           cursor: pointer;
+           display: block;
+           height: 64px;
+           margin-top: -35px;
+           outline: medium none;
+           position: absolute;
+           top: 50%;
+           width: 64px;
+           z-index: 5;
+       }
+       .arrow.prev {
+           background-image: url("../images/prev.png");
+           left: 20px;
+           opacity: 0.2;
+           transition: all 0.2s linear 0s;
+       }
+       .arrow.next {
+           background-image: url("../images/next.png");
+           opacity: 0.2;
+           right: 20px;
+           transition: all 0.2s linear 0s;
+       }
+       .arrow.prev:hover{
+           opacity:1;
+       }
+       .arrow.next:hover{
+           opacity:1;
+       }
+.navnew {
+           bottom: -4px;
+           display: block;
+           height: 48px;
+           left: 0;
+           margin: 0 auto;
+           padding: 1em 0 0.8em;
+           position: absolute;
+           right: 0;
+           text-align: center;
+           width: 100%;
+           z-index: 5;
+       }
+       .navnew li {
+           border: 5px solid #AAAAAA;
+           border-radius: 5px;
+           cursor: pointer;
+           display: inline-block;
+           height: 30px;
+           margin: 0 8px;
+           position: relative;
+           width: 50px;
+       }
+       .navnew li.active {
+           border: 5px solid #FFFFFF;
+       }
+       .navnew li img {
+           width: 100%;
+		   height:auto;
+       }
+	   placeholder{
+	   color:white !important;
+	   }
+	</style>
+	
+	
+	 <!-- #region Jssor Slider Begin -->
+    <script src="../../assets/js/jssor.slider-23.1.5.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jssor_1_slider_init = function() {
+
+            var jssor_1_options = {
+              $AutoPlay: 1,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 9,
+                $SpacingX: 3,
+                $SpacingY: 3,
+                $Align: 260
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            /*responsive code begin*/
+            /*remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 600);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            /*responsive code end*/
+        };
+
+
+$(document).ready(function() {
+	var showChar = 100;
+	var ellipsestext = "...";
+	var moretext = "more";
+	var lesstext = "less";
+	$('.more').each(function() {
+		var content = $(this).html();
+
+		if(content.length > showChar) {
+
+			var c = content.substr(0, showChar);
+			var h = content.substr(showChar-1, content.length - showChar);
+
+			var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+			$(this).html(html);
+		}
+
+	});
+
+	$(".morelink").click(function(){
+		if($(this).hasClass("less")) {
+			$(this).removeClass("less");
+			$(this).html(moretext);
+		} else {
+			$(this).addClass("less");
+			$(this).html(lesstext);
+		}
+		$(this).parent().prev().toggle();
+		$(this).prev().toggle();
+		return false;
+	});
+});
+
+    </script>
+
+	<style>
+
+    </style>
+</head>
+
+<body ng-app="MyApp"  data-spy="scroll" data-offset="50" ng-controller="ResortDetailCtr" ng-cloak>
+   
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border:none;">
+    	<div class=" navbar-top">
+		<span style="padding-left:5%; line-height:3;">
+		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
+		</span>
+		
+		</div>
+        <div class="container D_container">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+                <a class="navbar-brand">Outing<span>Day</span></a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row D_row" align="center">
+                    <div class="col-lg-1 col-md-hidden col-xs-hidden" ></div>
+                    <div class="col-lg-7 col-md-7 col-xs-12 " style="" align="center">
+                        <div class="input-group" align="center">
+                            <span class="input-group-btn" align="center">
+                              
+                                <div class="dropdown">
+                                   <button class="dropbtn2">
+                                        <a href="#">
+                                            <span style="float:left;"><i class="fa fa-th-large" aria-hidden="true" style="color:#313496;font-size:12px;"></i><span style="font-size:14px;"> &nbsp;All&nbsp;</span></span>
+ <span style="float:right; margin-right:12px;">
+ <i class="fa fa-caret-down" aria-hidden="true" style="color:#313496;font-size:14px;"></i>
+ </span></a>
+                                    </button>
+
+                                    <div class="dropdown-content">
+                                        <div class="D_dropdown">
+                                            <a href="#" style="height:50px"><div class="D_dropdown_span"><img src="../../assets/images/resorts.png" width="18px" height="18px"></div><div class="D_dropdown_span2">Resorts</div></a>
+                                        </div>
+                                        <div class="D_dropdown">
+                                            <a href="#" style="height:50px"><div class="D_dropdown_span"><img src="../../assets/images/hotel.png" width="18px" height="20px"></div><div class="D_dropdown_span2">Hotels</div></a>
+                                        </div>
+                                        <div class="D_dropdown">
+                                            <a href="#" style="height:50px"><div class="D_dropdown_span"><img src="../../assets/images/restaurants.png" width="17px" height="17px"></div><div class="D_dropdown_span2">Restaurants</div></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                             md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                             md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" ng-enter="MainSearch()">
+                                <md-item-template >
+                                  <span class="item-title">
+                                 <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                 <span> {{item.localArea}} </span>
+                                     </span>
+                                 <span class="item-metadata">
+                                  <span>
+                              <strong>{{item.metro}}</strong>
+                                 </span>
+                                 <span>
+                             <strong>{{item.forks}}</strong>
+                                 </span>
+                             </span>
+                                </md-item-template>
+                            </md-autocomplete>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-xs-12" style="color:#fff; text-align:center;padding:0;font-size:10pt;">
+										 <div class="input-group" style="color:#fff;background-color:transparent;border-bottom:1px solid white;">
+   <!-- <span class="input-group-addon" style="color:#fff;background-color:transparent;border:transparent;"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+  --> <!-- <input id="email" type="text" class="form-control" name="email" placeholder="Date" style="color:#fff;background-color:transparent;border:transparent;">
+  -->                                           <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+  </div>
+					</div>
+					
+                </div>
+            </div>
+            
+        </div>
+		
+		<div class="container-fluid" style="background-color:#dadada;">
+		<div class="container" >
+			<div class="navbar-sub-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>                        
+			  </button>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+				  <li><a href="#section1">Overview</a></li>
+				  <li><a href="#section2">Room Type</a></li>
+				  <li><a href="#section3">Reviews</a></li>
+				  <li><a href="#section4">Location</a></li>
+				  <li><a href="#section5">Videos</a></li>
+				  <!-- <li><a href="#section6">Policies</a></li> -->
+				</ul>
+			</div>
+			
+		</div>
+		</div>
+        
+    </nav>
+
+    
+	 
+	 
+
+	 <div class="container" style="margin-top:100px;">
+	 
+	  
+<!-- <div class="left-panel1"style="background-color:#ffffff;padding-bottom:3%;position: fixed; -->
+ 
+  <!-- height: 48px; z-index: 999999; background: #eeeeee; margin-bottom:50px;"> -->
+			
+			
+			
+ 
+  <!-- <ul class="nav nav-pills nav-justified" style="background-color:#e8e8e8;border:1px solid:#9c9c9c;" > -->
+    <!-- <li class="active" style=""><a href="#" style="background-color:white;border:1px solid #9c9c9c;color:black;border-bottom:4px solid #302c9a;border-radius:none;">Overview</a></li> -->
+    <!-- <li  style=""><a href="#itinerary" style="background-color:transparent;color:black; border-right:1px solid #9c9c9c;border-radius:none;">Room Type</a></li> -->
+    <!-- <li  style=""><a href="#review" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Reviews</a></li> -->
+    <!-- <li  style=""><a href="#faq" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Location</a></li> -->
+	<!-- <li style=""> <a href="#map" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Map</a></li> -->
+	<!-- <li style=""> <a href="#video" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Video</a></li> -->
+	<!-- <li style=""> <a href="#video" style="background-color:transparent;color:black;border-right:1px solid #9c9c9c;border-radius:none;">Policies</a></li> -->
+  <!-- </ul> -->
+
+		<!-- </div> -->
+		
+	
+
+		<div style="height:60px;">&nbsp;</div>
+	
+
+ <div class="row" >
+ <h6 class="result_title14" ng-repeat="detail in resultParkDetail">HOME | <span style="font-size:14px; padding-left:1%;">{{detail.name}}</span></h6>
+ <!-- <div class="col-sm-2 sidenav"></div> -->
+    <div class="col-sm-8 sidenav" >
+		
+		 
+		 
+		 
+		  <div class="left-panel"style="background-color:white;">
+			<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+				<div class=" slider">
+					<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+
+				
+
+				<ul class="navnew">
+
+				<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+
+				<img class="img-responsive" src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+
+				</li>
+
+				</ul>
+
+				</div>
+				
+					
+			
+			</div>
+		 </div>
+		<div class="row detailtext" ng-repeat="detail in resultParkDetail" > 
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+			<h5 class="result_title14">{{detail.name}}</h5>
+			<h6 class="result_title14" style="font-size:13px;">{{detail.streetAddress}}</h6>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" align="right">
+				<h6 class="result_title14" star-rating rating-value="detail.odRating" max="5"></h6>
+			</div>
+		</div>	
+		
+			 
+			 
+    
+    <!-- #endregion Jssor Slider End -->
+	<div class="padding2">
+	</div>
+	<div class="row detailtext" >
+		
+		
+	<!-- <h5>{{detail.name}}<span style="padding-left:10%;" star-rating rating-value="detail.odRating" max="5"></span></h5> -->
+	<!-- <h6 style="font-size:12px;">Road No:2 , Banjara Hills , Hyderabad , Telangana - 500081 , India</h6> -->
+	</div>
+		</div>
+		
+		<section id="section1">
+		 <div class="padding2">
+	</div>
+	<div class="card details drp">
+  <div class="card-block ">
+	<div class="padding2">&nbsp;</div>
+	<h4 class="result_title14">Facilities</h4>
+	<div class="padding2">&nbsp;</div>
+	<div ng-repeat="detail in resultParkDetail" style="color:#191919;font-size:13px;">
+		<h6 class="result_title14" style="font-size:13px; color:#191919;" ng-text-truncate="detail.overviewText"ng-tt-chars-threshold="400"></h6>
+	</div>
+	<div class="padding2">&nbsp;</div>
+	<h4 class="result_title14">Aminities</h4>
+		<div class="row" >
+					<div class="col-xs-6 col-sm-4 col-1g-2 col-md-2">
+						<div class="row" style="margin-bottom:10px;">
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								<img src="../../assets/images/wifi.png" height="40px" width="40px">
+							</div>
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								Wifi
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-4 col-1g-2 col-md-2">
+						<div class="row" style="margin-bottom:10px;">
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								<img src="../../assets/images/swimming.png" height="40">
+							</div>
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								Swimming
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-4 col-1g-2 col-md-2">
+						<div class="row" style="margin-bottom:10px;">
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								<img src="../../assets/images/parking.png" height="40">
+							</div>
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								Parking
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-4 col-1g-2 col-md-2">
+						<div class="row" style="margin-bottom:10px;">
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								<img src="../../assets/images/bar.png" height="40">
+							</div>
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								Bar
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-4 col-1g-2 col-md-2">
+						<div class="row" style="margin-bottom:10px;">
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								<img src="../../assets/images/gym.png"  height="40">
+							</div>
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								Gymnasium
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-4 col-1g-2 col-md-2">
+						<div class="row" style="margin-bottom:10px;">
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								<img src="../../assets/images/ban.png" height="40">
+							</div>
+							<div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+								Banquet Facilities
+							</div>
+						</div>
+					</div>
+				</div>
+	
+</div>
+		
+		</section>
+		
+		<div class="padding">
+		</div>
+		<section id="section4">
+		
+		<div  class="left-panel details "style="background-color:white;" id="itinerary">
+			
+			
+				<h4 class="result_title14">Location</h4>
+			
+			
+	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB-mcyCyJyMvU-OdX45HHvrvnRTyF6UeAs'></script>
+	
+	<div style='overflow:hidden;height:400px;width:720px;'><div id='gmap_canvas' style='height:400px;width:720px;'></div>
+	
+	<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+	</div> <a href='https://indiatvnow.com/'>INDIA TV</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=bd9274247c220b2197793a046b0a8af752baf53f'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:7,center:new google.maps.LatLng(17.4482929,78.39148509999995),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(17.4482929,78.39148509999995)});infowindow = new google.maps.InfoWindow({content:'<strong>Castus</strong><br>Madhapur<br>500028 Hyderabad<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+			
+			
+		</div>
+		
+		
+		</section>
+		
+		<div class="padding">
+		</div>
+		<section id="section6">
+		
+		<div class="left-panel details" style="display:none;" >
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">Hotel policies</h4>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;line-height:20px;font-size:12px;"  >
+				<strong>Check in/out:</strong> Hotel Check-in Time is 2 PM, Check-out Time is 12 PM.<br>
+
+				<strong>Cancellation Policy:</strong> Cancellation and prepayment policies vary according to room type.<br>Please check the Fare policy associated with your room.<br>
+
+				<strong>Extra Bed:</strong> The inclusion of extra bed with a booking is facilitated with a folding cot or a mattress as an extra bed.<br>
+
+				<strong>Payment Mode:</strong> You can pay now or you can pay at the hotel if your selected room type has this option.
+			</div>
+			
+		</div>
+		
+		</section>
+		<div class="padding">
+		</div>
+		
+		
+		<section id="section2">
+		
+		<div  class="left-panel details" ng-repeat="park in ParkDetail" ng-show="park.facilityType == 'R'">
+			
+			<h4 class="result_title14">{{park.facilityTypeTitle}}</h4>
+			<div class="padding">
+			</div>
+				
+		<div class="row">
+		<div class="col-xs-2">
+		<img src="../../assets/ResortsImages/{{park.facilityImage}}" alt="thumbnail" class="img-rounded" height="120" width="120" align="left">
+		<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;" ng-text-truncate="park.description" ng-tt-chars-threshold="100"></h6>
+		
+		</div>
+		<div class="col-xs-3" style="margin-left:15%;">
+		<h5 class="result_title14" style="color:#33349B;">About the Resort Information</h5>
+				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;" ng-text-truncate="park.facilityInRoomFacilites"ng-tt-chars-threshold="100" ></h6>
+        
+		</div>
+		<div class="col-xs-2" align="right">
+		<h6 class="result_title14" style="color:#C34F6B;font-weight:bold;">{{park.currentPrice | INR}}</h6>
+		</div>
+		<div class="col-xs-3" align="right">
+		<button type="button" class="btn  btn-md" style="background-color:#C34F6B;border:1px solid #C34F6B;color:white;" ng-click="BookPkgCall()">Book</button>
+		</div>
+		</div>
+
+		</div>
+		
+		</section>
+		
+
+		
+		
+		
+		
+		
+    
+
+
+<section id="section3">
+		<div class="left-panel"style="background-color:white;" >
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">User rating & reviews</h4>
+<br><span style="font-size:9px;">Read about experiences of fellow travellers who have stayed at this hotel.</span>
+			
+			<div class="row no-pad-mar" style="margin:0 6px 0 6px;line-height:20px;"  >
+				
+			</div>
+			
+		</div>
+
+
+</section>
+		
+
+
+
+
+
+	<section id="section5">
+
+		<div class="left-panel"style="background-color:white;" id="video section4" >
+			
+			
+				<h4 style="font-weight:bold;padding-left:1%;">Video</h4>
+			
+			   <iframe src="http://www.youtube.com/embed/W7qWa52k-nE"
+   width="720" height="400" frameborder="0" allowfullscreen></iframe>
+			
+			
+		</div>
+	 </section>
+	 
+	 <div class="padding">
+	 </div>
+	 
+    </div>
+	
+	
+   
+    
+	 <!-- <div class="col-sm-4 sidenav"> -->
+		<!-- <div class="left-panel"style="background-color:white;"> -->
+			<!-- <div class="row"> -->
+            <!-- <h4 style="font-weight:bold;padding-left:2%;">Package Summary</h4> -->
+            <!-- <div class="col-md-3 col-sm-6 offers-columns-padding" > -->
+			
+			
+                <!-- <div class="row no-pad-mar" align="center"> -->
+                	<!-- <a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/image_vta.png" alt="" height="40px" width="40px" ></a> -->
+                <!-- </div> -->
+                <!-- <div class="row no-pad-mar h4" align="center" style=" font-size:12px;">Upto 3 Stars</div> -->
+                
+            <!-- </div> -->
+            
+            <!-- <div class="col-md-3 col-sm-6 offers-columns-padding" > -->
+                <!-- <div class="row no-pad-mar" align="center"> -->
+                	<!-- <a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/image_cp.png" alt=""  height="40px" width="40px"></a> -->
+                <!-- </div> -->
+                 <!-- <div class="row no-pad-mar h4" align="center" style=" font-size:12px;">Meals</div> -->
+                
+            <!-- </div> -->
+            
+            <!-- <div class="col-md-3 col-sm-6 offers-columns-padding"> -->
+                <!-- <div class="row no-pad-mar" align="center"> -->
+                	<!-- <a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/image_cmq.png" alt=""  height="40px" width="40px"></a> -->
+                <!-- </div> -->
+                 <!-- <div class="row no-pad-mar h4" align="center" style=" font-size:12px;">Activities</div> -->
+               
+            <!-- </div> -->
+            
+            <!-- <div class="col-md-3 col-sm-6 offers-columns-padding" > -->
+                <!-- <div class="row no-pad-mar" align="center"> -->
+                	<!-- <a href="portfolio-item.html"><img class="img-responsive img-portfolio img-hover" src="../../assets/images/image_ms.png" alt="" height="40px" width="40px" ></a> -->
+                <!-- </div> -->
+                 <!-- <div class="row no-pad-mar h4" align="center" style=" font-size:12px;">Transport</div> -->
+              
+            <!-- </div> -->
+			
+			
+        <!-- </div> -->
+		<!-- <div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;"  > -->
+				<!-- <strong>Subscribe for best resorts</strong> <span style="float:right;font-size:12px;"><strong>Best Price Guarantee</strong></span> -->
+			<!-- </div> -->
+			<!-- <div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;"  > -->
+				<!-- <strong>RS/- 5000</strong> <span style="float:right;font-size:12px;"><strong>Verified Local Operation</strong></span> -->
+			<!-- </div> -->
+			<!-- <div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;"  > -->
+				 <!-- <span style="float:right;font-size:12px;"><strong>No Booking Fees</strong></span> -->
+			<!-- </div> -->
+			<!-- <div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;"  > -->
+				<!-- <button type="button" class="btn btn-primary btn-block" style="background-color:#313496;color:white;text-transform:upper;border:1px solid #313496;">customize & quotes</button> -->
+			<!-- </div> -->
+			<!-- <div class="row no-pad-mar" style="margin:0px;padding-top:3%;font-size:12px;" align="center" > -->
+				 <!-- <span style="font-size:12px;"><strong>Use Categery Gift Card</strong></span> -->
+			<!-- </div> -->
+		<!-- </div> -->
+
+		
+		
+	<!-- </div> -->
+	
+</DIV>
+</DIV>
+
+
+
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+  
+   
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>

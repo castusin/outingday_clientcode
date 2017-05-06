@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/ngProgress.css" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+    
+    <link href="../../assets/css/modern-business.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+	<link href="../../assets/css/detail.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+<link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+    <script src="../../assets/js/Angularjs/ng-text-truncate.js"></script>
+
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+
+    <script src="../../assets/app.js"></script>
+    <script src="../../assets/js/Angularjs/common.js"></script>
+    <script src="../../app/Resorts/ResortCtr.js"></script>
+    <script src="../../app/Resorts/ResortService.js"></script>
+    <script src="../../app/Resorts/ResortdetailCtr.js"></script>
+    <script src="../../app/Resorts/ResortdetailService.js"></script>
+    <script src="../../app/Resorts/packageDetailsCtr.js"></script>
+
+
+
+</head>
+<style>
+.no-pad-mar {
+    padding: 3px !important;
+    margin: 0 !important;
+}
+.btn-group-xs>.btn, .btn-xs {
+    padding: 1px 5px !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    border-radius:50% !important;
+	background-color:#1A80D9;
+	color:white;
+}
+body{
+background-color:#f3f3f3 !important;
+}
+</style>
+
+<body style="background-color:#f3f3f3;" ng-controller="packageDetailCtr" class="ng-cloak">
+
+   
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class=" navbar-top">
+		<span style="padding-left:5%; line-height:3;">
+		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
+		</span>
+		<!-- <span style=" float:right;color:white;padding-right:5%; line-height:3;"> -->
+		<!-- <a href="index.html" style="color:#ffbb39;margin-right:10px;">ComiCon</i></a> -->
+		<!-- <a href="index.html" style="color:white;margin-right:10px;">Blog</i></a> -->
+		
+		<!-- </span> -->
+		</div>
+        <div class="container" style="height:60px; margin-top:10px;">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+                <a class="navbar-brand" href="index.html">Outing<span>Day</span></a>
+				<a class="navbar-brand" style="font-size:16px;">Package Details</a>
+				<a class="navbar-brand" ><i class="fa fa-caret-right" aria-hidden="true" style="font-size:27px;color:#858585;"></i></a>
+				<a class="navbar-brand" style="font-size:16px; color:#858585 !important;">Confirmation Details</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row" align="center" style=" margin-top:10px;background-color:#313496; padding-bottom:5px;">
+                    <div class="col-lg-1 col-sm-hidden col-md-hidden col-xs-hidden" ></div>
+                    <div class="col-lg-7 col-sm-6 col-md-7 col-xs-12 " style="" align="center">
+                        <div class="input-group" align="center">
+                            <span class="input-group-btn" align="center">
+                               
+                            </span>
+                           
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-2  col-sm-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div> -->
+                </div>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    
+	  <header>
+      
+       <div style="padding-top:5%;">
+	   
+	   </div>
+
+      
+       
+    </header>
+	 
+
+	 <div class="container">
+	  <div class="row" style="padding:5px 5px ;">
+		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="color:black;">
+			<div class="padding">
+	</div>
+		</div> 
+		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" align="right">
+			
+		</div> 
+	 </div>
+	  <div class="container-fluid">
+  <div class="row content">
+    
+    <div class="col-sm-9 details">
+	
+	<div class="padding">
+	</div>
+	<h4 class="result_title14">Booking Package Details</h4>
+	<div class="padding">
+	</div>
+	
+	<div class="row input_buttons">
+   <div class="col-xs-6 ">
+   <div>
+		<button type="button" class="btn btn-custom" style="padding-left:3%;"><label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked=""> <span class="outer"><span class="inner"></span></span>
+    										<span class="labeltext "> <span class="label-txt lato-semibold block">Continue as Guest</span> 
+    									</span>
+    									</label>
+										</div>
+   </div>
+   <div class="col-xs-6" >
+   <div disabled="disabled">
+		<button type="button" class="btn btn-disabled" style="padding-left:3%;hover:none !important;" disabled="disabled" ><label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked="" disabled="disabled"> <span class="outer" disabled><span class="inner" disabled> </span></span>
+    										<span class="labeltext "> <span class="label-txt lato-semibold block">Continue with Login</span> 
+    									</span>
+    									</label>
+										</div>	
+   </div>
+   
+   
+</div>
+<div class="padding">
+	</div>
+      <div class="container-fluid">
+
+<form name="registration_form" id="registration_form" class="form-horizontal">
+     <div class="form-group">
+	 <div class="col-sm-4">
+             <label for="Title" class="package_form" >Title :</label>
+             <input id="firstname" class="form-control input-group-lg reg_name" type="text" name="firstname" title="MR / MRS" placeholder="MR / MRS">
+           </div> 
+           <div class="col-sm-4">
+             <label for="firstname" class="package_form" >First Name :</label>
+             <input id="firstname" class="form-control input-group-lg reg_name" type="text" name="firstname" title="Enter first name" placeholder="First name">
+           </div>       
+           <div class="col-sm-4">
+             <label for="lastname" class="package_form">Last Name :</label>
+             <input id="lastname" class="form-control input-group-lg reg_name" type="text" name="lastname" title="Enter last name" placeholder="Last name">
+           </div>
+    </div><!--/form-group-->
+  
+   <div class="form-group">
+	 <div class="col-sm-4">
+             <label for="Email" class="package_form" >Email :</label>
+             <input id="firstname" class="form-control input-group-lg reg_name" type="email" name="firstname" title="MR / MRS" placeholder="Email">
+           </div> 
+           <div class="col-sm-4">
+             <label for="firstname" class="package_form" >Phone Number :</label>
+             <input id="firstname" class="form-control input-group-lg reg_name" type="number" name="firstname" title="Enter first name" placeholder="Phone Number">
+           </div>       
+           
+    </div>
+ </form>
+
+</div>
+      
+      
+     <div class="padding">
+	</div>
+    </div>
+	
+	  <div class="col-sm-3 sidenav details">
+      <h5 class="result_title14">Choose your date</h5>
+	  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true" style="color:black;"></i></span>
+    <input id="email" type="text" class="form-control" name="email" placeholder="Date">
+  </div>
+  
+ 
+	  <br>
+	   <br> <br>
+	  
+	  
+	  <div class="row" align="center">
+	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;">Update Changes</button>
+	  </div>
+	  <div class="padding" >
+	</div>
+    </div>
+
+	
+	
+  </div>
+</div>
+<div class="padding" >
+	</div>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-6 sidenav details">
+      <h5 class="result_title14">Buffet</h5>
+	  
+  
+  
+	 	<div class="row" style=" padding:10px 5px 10px 5px; ">
+            		<!-- Popular 1 Begins -->
+                    <div class="col-md-6 col-sm-6 offers-columns-padding" >
+					
+                        <div class="row no-pad-mar" style="border:solid 1px #ccc;">
+                        	<div class="">
+                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar img-rounded" src="../../assets/images/pop_1.jpg" alt="" >                            </div>
+                            <div class="row">
+							<div class="col-sm-8">
+							  <h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Fe</h6>
+							</div>
+							<div class="col-sm-4">
+							
+							<h5 class="result_title14" style="color:#C34F5E;font-weight:bold;text-align:right;">RS 600</h5>
+							
+							
+							
+							<button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;">Add</button>
+							
+							<div class="padding2">
+							</div><br>
+							<div class="row" style="padding-top:1%;">
+							
+							<form class="form-inline">
+  
+					  <div class="input-group">
+					  
+					  <span class="input-group-btn">
+						  <button class="btn btn-default btn-xs" type="button">
+							<span class="glyphicon glyphicon-minus"></span>
+						  </button>
+						</span>
+						<input type="text" class="form-control" style="height:22px;border:none;width:10px;">
+						<span class="input-group-btn">
+						  <button class="btn btn-default btn-xs" type="button">
+							<span class="glyphicon glyphicon-plus"></span>
+						  </button>
+						</span>
+					  </div>
+					  </form>
+					  </div>
+							</div>
+							</div>
+                        </div>
+						
+						
+						<!-- <h6 class="result_title14" style="word-wrap:break-word;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Fe</h6> -->
+                    </div>
+                    <!-- Popular 1  Ends -->
+                    
+                    <!-- Popular 2 Begins -->
+                    <div class="col-md-6 col-sm-6 offers-columns-padding" >
+                        <div class="row no-pad-mar" style="border:solid 1px #ccc;">
+                        	<div>
+                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="../../assets/images/pop_2.jpg" alt="" >                            </div>
+                               <div class="row">
+							<div class="col-sm-8">
+							  <h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Fe</h6>
+							</div>
+							<div class="col-sm-4">
+							
+							<h5 class="result_title14" style="color:#C34F5E;font-weight:bold;text-align:right;">RS 600</h5>
+							
+							
+							
+							<button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;">Add</button>
+							
+							<div class="padding2">
+							</div>
+							<br>
+							<div class="row" style="padding-top:1%;">
+							
+							<form class="form-inline">
+  
+					  <div class="input-group">
+					  
+					  <span class="input-group-btn">
+						  <button class="btn btn-default btn-xs" type="button">
+							<span class="glyphicon glyphicon-minus"></span>
+						  </button>
+						</span>
+						<input type="text" class="form-control" style="height:22px;border:none;width:10px;">
+						<span class="input-group-btn">
+						  <button class="btn btn-default btn-xs" type="button">
+							<span class="glyphicon glyphicon-plus"></span>
+						  </button>
+						</span>
+					  </div>
+					  </form>
+					  </div>
+							</div>
+							</div>
+                        </div>
+						
+                    </div>
+                    <!-- Popular 2  Ends -->
+                </div>
+	  
+	  <div class="padding" >
+	</div>
+    </div>
+	
+	
+	
+	<!-- <second div> -->
+	
+	
+	
+
+    <div class="col-sm-6 details" >
+	 <div class="padding" >
+	</div>
+	<h4 class="result_title14">Travel Confirmation</h4>
+	<h6 class="result_title14" style="color:#33349B;">Golconda Resorts</h6>
+	
+	<div class="container">
+    <div class="row">
+        <div class="col-md-2" style="padding-left:2px;!important">
+            <img src="../../assets/ResortsImages/51.jpg" alt="thumbnail" class="img-rounded" height="150" width="150" align="left">
+        
+		</div>
+        <div class="col-md-4">
+            	
+				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Featuring wood interiors, the chic villas feature free Wi-Fi and TVs, plus tea and coffeemaking facilities, and living areas. Some add balconies. Upgraded villas offer sleek decor and private gardens, and split-level villas include living rooms. Luxury upgrades come with private pools and butler service</h6>
+        </div>
+    </div>
+</div>
+ <div class="padding" >
+	</div>
+	<h4 class="result_title14">Package Information</h4>
+	<div class="padding2">
+	</div>
+	<div class="card" style="padding-left:1%;">
+  <div class="card-block cardcss">
+    <h6 class="result_title15">Room 1</h6>
+	<h6 class="result_title14 transparenttext">Adult - 1 , Children - 2</h6>
+  </div>
+</div>
+<div class="padding2">
+	</div>
+	<div class="card" style="padding-left:1%;">
+  <div class="card-block cardcss">
+    <h6 class="result_title15">Date</h6>
+	<h6 class="result_title14 transparenttext">02-05-2017</h6>
+  </div>
+</div>
+<!-- <div class="padding2"> -->
+	<!-- </div> -->
+	<!-- <div class="card" style="padding-left:1%;"> -->
+  <!-- <div class="card-block cardcss"> -->
+    <!-- <h6 class="result_title15">Meal Plan</h6> -->
+	<!-- <h6 class="result_title14 transparenttext">Room Only</h6> -->
+  <!-- </div> -->
+<!-- </div> -->
+<div class="padding2">
+	</div>
+	<div class="card" style="padding-left:1%;">
+  <div class="card-block cardcss">
+    <h6 class="result_title15">Price Breakup</h6><p class="result_title16 price_color">8,125 INR</p>
+	
+	<h6 class="result_title14 transparenttext">One Room X Two Nights</h6>
+  </div>
+</div>
+<div class="padding2">
+	</div>
+	<div class="card" style="padding-left:1%;">
+  <div class="card-block cardcss">
+    <h6 class="result_title15">Coupon</h6><p class="result_title17 price_color">0.00 INR</p>
+	<h6 class="result_title14" style="color:transparent;">One Room X Two Nights</h6>
+
+  </div>
+</div>
+<div class="padding2">
+	</div>
+	<div class="card" style="padding-left:1%;">
+  <div class="card-block cardcss">
+    <h6 class="result_title15">Promo Discount</h6><p class="result_title17 price_color">0.00 INR</p>
+	<h6 class="result_title14 transparenttext" style="color:transparent;">One Room X Two Nights</h6>
+
+  </div>
+</div>
+<div class="padding2">
+	</div>
+	<div class="card" style="padding-left:1%;">
+  <div class="card-block cardcss">
+    <h6 class="result_title15">Service Tax</h6><p class="result_title17 price_color">0.00 INR</p>
+	<h6 class="result_title14" style="color:transparent;">One Room X Two Nights</h6>
+
+  </div>
+  <div class="padding2">
+	</div>
+	<div class="card">
+  <div class="card-block cardcss">
+    <div class="row">
+        <div class="col-md-6" style="padding-left:3%;">
+			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Buffet</h6>
+			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
+			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>
+        </div>			
+				   
+		 <div class="col-md-6" align="right">
+		  <h6 class="result_title18 price_color">600.00 INR</h6>
+           <h6 class="result_title18 price_color">450.00 INR</h6>
+		    <h6 class="result_title18 price_color">325.00 INR</h6>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="padding2">
+	</div>
+	<div class="card" >
+  <div class="card-block cardcss">
+  
+    <h6 class="result_title15">Total</h6><p class="result_title19 ">9,500 INR</p>
+	<h6 class="result_title14 transparenttext" >One Room X Two Nights</h6>
+
+  </div>
+<div class="padding">
+	</div>
+	 <div class="row" align="center">
+	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;" ng-click="paymentCall()">Proceed</button>
+	  </div>
+	  <div class="padding">
+	</div>
+      </div>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="padding" >
+	</div>
+
+</DIV>
+</DIV>
+
+
+
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+    
+  
+    <script src="../../assets/js/jquery.js"></script>
+
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>

@@ -10,6 +10,80 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
 
             debugger;
 
+        $scope.offersList =[
+            {
+
+                offerimg : "offer_1.jpg",
+                offerdes : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .",
+
+                offerrating : "Starting rating - 1500/-"
+
+            },
+            {
+                offerimg : "offer_2.jpg",
+                offerdes : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .",
+                offerrating : "Starting rating - 1200/-"
+            },
+            {
+                offerimg : "offer_3.jpg",
+                offerdes : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .",
+                offerrating : "Starting rating - 2000/-"
+            },
+            {
+                offerimg : "offer_4.jpg",
+                offerdes : "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .",
+                offerrating : "Starting rating - 2500/-"
+            }
+        ]
+
+
+        $scope.popularCategoryList =[
+            {
+                popularname : "Golkonda Resorts & Spa",
+                popularimg : "pop_1.jpg",
+                populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
+
+                popularrating : "4.1"
+
+            },
+            {
+                popularname : "Summer Green Resort",
+                popularimg : "pop_2.jpg",
+                populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
+
+                popularrating : "4.1"
+            },
+            {
+                popularname : "Dream Valley Resort",
+                popularimg : "pop_3.jpg",
+                populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
+
+                popularrating : "4.1"
+            },
+            {
+                popularname : "Mrugavani Resort and Spa",
+                popularimg : "pop_4.jpg",
+                populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
+
+                popularrating : "4.1"
+            } ,
+            {
+                popularname : "Mrugavani Resort and Spa",
+                popularimg : "pop_4.jpg",
+                populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
+
+                popularrating : "4.1"
+            },
+            {
+                popularname : "Mrugavani Resort and Spa",
+                popularimg : "pop_4.jpg",
+                populardes : "This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.",
+
+                popularrating : "4.1"
+            }
+        ]
+
+
 
             this.myDate = new Date();
             this.isOpen = false;
@@ -181,8 +255,15 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
             debugger;
         }
 
+        if( $localStorage.localAreas == undefined){
+            debugger;
+            $scope.regionModel = function(){ return  "SELECT A REGION"; }
+        }
+        else{
+            debugger;
+            $scope.regionModel = function(){ return  $localStorage.modelsearch.cityName; }
+        }
 
-        $scope.regionModel = function(){ return  $localStorage.modelsearch.cityName; }
 
     $scope.MainSearch=function(){
         debugger;
@@ -211,8 +292,8 @@ app.controller('MainCtr',['$scope','$state','$window','$rootScope','$localStorag
 }]);
 
 
-app.controller('modalController', ['$scope','$state','$window','$rootScope','$localStorage' ,'$timeout','$q','$log','$mdUtil','getParksLocalArea','$mdDialog',
-                            function($scope,$state,$window,$rootScope,$localStorage,$timeout,$q,$log,$mdUtil,getParksLocalArea,$mdDialog) {
+app.controller('modalController', ['$scope','$state','$window','$rootScope','$localStorage' ,'$timeout','$q','$log','$mdUtil','getParksLocalArea','$mdDialog','ngProgressFactory',
+                            function($scope,$state,$window,$rootScope,$localStorage,$timeout,$q,$log,$mdUtil,getParksLocalArea,$mdDialog,ngProgressFactory) {
 
 
         debugger;
@@ -273,8 +354,19 @@ app.controller('modalController', ['$scope','$state','$window','$rootScope','$lo
             cityId:"10000004",
             cityName : "Bangalore"
 
-        }
+        } ,
+            {stateId:10000002,
+                stateName:"Telangana",
+                cityId:"10000005",
+                cityName : "Vizag"
 
+            } ,
+            {stateId:10000002,
+                stateName:"Telangana",
+                cityId:"10000006",
+                cityName : "Kolkata"
+
+            }
     ];
     return repos.map( function (repo) {
         repo.value = repo.cityName.toLowerCase();
@@ -301,15 +393,26 @@ app.controller('modalController', ['$scope','$state','$window','$rootScope','$lo
 
           var localArea =   $scope.ctrl.selectedItem.cityId;
 
+          /*-------------  loader starts --------------*/
+
+              debugger;
+          $scope.progressbar = ngProgressFactory.createInstance();
+          $scope.progressbar.start();
+          $scope.progressbar.setColor('#EC971F');
+          $scope.progressbar.setHeight('4px');
+
           getParksLocalArea.ParksLocalAreaDataService(localArea).then(function(localAreaInfo){
               debugger;
               if(localAreaInfo.responseCode == 200){
                   debugger;
+
                   $localStorage.localAreas =   localAreaInfo.resultObject;
+                  $timeout($scope.progressbar.complete(), 1000);
                   $scope.$dismiss();
               }
 
               else{
+                  $timeout($scope.progressbar.complete(), 1000);
 
                   $scope.$dismiss();
               }

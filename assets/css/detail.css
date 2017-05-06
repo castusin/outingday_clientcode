@@ -1,0 +1,196 @@
+/* jssor slider arrow navigator skin 02 css */
+        /*
+        .jssora02l                  (normal)
+        .jssora02r                  (normal)
+        .jssora02l:hover            (normal mouseover)
+        .jssora02r:hover            (normal mouseover)
+        .jssora02l.jssora02ldn      (mousedown)
+        .jssora02r.jssora02rdn      (mousedown)
+        .jssora02l.jssora02lds      (disabled)
+        .jssora02r.jssora02rds      (disabled)
+        */
+        .jssora02l, .jssora02r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url('../../assets/images/a02.png') no-repeat;
+            overflow: hidden;
+        }
+        .jssora02l { background-position: -3px -33px; }
+        .jssora02r { background-position: -63px -33px; }
+        .jssora02l:hover { background-position: -123px -33px; }
+        .jssora02r:hover { background-position: -183px -33px; }
+        .jssora02l.jssora02ldn { background-position: -3px -33px; }
+        .jssora02r.jssora02rdn { background-position: -63px -33px; }
+        .jssora02l.jssora02lds { background-position: -3px -33px; opacity: .3; pointer-events: none; }
+        .jssora02r.jssora02rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
+        /* jssor slider thumbnail navigator skin 03 css *//*.jssort03 .p            (normal).jssort03 .p:hover      (normal mouseover).jssort03 .pav          (active).jssort03 .pdn          (mousedown)*/.jssort03 .p {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;}.jssort03 .t {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;    border: none;}.jssort03 .w, .jssort03 .pav:hover .w {    position: absolute;    width: 60px;    height: 30px;    border: white 1px dashed;    box-sizing: content-box;}.jssort03 .pdn .w, .jssort03 .pav .w {    border-style: solid;}.jssort03 .c {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;    background-color: #000;    filter: alpha(opacity=45);    opacity: .45;    transition: opacity .6s;    -moz-transition: opacity .6s;    -webkit-transition: opacity .6s;    -o-transition: opacity .6s;}.jssort03 .p:hover .c, .jssort03 .pav .c {    filter: alpha(opacity=0);    opacity: 0;}.jssort03 .p:hover .c {    transition: none;    -moz-transition: none;    -webkit-transition: none;    -o-transition: none;}* html .jssort03 .w {    width /**/: 62px;    height /**/: 32px;}
+
+		/* Writing for More/Less in Info */
+
+			a {
+				color: #0254EB
+			}
+			a:visited {
+				color: #0254EB
+			}
+			a.morelink {
+				text-decoration:none;
+				outline: none;
+			}
+			.morecontent span {
+				display: none;
+			}
+			.comment {
+								
+				margin: 10px;
+			}
+
+			.imgContainer{
+                    float:left;
+					width:200px;
+             }
+
+			/* Writing for More/Less in Info - End */
+
+				.post-container {
+				margin: 20px 20px 0 0;  
+				
+				overflow: auto
+				}
+				.post-thumb {
+				float: left
+				}
+				.post-thumb img {
+				display: block
+				}
+				.post-content {
+				margin-left: 210px
+				}
+				.post-title {
+				font-weight: bold;
+				font-size: 200%
+				}
+
+				.dupa {
+                 text-decoration: line-through;
+              }
+
+			#ret_but {
+			background: #FFF;
+			border: 2px solid #FF0000;
+			border-radius: 5px;
+			color: #FF0000;
+			cursor: pointer;
+			display: block;
+			font-family: Tahoma;
+			font-size: 14px;
+			font-weight: bold;
+			height: 30px;
+			line-height: normal;
+			width: 80px;
+			}
+.D_container{
+	height:60px; 
+	margin-top:10px;
+}
+.D_row{
+	margin-top:10px;
+	background-color:#313496;
+	padding-bottom:5px;
+}
+.D_dropdown{
+	width:100%; 
+	float:left;
+}
+.D_dropdown_span{
+	width:20%;
+	float:left;
+}
+.D_dropdown_span2{
+	width:80%;
+	float:left;
+	padding-top:4px;
+}
+.D_coursel{
+	position:relative;
+	margin:0 auto;
+	top:0px;
+	left:0px;
+	width:600px;
+	height:300px;
+	overflow:hidden;
+	visibility:hidden;
+}
+.D_coursel_div{
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color:rgba(0,0,0,0.7);
+}
+.D_coursel_inner{
+	filter: alpha(opacity=70);
+	opacity: 0.7; 
+	position: absolute;
+	display: block;
+	top: 0px; 
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+.D_coursel_inner1{
+	cursor:default;
+	position:relative;
+	top:0px;
+	left:0px;
+	width:600px;
+	height:300px;
+	overflow:hidden;
+}
+.jssort03{
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	width:600px;
+	height:60px;
+}
+.js{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	filter:alpha(opacity=30.0);
+	opacity:0.3;
+}
+.jssora02l{
+	top:0px;
+	left:8px;
+	width:55px;
+	height:55px;
+}
+.jssora02r{
+	top:0px;
+	right:8px;
+	width:55px;
+	height:55px;
+}
+.D_css{
+	background-color:white;
+	width:100%;
+	display:inline-block;
+}
+.D_policies{
+	margin:0 6px 0 6px;
+	line-height:20px;
+	font-size:12px;
+}
+body.md-default-theme, body, html.md-default-theme, html {
+    color: rgba(0,0,0,0.87);
+    /* background-color: rgb(250,250,250); */
+	background-color: transparent!important;
+}

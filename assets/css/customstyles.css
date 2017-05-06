@@ -619,7 +619,7 @@ Copyrights Styles Start
 	margin-top:20px;
 }
 .left-panel ul li {
-	display:block;
+	/*display:block;*/
 	height:34px;
 	line-height:34px;
 	text-align:left;
