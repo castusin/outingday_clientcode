@@ -492,9 +492,10 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
 
 
 
-        $scope.bookResort= function(parkId){
+        $scope.bookResort= function(parkId,res){
 
             debugger;
+            $localStorage.res = res;
             $localStorage.parkId = parkId;
             $window.location='../Resorts/Details.html';
         }

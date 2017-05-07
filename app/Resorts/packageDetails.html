@@ -294,8 +294,19 @@ background-color:#f3f3f3 !important;
 							<div class="padding2">
 							</div><br>
 							<div class="row" style="padding-top:1%;">
-							
-							<form class="form-inline">
+
+                                <form id='myform' >
+                                  <!--  <md-button class="md-fab" aria-label="Eat cake" ng-click="decrement()" ng-disabled="qty<=0">
+                                        <md-icon md-svg-src="../../assets/images/add.svg"></md-icon>
+                                    </md-button>-->
+                                    <button ng-click="decrement()" class='qtyminus' ng-disabled="qty<=0">-</button>
+                                    <input  ng-model="qty" type='text' name='quantity' class='qty' style="height:22px;border:none;width:20px;"/>
+                                    <button ng-click="increment()">+</button>
+                                    <!--<md-button class="md-fab" aria-label="Eat cake" ng-click="increment()">
+                                        <md-icon md-svg-src="../../assets/images/remove.svg"></md-icon>
+                                    </md-button>-->
+                                </form>
+						<!--	<form class="form-inline">
   
 					  <div class="input-group">
 					  
@@ -311,7 +322,7 @@ background-color:#f3f3f3 !important;
 						  </button>
 						</span>
 					  </div>
-					  </form>
+					  </form>-->
 					  </div>
 							</div>
 							</div>
@@ -385,17 +396,18 @@ background-color:#f3f3f3 !important;
 	 <div class="padding" >
 	</div>
 	<h4 class="result_title14">Travel Confirmation</h4>
-	<h6 class="result_title14" style="color:#33349B;">Golconda Resorts</h6>
+
 	
 	<div class="container">
+        <h6 class="result_title14" style="color:#33349B;">{{resListName}}</h6>
     <div class="row">
         <div class="col-md-2" style="padding-left:2px;!important">
-            <img src="../../assets/ResortsImages/51.jpg" alt="thumbnail" class="img-rounded" height="150" width="150" align="left">
+            <img src="../../assets/ResortsImages/{{resListPhoto}}" alt="thumbnail" class="img-rounded" height="150" width="150" align="left">
         
 		</div>
         <div class="col-md-4">
-            	
-				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Featuring wood interiors, the chic villas feature free Wi-Fi and TVs, plus tea and coffeemaking facilities, and living areas. Some add balconies. Upgraded villas offer sleek decor and private gardens, and split-level villas include living rooms. Luxury upgrades come with private pools and butler service</h6>
+
+				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;" >{{resListDes}}</h6>
         </div>
     </div>
 </div>
