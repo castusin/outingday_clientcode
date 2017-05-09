@@ -21,6 +21,7 @@
     <link href="../../assets/css/modern-business.css" rel="stylesheet">
     <link href="../../assets/css/styles.css" rel="stylesheet">
 	<link href="../../assets/css/detail.css" rel="stylesheet">
+	<link href="../../assets/css/packagecss.css" rel="stylesheet">
     <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -62,21 +63,7 @@
 
 </head>
 <style>
-.no-pad-mar {
-    padding: 3px !important;
-    margin: 0 !important;
-}
-.btn-group-xs>.btn, .btn-xs {
-    padding: 1px 5px !important;
-    font-size: 12px !important;
-    line-height: 1.5 !important;
-    border-radius:50% !important;
-	background-color:#1A80D9;
-	color:white;
-}
-body{
-background-color:#f3f3f3 !important;
-}
+
 </style>
 
 <body style="background-color:#f3f3f3;" ng-controller="packageDetailCtr as ctrl" class="ng-cloak">
@@ -84,7 +71,7 @@ background-color:#f3f3f3 !important;
    
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     	<div class=" navbar-top">
-		<span style="padding-left:5%; line-height:3;">
+		<span style="padding-left:5%; line-height:3.5;">
 		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
 		</span>
 		<!-- <span style=" float:right;color:white;padding-right:5%; line-height:3;"> -->
@@ -153,7 +140,7 @@ background-color:#f3f3f3 !important;
 	  <div class="container-fluid">
   <div class="row content">
     
-    <div class="col-sm-9 details">
+    <div class="col-sm-8 details1">
 	
 	<div class="padding">
 	</div>
@@ -164,7 +151,7 @@ background-color:#f3f3f3 !important;
 	<div class="row input_buttons">
    <div class="col-xs-6 ">
    <div>
-		<button type="button" class="btn btn-custom" style="padding-left:3%;"><label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked=""> <span class="outer"><span class="inner"></span></span>
+		<button type="button" class="btn btn-custom btn-md" style="padding-left:3%;"><label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked=""> <span class="outer"><span class="inner"></span></span>
     										<span class="labeltext "> <span class="label-txt lato-semibold block">Continue as Guest</span> 
     									</span>
     									</label>
@@ -172,7 +159,7 @@ background-color:#f3f3f3 !important;
    </div>
    <div class="col-xs-6" >
    <div disabled="disabled">
-		<button type="button" class="btn btn-disabled" style="padding-left:3%;hover:none !important;" disabled="disabled" ><label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked="" disabled="disabled"> <span class="outer" disabled><span class="inner" disabled> </span></span>
+		<button type="button" class="btn btn-disabled btn-md" style="padding-left:3%;hover:none !important;" disabled="disabled" ><label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked="" disabled="disabled"> <span class="outer" disabled><span class="inner" disabled> </span></span>
     										<span class="labeltext "> <span class="label-txt lato-semibold block">Continue with Login</span> 
     									</span>
     									</label>
@@ -267,41 +254,41 @@ background-color:#f3f3f3 !important;
 	</div>
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-6 sidenav details">
-      <h5 class="result_title14">Buffet</h5>
+    <div class="col-sm-5 sidenav details1">
+     <!-- <h5 class="result_title14">Buffet</h5>-->
 	  
   
   
 	 	<div class="row" style=" padding:10px 5px 10px 5px; ">
             		<!-- Popular 1 Begins -->
                     <div class="col-md-6 col-sm-6 offers-columns-padding" ng-repeat="bookpark in bookParkList" ng-show="bookpark.facilityType == 'O'">
-					
+                        <h5 class="result_title14">{{bookpark.facilityTypeTitle}}</h5>
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;">
                         	<div class="">
                             	<img class="img-responsive img-portfolio img-hover  no-pad-mar img-rounded" src="../../assets/ResortsImages/{{bookpark.facilityImage}}" alt="" >                            </div>
                             <div class="row">
-							<div class="col-sm-8">
-                                <h6 class="result_title14" style="word-wrap:break-word;font-size:13px;" ng-text-truncate="bookpark.facilityInRoomFacilites"ng-tt-chars-threshold="100" ></h6>
+							<div class="col-sm-7">
+                                <h6 class="result_title14" style="word-wrap:break-word;font-size:13px;font-family: Open Sans !important;" ng-text-truncate="bookpark.facilityInRoomFacilites"ng-tt-chars-threshold="100" ></h6>
 							</div>
 							<div class="col-sm-4">
 							
-							<h5 class="result_title14" style="color:#C34F5E;font-weight:bold;text-align:right;">{{bookpark.currentPrice | INR}}</h5>
+							<h5 class="result_title14" style="color:#C34F5E;font-weight:bold !important;;text-align:right;font-size:14px;font-family: Open Sans !important;">{{bookpark.currentPrice | INR}}</h5>
 							
 							
 							
-							<button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;">Add</button>
+							<button type="button" class="btn  btn-md" ng-click="add=true;totalPrice=true;addBookCall(bookpark)" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;">Add</button>
 							
 							<div class="padding2">
 							</div><br>
-							<div class="row" style="padding-top:1%;">
+							<div class="row" ng-show="add"   style="padding-top:1%;">
 
                                 <form id='myform' >
                                   <!--  <md-button class="md-fab" aria-label="Eat cake" ng-click="decrement()" ng-disabled="qty<=0">
                                         <md-icon md-svg-src="../../assets/images/add.svg"></md-icon>
                                     </md-button>-->
-                                    <button ng-click="decrement()" class='qtyminus' ng-disabled="qty<=0">-</button>
-                                    <input  ng-model="qty" type='text' name='quantity' class='qty' style="height:22px;border:none;width:20px;"/>
-                                    <button ng-click="increment()">+</button>
+                                    <button ng-click="qty=qty-1;subCall(bookpark)" class='qtyminus'  ng-disabled="qty<=0">-</button>
+                                    <input  ng-model="qty" type='text' name='quantity' class='qty' style="height:22px;border:none;width:20px;text-align:center;"/>
+                                    <button ng-click="qty=qty+1;addCall(bookpark)">+</button>
                                     <!--<md-button class="md-fab" aria-label="Eat cake" ng-click="increment()">
                                         <md-icon md-svg-src="../../assets/images/remove.svg"></md-icon>
                                     </md-button>-->
@@ -407,7 +394,7 @@ background-color:#f3f3f3 !important;
 		</div>
         <div class="col-md-4">
 
-				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;" >{{resListDes}}</h6>
+				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;" >{{resListDes}}</h6>
         </div>
     </div>
 </div>
@@ -418,16 +405,16 @@ background-color:#f3f3f3 !important;
 	</div>
 	<div class="card" style="padding-left:1%;">
   <div class="card-block cardcss">
-    <h6 class="result_title15">Room 1</h6>
-	<h6 class="result_title14 transparenttext">Adult - 1 , Children - 2</h6>
+    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Room 1</h6>
+	<h6 class="result_title14 transparenttext" style="word-wrap:break-word;font-size:13px;padding-right:6%;font-family: Open Sans !important;">Adult - 1 , Children - 2</h6>
   </div>
 </div>
 <div class="padding2">
 	</div>
 	<div class="card" style="padding-left:1%;">
   <div class="card-block cardcss">
-    <h6 class="result_title15">Date</h6>
-	<h6 class="result_title14 transparenttext">02-05-2017</h6>
+    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Date</h6>
+	<h6 class="result_title14 transparenttext" style="word-wrap:break-word;font-size:13px;padding-right:6%;font-family: Open Sans !important;">02-05-2017</h6>
   </div>
 </div>
 <!-- <div class="padding2"> -->
@@ -442,16 +429,16 @@ background-color:#f3f3f3 !important;
 	</div>
 	<div class="card" style="padding-left:1%;">
   <div class="card-block cardcss">
-    <h6 class="result_title15">Price Breakup</h6><p class="result_title16 price_color">8,125 INR</p>
+    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Price Breakup</h6><p class="result_title16 price_color">{{bookParkcurrentPrice | INR}}</p>
 	
-	<h6 class="result_title14 transparenttext">One Room X Two Nights</h6>
+	<h6 class="result_title14 transparenttext" style="word-wrap:break-word;font-size:13px;padding-right:6%;font-family: Open Sans !important;">One Room X Two Nights</h6>
   </div>
 </div>
 <div class="padding2">
 	</div>
 	<div class="card" style="padding-left:1%;">
   <div class="card-block cardcss">
-    <h6 class="result_title15">Coupon</h6><p class="result_title17 price_color">0.00 INR</p>
+    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Coupon</h6><p class="result_title17 price_color">0.00 INR</p>
 	<h6 class="result_title14" style="color:transparent;">One Room X Two Nights</h6>
 
   </div>
@@ -460,7 +447,7 @@ background-color:#f3f3f3 !important;
 	</div>
 	<div class="card" style="padding-left:1%;">
   <div class="card-block cardcss">
-    <h6 class="result_title15">Promo Discount</h6><p class="result_title17 price_color">0.00 INR</p>
+    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Promo Discount</h6><p class="result_title17 price_color">0.00 INR</p>
 	<h6 class="result_title14 transparenttext" style="color:transparent;">One Room X Two Nights</h6>
 
   </div>
@@ -477,17 +464,17 @@ background-color:#f3f3f3 !important;
 	</div>
 	<div class="card">
   <div class="card-block cardcss">
-    <div class="row">
+    <div class="row" ng-repeat="facility in FacilityNameList">
         <div class="col-md-6" style="padding-left:3%;">
-			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Buffet</h6>
-			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
-			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>
+			<h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>{{facility.facilityTypeTitle}}</h6>
+			<!--<h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
+			<h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>-->
         </div>			
 				   
 		 <div class="col-md-6" align="right">
-		  <h6 class="result_title18 price_color">600.00 INR</h6>
-           <h6 class="result_title18 price_color">450.00 INR</h6>
-		    <h6 class="result_title18 price_color">325.00 INR</h6>
+		  <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">{{facility.currentPrice | INR}}</h6>
+         <!--  <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">450.00 INR</h6>
+		    <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">325.00 INR</h6>-->
         </div>
     </div>
   </div>
@@ -495,16 +482,22 @@ background-color:#f3f3f3 !important;
 <div class="padding2">
 	</div>
 	<div class="card" >
-  <div class="card-block cardcss">
+       <!-- <div class="card-block cardcss" >
+
+            <h6 class="result_title15">Total</h6><p class="result_title19 ">{{bookParkcurrentPrice | INR}}</p>
+            <h6 class="result_title14 transparenttext" >One Room X Two Nights</h6>
+
+        </div>-->
+  <div class="card-block cardcss" >
   
-    <h6 class="result_title15">Total</h6><p class="result_title19 ">9,500 INR</p>
+    <h6 class="result_title15">Total</h6><p class="result_title19 ">{{sum | INR}}</p>
 	<h6 class="result_title14 transparenttext" >One Room X Two Nights</h6>
 
   </div>
 <div class="padding">
 	</div>
 	 <div class="row" align="center">
-	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;" ng-click="paymentCall()">Proceed</button>
+	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;" ng-click="paymentCall()">Proceed</button>
 	  </div>
 	  <div class="padding">
 	</div>

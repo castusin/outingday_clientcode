@@ -69,7 +69,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     	<div class=" navbar-top">
-		<span style="padding-left:5%; line-height:4;">
+		<span style="padding-left:5%; line-height:4.5;">
 		<a href="index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>		</span>
 		<span style=" float:right;color:white;padding-right:5%; line-height:3;">
 		<!--<a href="#"><i style="color:#ffbb39;margin-right:10px;" >ComiCon</i></a>-->
@@ -205,7 +205,7 @@
             <div class="col-md-3 col-sm-6 offers-columns-padding" ng-repeat="offer in offersList" href="#" ng-click="offerCall(offer.offerparkId)">
                 <div class="row no-pad-mar">
                 	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/ResortsImages/offers/{{offer.offerimg}}" alt="" ></a>                </div>
-                <div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
+                <div class="row no-pad-mar" style="margin:0 6px 0 6px; font-size:14px;"  >
                 	{{offer.offerdes}}               </div>
                 
                 <div class="row">&nbsp;</div>
@@ -264,18 +264,18 @@
             	<div class="row" style=" padding:10px 5px 10px 5px; "  >
             		<!-- Popular 1 Begins -->
                     <div class="col-md-6 col-sm-6 offers-columns-padding"  ng-repeat="popularCategory in popularCategoryList" href="#" ng-click="popularCall(popularCategory.popularparkId)">
-                        <div class="row no-pad-mar" style="border:solid 1px #ccc;margin:1%;" >
+                        <div class="row no-pad-mar" style="border:solid 1px #ccc;margin:1%;background-color:white;" >
                         	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
                             	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/ResortsImages/PopularCategory/{{popularCategory.popularimg}}" alt="" >                            </div>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
-                            	<div class="row no-pad-mar" style="padding:5px 0 5px 0;">
-                                	<strong>{{popularCategory.popularname}}</strong>                                </div>
-                            	<div class="row no-pad-mar h6 " >
+                            	<div class="row no-pad-mar" style="padding:5px 0 5px 0;font-zize:14px;">
+                                	<strong style="font-zize:14px;"> {{popularCategory.popularname}}</strong>                                </div>
+                            	<div class="row no-pad-mar h6 " style="font-zize:14px;" >
                                     {{popularCategory.populardes}}                            </div>
                                 <div class="row no-pad-mar">
                                 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
                                     	<div class="row "><meter value="4.1" min="0" max="5" >&nbsp;</meter></div>
-                                    	<div class="row">reviews</div>
+                                    	<div class="row" style="font-zize:14px;">reviews</div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
                                     	<span style="background-color:#227f4c; color:#fff;padding:5px;">{{popularCategory.popularrating}}</span>                                    </div>

@@ -126,24 +126,24 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
         ];
 
         $scope.GetTypesMastersList=[
-            {Id:1,typename:'Friends (30)'},
-            {Id:2,typename:'Family&Kids (32)'},
-            {Id:3,typename:'Corpotare Team (23)'},
-            {Id:4,typename:'Couples (28)'},
-            {Id:5,typename:'Join a group (3)'},
-            {Id:6,typename:'Solo(1)'}
+            {Id:1,typename:'Friends ',typeCount:''},
+            {Id:2,typename:'Family&Kids ',typeCount:''},
+            {Id:3,typename:'Corpotare Team ',typeCount:''},
+            {Id:4,typename:'Couples ',typeCount:''},
+            {Id:5,typename:'Join a group ',typeCount:''},
+            {Id:6,typename:'Solo ',typeCount:''}
         ];
 
         $scope.GetNatureMastersList=[
-            {Id:1,NatureName:'Day Outs (28)'},
-            {Id:2,NatureName:'Family fun (13)'},
-            {Id:3,NatureName:'Perfect for Monsoon (12)'},
-            {Id:4,NatureName:'Sports & Games (4)'},
-            {Id:5,NatureName:'Adventure Special (4)'},
-            {Id:6,NatureName:'Team Experiances (2)'},
-            {Id:7,NatureName:'Food & Drinks (2)'},
-            {Id:8,NatureName:'Spa & Rejuvanation (1)'},
-            {Id:9,NatureName:'Night life (1)'}
+            {Id:1,NatureName:'Day Outs ',NatureCount:''},
+            {Id:2,NatureName:'Family fun ',NatureCount:''},
+            {Id:3,NatureName:'Perfect for Monsoon ',NatureCount:''},
+            {Id:4,NatureName:'Sports & Games ',NatureCount:''},
+            {Id:5,NatureName:'Adventure Special ',NatureCount:''},
+            {Id:6,NatureName:'Team Experiances ',NatureCount:''},
+            {Id:7,NatureName:'Food & Drinks ',NatureCount:''},
+            {Id:8,NatureName:'Spa & Rejuvanation ',NatureCount:''},
+            {Id:9,NatureName:'Night life ',NatureCount:''}
         ];
 
         $scope.GetDurationMasterList=[
@@ -214,45 +214,80 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
         $scope.progressbar.setColor('#EC971F');
         $scope.progressbar.setHeight('4px');
 
-        var parks =  $localStorage.searchInput;
-		$('#img-load').show();
-        GetParksInfo.GetParksService(parks).then(function(ParksInfo){
-            debugger;
-            if(ParksInfo.responseCode == 200){
-                $timeout($scope.progressbar.complete(), 1000);
-				$('#img-load').hide();
+        $scope.parks =  $localStorage.searchInput;
+
+
+        $scope.LoadFunction=function(){
+            $('#img-load').show();
+            $('#img-load1').show();
+            GetParksInfo.GetParksService($scope.parks).then(function(ParksInfo){
                 debugger;
-
-                $scope.makeTodos = function() {
-                    $scope.todos = [];
+                if(ParksInfo.responseCode == 200){
+                    $timeout($scope.progressbar.complete(), 1000);
+                    $('#img-load').hide();
+                    $('#img-load1').hide();
                     debugger;
-                    $scope.OrgDataList=ParksInfo.resultObject;
-                    $scope.GetOurSearchInfoList=ParksInfo.resultObject;
-                    $scope.todos = ParksInfo.resultObject;
-                    var data = $.grep($scope.todos,function(td){}).parktype;
-                };
-                $scope.makeTodos();
 
-                $scope.$watch('currentPage + numPerPage', function() {
-                    $timeout(function() {
-                        var begin = (($scope.currentPage - 1) * $scope.numPerPage)
-                        , end = begin + $scope.numPerPage;
+                    $scope.makeTodos = function() {
+                        $('#img-load').hide();
+                        $scope.todos = [];
+                        debugger;
+                        $scope.OrgDataList=ParksInfo.resultObject;
+                        $scope.GetOurSearchInfoList=ParksInfo.resultObject;
 
-                    $scope.DetailsListInfo = $scope.todos.slice(begin, end);
-                }, 10);
-                });
+                        /*--------------------CountingValues start--------------------------*/
 
 
-                /*  $scope.DetailsListInfo = ParksInfo.resultObject;*/
-            }
+                        for (i = 0; i < $scope.GetTypesMastersList.length; i++) {
+                            $scope.SelectedTypeCount = $.grep($scope.GetOurSearchInfoList, function (typs) {
+                                return typs.typeString.match($scope.GetTypesMastersList[i].Id);
+                            }).length;
+                            $scope.GetTypesMastersList[i].typeCount=$scope.SelectedTypeCount;
+                            debugger;
+                        }
 
-            else{
-                $timeout($scope.progressbar.complete(), 1000);
-				$('#img-load').hide();
+                        /*--------------------CountingValues End--------------------------*/
+                        /*--------------------Counting Natures Start---------------------*/
 
-            }
+                        for (i = 0; i < $scope.GetNatureMastersList.length; i++) {
+                            $scope.SelectedNatureCount = $.grep($scope.GetOurSearchInfoList, function (ntur) {
+                                return ntur.natureString.match($scope.GetNatureMastersList[i].Id);
+                            }).length;
+                            $scope.GetNatureMastersList[i].NatureCount=$scope.SelectedNatureCount;
+                            debugger;
+                        }
+                        /*--------------------Counting Natures Start---------------------*/
 
-        });
+
+                        $scope.todos = ParksInfo.resultObject;
+                        var data = $.grep($scope.todos,function(td){}).parktype;
+                    };
+                    $scope.makeTodos();
+
+                    $scope.$watch('currentPage + numPerPage', function() {
+                        $timeout(function() {
+                            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                                , end = begin + $scope.numPerPage;
+
+                            $scope.DetailsListInfo = $scope.todos.slice(begin, end);
+                        }, 10);
+                    });
+
+
+                    /*  $scope.DetailsListInfo = ParksInfo.resultObject;*/
+                }
+
+                else{
+                    $timeout($scope.progressbar.complete(), 1000);
+                    $('#img-load').hide();
+                    $('#img-load1').hide();
+
+                }
+
+            });
+        }
+        $scope.LoadFunction();
+
 
        /* $(document).ready(function () {
             $('div img').hide();
@@ -269,13 +304,14 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
             $scope.progressbar.setColor('#EC971F');
             $scope.progressbar.setHeight('4px');*/
 
-            var parks =  $scope.ctrl.selectedItem;
+            $scope.parks =  $scope.ctrl.selectedItem;
+            $scope.LoadFunction();
 
-            GetParksInfo.GetParksService(parks).then(function(ParksInfo){
+            /*GetParksInfo.GetParksService(parks).then(function(ParksInfo){
                 debugger;
                 if(ParksInfo.responseCode == 200){
 
-                  /*  $timeout($scope.progressbar.complete(), 1000);*/
+                  *//*  $timeout($scope.progressbar.complete(), 1000);*//*
 
                     debugger;
 
@@ -296,37 +332,50 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
                     });
 
 
-                    /*  $scope.DetailsListInfo = ParksInfo.resultObject;*/
+                    *//*  $scope.DetailsListInfo = ParksInfo.resultObject;*//*
                 }
 
                 else{
 
-                   /* $timeout($scope.progressbar.complete(), 1000);*/
+                   *//* $timeout($scope.progressbar.complete(), 1000);*//*
 
 
                 }
 
-            });
+            });*/
 
         }
 
         /*//-------------Popularity Filter Start----------------//*/
         $scope.popHL=function () {
             debugger;
-            $scope.GetOurSearchInfoList.sort();
+            $scope.GoToDisplayData = $scope.GetOurSearchInfoList.sort(function(popObj1,popObj2){return parseInt(popObj2.popularity)-parseInt(popObj1.popularity)});
+            GetOutPutDataInfo();
         }
         /*//-------------Popularity Filter End----------------//*/
 
         /*//-------------Ratting Filter Start----------------//*/
-
+        $scope.ratingHL=function () {
+            debugger;
+            $scope.GoToDisplayData = $scope.GetOurSearchInfoList.sort(function(rtgObj1,rtgObj2){return rtgObj2.odRating-rtgObj1.odRating});
+            GetOutPutDataInfo();
+        }
         /*//-------------Ratting Filter End----------------//*/
 
         /*//-------------Cost high to Low Start----------------//*/
-
+        $scope.minCostHL=function () {
+            debugger;
+            $scope.GoToDisplayData = $scope.GetOurSearchInfoList.sort(function(costHLObj1,costHLObj2){return costHLObj2.minCost1-costHLObj1.minCost1});
+            GetOutPutDataInfo();
+        }
         /*//-------------Cost high to Low End----------------//*/
 
         /*//-------------Cost low to high Start----------------//*/
-
+        $scope.minCostLH=function () {
+            debugger;
+            $scope.GoToDisplayData = $scope.GetOurSearchInfoList.sort(function(costLHObj1,costLHObj2){return costLHObj1.minCost1-costLHObj2.minCost1});
+            GetOutPutDataInfo();
+        }
         /*//-------------Cost low to high End----------------//*/
 
         /*--------------1 Peoples Filter Start----------------------*/
@@ -363,19 +412,30 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
             var GetVal = $scope.TypSelection.indexOf(TypeVal);
             if (GetVal > -1) {
                 $scope.TypSelection.splice(GetVal, 1);
-                $scope.RemoveTypeTempData={};
-                if($scope.RemoveTypeTempData.length==undefined){
-                    $scope.RemoveTypeTempData=$scope.GetOurSearchInfoList;
+                if($scope.TypSelection.length!=0) {
+                    $scope.RemoveTypeTempData = {};
+                    if ($scope.RemoveTypeTempData.length == undefined) {
+                        $scope.RemoveTypeTempData = $scope.GetOurSearchInfoList;
+                    }
+                    else {
+                        $scope.RemoveTypeTempData = $scope.TypTempData;
+                    }
+                    for (i = 0; i < $scope.TypSelection.length; i++) {
+                        $scope.SelectedTypes = $.grep($scope.RemoveTypeTempData, function (typs) {
+                            return typs.typeString.match($scope.TypSelection[i]);
+                        });
+                        debugger;
+                        for (j = 0; j < $scope.SelectedTypes.length; j++) {
+                            $scope.TypeFiltter.push($scope.SelectedTypes[j]);
+                        }
+                        $scope.SelectedTypes = '';
+                    }
                 }
-                for (i = 0; i < $scope.TypSelection.length; i++) {
-                    $scope.SelectedTypes = $.grep($scope.RemoveTypeTempData, function (typs) {
-                        return typs.typeString.match($scope.TypSelection[i]);
-                    });
-                    debugger;
+                else {
+                    $scope.SelectedTypes=$scope.TypTempData;
                     for (j = 0; j < $scope.SelectedTypes.length; j++) {
                         $scope.TypeFiltter.push($scope.SelectedTypes[j]);
                     }
-                    $scope.SelectedTypes='';
                 }
             }
             else {
@@ -395,9 +455,6 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
                     $scope.SelectedTypes='';
                 }
             }
-
-
-
             $scope.GoToDisplayData=$scope.TypeFiltter;
 
             GetOutPutDataInfo();
@@ -414,16 +471,24 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
             var GetVal = $scope.NatureSelection.indexOf(NatVal);
             if (GetVal > -1) {
                 $scope.NatureSelection.splice(GetVal, 1);
-                $scope.RemoveNatureTempData={};
-                if($scope.RemoveNatureTempData.length==undefined){
-                    $scope.RemoveNatureTempData=$scope.GetOurSearchInfoList;
+                if($scope.NatureSelection.length!=0) {
+                    $scope.RemoveNatureTempData = {};
+                    if ($scope.RemoveNatureTempData.length == undefined) {
+                        $scope.RemoveNatureTempData = $scope.GetOurSearchInfoList;
+                    }
+                    for (i = 0; i < $scope.NatureSelection.length; i++) {
+                        debugger;
+                        $scope.SelectedNatures = $.grep($scope.RemoveNatureTempData, function (ntr) {
+                            return ntr.natureString.match($scope.NatureSelection[i]);
+                        });
+                        debugger;
+                        for (j = 0; j < $scope.SelectedNatures.length; j++) {
+                            $scope.NatureFiltter.push($scope.SelectedNatures[j]);
+                        }
+                    }
                 }
-                for (i = 0; i < $scope.NatureSelection.length; i++) {
-                    debugger;
-                    $scope.SelectedNatures = $.grep($scope.RemoveNatureTempData, function (ntr) {
-                        return ntr.natureString.match($scope.NatureSelection[i]);
-                    });
-                    debugger;
+                else {
+                    $scope.SelectedNatures=$scope.NatureTempData;
                     for (j = 0; j < $scope.SelectedNatures.length; j++) {
                         $scope.NatureFiltter.push($scope.SelectedNatures[j]);
                     }
@@ -445,9 +510,6 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
                     }
                 }
             }
-
-
-
             $scope.GoToDisplayData=$scope.NatureFiltter;
             GetOutPutDataInfo();
         };

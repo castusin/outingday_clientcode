@@ -3,6 +3,33 @@ app.controller('ResortDetailCtr',['$scope','$state','GetParkDetailInfo','$rootSc
                        function ($scope,$state,GetParkDetailInfo,$rootScope,$localStorage,$window) {
     debugger;
 
+
+      $scope.AminitiesMaster=[
+          {id:1,AminitiName:'Free WiFi Internet',AminitiLogo:'../../assets/images/AminitieLogos/WiFi.png'},
+          {id:2,AminitiName:'Gymnasium/Health Club',AminitiLogo:'../../assets/images/AminitieLogos/Gymnasium_Health-Club.png'},
+          {id:3,AminitiName:'Conference Facilities',AminitiLogo:'../../assets/images/AminitieLogos/ConferenceFacilities.png'},
+          {id:4,AminitiName:'Business Center',AminitiLogo:'../../assets/images/AminitieLogos/BusinessCenter.png'},
+          {id:5,AminitiName:'Cafe',AminitiLogo:'../../assets/images/AminitieLogos/Cafe.png'},
+          {id:6,AminitiName:'Restaurant',AminitiLogo:'../../assets/images/AminitieLogos/Restaurant.png'},
+          {id:7,AminitiName:'Doctor on call',AminitiLogo:'../../assets/images/AminitieLogos/DoctorOnCall.png'},
+          {id:8,AminitiName:'Jacuzzi',AminitiLogo:'../../assets/images/AminitieLogos/Jacuzzi.png'},
+          {id:9,AminitiName:'Sauna',AminitiLogo:'../../assets/images/AminitieLogos/Sauna.png'},
+          {id:10,AminitiName:'Meeting facilities',AminitiLogo:'../../assets/images/AminitieLogos/MeetingFacilities.png'},
+          {id:11,AminitiName:'Swimming pool',AminitiLogo:'../../assets/images/AminitieLogos/SwimmingPool.png'},
+          {id:12,AminitiName:'Lounge',AminitiLogo:'../../assets/images/AminitieLogos/Lounge.png'},
+          {id:13,AminitiName:'Spa',AminitiLogo:'../../assets/images/AminitieLogos/Spa.png'},
+          {id:14,AminitiName:'Laundry service',AminitiLogo:'../../assets/images/AminitieLogos/LaundryService.png'},
+          {id:15,AminitiName:'Babysitting or childcare',AminitiLogo:'../../assets/images/AminitieLogos/Babysitting.png'},
+          {id:16,AminitiName:'Coffee shop',AminitiLogo:'../../assets/images/AminitieLogos/CoffeeShop.png'},
+          {id:17,AminitiName:'Parking',AminitiLogo:'../../assets/images/AminitieLogos/Parking.png'},
+          {id:18,AminitiName:'Massage',AminitiLogo:'../../assets/images/AminitieLogos/Massage.png'},
+          {id:19,AminitiName:'Wi-Fi',AminitiLogo:'../../assets/images/AminitieLogos/WiFi.png'},
+          {id:20,AminitiName:'Car rental',AminitiLogo:'../../assets/images/AminitieLogos/CarRental.png'},
+          {id:21,AminitiName:'Library',AminitiLogo:'../../assets/images/AminitieLogos/Library.png'}
+          ]
+
+
+
                           /* $scope.string = "002.jpg,003.jpg,004.jpg,005.jpg,006.jpg,007.jpg,008.jpg,009.jpg,010.jpg,011.jpg";
 
                            $scope.arrString = new Array();
@@ -52,6 +79,15 @@ app.controller('ResortDetailCtr',['$scope','$state','GetParkDetailInfo','$rootSc
             $scope.resultParkDetail = parkDetailRes.resultObject;
 
             $scope.resultParkDetailSubImg = parkDetailRes.resultObject[0].parkSubImages;
+            $scope.AminitArray = parkDetailRes.resultObject[0].amenitiesString.split(',');
+            $scope.GetAminitiList=[];
+            for(i=0;i<$scope.AminitArray.length;i++){
+                $scope.GetInfo = $.grep($scope.AminitiesMaster,function(ami){
+                    return ami.id==$scope.AminitArray[i];
+                })
+                debugger;
+                $scope.GetAminitiList.push($scope.GetInfo[0]);
+            }
 
             $scope.arrString = new Array();
             $scope.arrString = $scope.resultParkDetailSubImg.split(',');
@@ -76,13 +112,7 @@ app.controller('ResortDetailCtr',['$scope','$state','GetParkDetailInfo','$rootSc
 
 
     });
-
-
-
-
-
-
-                           $scope.BookPkgCall= function(park){
+    $scope.BookPkgCall= function(park){
 
                                debugger;
                                $localStorage.bookPark = park;

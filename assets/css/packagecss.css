@@ -1,0 +1,15 @@
+.no-pad-mar {
+    padding: 3px !important;
+    margin: 0 !important;
+}
+.btn-group-xs>.btn, .btn-xs {
+    padding: 1px 5px !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    border-radius:50% !important;
+	background-color:#1A80D9;
+	color:white;
+}
+body{
+background-color:#f3f3f3 !important;
+}
