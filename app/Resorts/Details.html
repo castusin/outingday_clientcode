@@ -537,7 +537,8 @@ $(document).ready(function() {
         
 		</div>
 		<div class="col-xs-2" align="right">
-		<h6 class="result_title14" style="color:#C34F6B;font-weight:bold;">{{park.currentPrice | INR}}</h6>
+		<!--<h6 class="result_title14" style="color:#C34F6B;font-weight:bold;"><strike>{{park.regularPrice | INR}}</strike></h6>-->
+            <h6 class="result_title14" style="color:#C34F6B;font-weight:bold;">{{park.currentPrice | INR}}</h6>
 		</div>
 		<div class="col-xs-3" align="right">
 		<button type="button" class="btn  btn-md" style="background-color:#C34F6B;border:1px solid #C34F6B;color:white;" ng-click="BookPkgCall(park)">Book</button>
@@ -545,7 +546,7 @@ $(document).ready(function() {
 		</div>
 
 		</div>
-		
+
 		</section>
 		
 

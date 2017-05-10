@@ -152,10 +152,10 @@
 	
    <div class="padding">
 	</div>
-	<h6 class="result_title14">John Maddy</h6>
-	<h6 class="result_title14">Johnmaddy85@gmail.com</h6>
-	<h6 class="result_title14">8985959089</h6>
-	<h6 class="result_title14">Hyderabad</h6>
+	<h6 class="result_title14">{{mrs}}. {{FirstName}} {{LastName}}</h6>
+	<h6 class="result_title14">{{Email}}</h6>
+	<h6 class="result_title14">{{PhoneNumber}}</h6>
+	<!--<h6 class="result_title14">Hyderabad</h6>-->
    
       
      <div class="padding">
@@ -183,17 +183,17 @@
 	 <div class="padding" >
 	</div>
 	<h4 class="result_title14">Travel Confirmation</h4>
-	<h6 class="result_title14" style="color:#33349B;">Golconda Resorts</h6>
+	<h6 class="result_title14" style="color:#33349B;">{{resListName}}</h6>
 	
 	<div class="container">
     <div class="row">
         <div class="col-md-2" style="padding-left:2px;!important">
-            <img src="../../assets/ResortsImages/51.jpg" alt="thumbnail" class="img-rounded" height="150" width="150" align="left">
+            <img src="../../assets/ResortsImages/{{resListPhoto}}" alt="thumbnail" class="img-rounded" height="150" width="150" align="left">
         
 		</div>
         <div class="col-md-6">
             	
-				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Featuring wood interiors, the chic villas feature free Wi-Fi and TVs, plus tea and coffeemaking facilities, and living areas. Some add balconies. Upgraded villas offer sleek decor and private gardens, and split-level villas include living rooms. Luxury upgrades come with private pools and butler service</h6>
+				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;" >{{resListDes}}</h6>
         </div>
     </div>
 </div>
@@ -213,7 +213,7 @@
 	<div class="card" style="padding-left:1%;">
   <div class="card-block cardcss">
     <h6 class="result_title15">Date</h6>
-	<h6 class="result_title14 transparenttext">02-05-2017</h6>
+	<h6 class="result_title14 transparenttext">{{datepicker}}</h6>
   </div>
 </div>
 <!-- <div class="padding2"> -->
@@ -228,7 +228,7 @@
 	</div>
 	<div class="card" style="padding-left:1%;">
   <div class="card-block cardcss">
-    <h6 class="result_title15">Price Breakup</h6><p class="result_title16 price_color">8,125 INR</p>
+    <h6 class="result_title15">Price Breakup</h6><p class="result_title16 price_color">{{bookParkcurrentPrice | INR}}</p>
 	
 	<h6 class="result_title14 transparenttext">One Room X Two Nights</h6>
   </div>
@@ -263,17 +263,17 @@
 	</div>
 	<div class="card">
   <div class="card-block cardcss">
-    <div class="row">
+    <div class="row" ng-repeat="facility in FacilityNameList">
         <div class="col-md-6" style="padding-left:3%;">
-			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Buffet</h6>
-			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
-			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>
+			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>{{facility.facilityTypeTitle}}</h6>
+			<!--<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
+			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>-->
         </div>			
 				   
 		 <div class="col-md-6" align="right">
-		  <h6 class="result_title18 price_color">600.00 INR</h6>
-           <h6 class="result_title18 price_color">450.00 INR</h6>
-		    <h6 class="result_title18 price_color">325.00 INR</h6>
+		  <h6 class="result_title18 price_color">{{facility.currentPrice | INR}}</h6>
+          <!-- <h6 class="result_title18 price_color">450.00 INR</h6>
+		    <h6 class="result_title18 price_color">325.00 INR</h6>-->
         </div>
     </div>
   </div>
@@ -283,7 +283,7 @@
 	<div class="card" >
   <div class="card-block cardcss">
   
-    <h6 class="result_title15">Total</h6><p class="result_title19 ">9,500 INR</p>
+    <h6 class="result_title15">Total</h6><p class="result_title19 ">{{sum | INR}}</p>
 	<h6 class="result_title14 transparenttext" >One Room X Two Nights</h6>
 
   </div>

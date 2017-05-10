@@ -12,7 +12,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('Resorts', {
             url: '/Resorts',
             /*templateUrl:'../journey/ResortsImages/ResortsImages.html',*/
-            templateUrl:'../app/Resorts/Resorts.html',
+            templateUrl:'app/Resorts/Viewresorts.html',
             controller:'ResortCtr'
         })
 

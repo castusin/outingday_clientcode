@@ -4,7 +4,7 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
 
         debugger;
 
-        $scope.qty = 1;
+        $scope.qty = 0;
        /* $scope.increment = function() {
             $scope.qty++;
         };
@@ -12,18 +12,16 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
             $scope.qty--;
         };*/
 
-        $scope.AddNumbers = function() {
-            debugger;
-            var a = Number($scope.bookParkcurrentPrice || 0);
-            var b = Number($scope.facilityCurrentPrice || 0);
-            $scope.sum = a+b;
-        }
 
 
 
         var ctrl = this;
         $scope.ctrl.datepicker = $localStorage.bookPark.date;
         $scope.bookParkcurrentPrice = $localStorage.bookPark.currentPrice;
+
+        $scope.sum = $localStorage.bookPark.currentPrice;
+        $localStorage.TotalPrice = $scope.sum;
+
         $scope.bookParkImg = $localStorage.bookPark.facilityImage;
         $scope.bookParkDes = $localStorage.bookPark.description;
 
@@ -34,22 +32,25 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
         $scope.bookParkList= $localStorage.parkDetails ;
 
         $scope.FacilityNameList = [];
+        $localStorage.FacilityNameList =  $scope.FacilityNameList;
         $scope.addBookCall= function(facilityName){
                  debugger;
             $scope.facilityName = facilityName;
 
             $scope.FacilityNameList.push($scope.facilityName);
+            $localStorage.FacilityNameList =  $scope.FacilityNameList;
 
            if ($scope.sum == undefined){
             var a = Number($scope.bookParkcurrentPrice || 0);
             var b = Number($scope.facilityName.currentPrice || 0);
             $scope.sum = a+b;
+               $localStorage.TotalPrice = $scope.sum;
            }
             else{
                var a = Number($scope.sum || 0);
                var b = Number($scope.facilityName.currentPrice || 0);
                $scope.sum = a+b;
-
+               $localStorage.TotalPrice = $scope.sum;
            }
 
         } ;
@@ -61,23 +62,39 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
             var a = Number($scope.sum || 0);
             var b = Number($scope.facilityName.currentPrice || 0);
             $scope.sum = a+b;
-
+            $localStorage.TotalPrice = $scope.sum;
         } ;
-        $scope.subCall= function(facilityName){
+        $scope.subCall= function(facilityName,qty){
             debugger;
+
+
             $scope.facilityName = facilityName;
 
             var a = Number($scope.sum || 0);
             var b = Number($scope.facilityName.currentPrice || 0);
             $scope.sum = a-b;
+            $localStorage.TotalPrice = $scope.sum;
 
         } ;
 
 
 
-        $scope.paymentCall= function(){
+
+        $scope.submit= function(){
 
             debugger;
+        console.log($scope.mrs);
+            console.log( $scope.FirstName);
+            console.log($scope.LastName);
+            console.log($scope.Email);
+            console.log( $scope.PhoneNumber);
+
+            $localStorage.mrs = $scope.mrs;
+            $localStorage.FirstName = $scope.FirstName;
+            $localStorage.LastName = $scope.LastName;
+            $localStorage.Email = $scope.Email;
+            $localStorage.PhoneNumber = $scope.PhoneNumber;
+
 
             $window.location='../Resorts/confirmationDetails.html';
         }

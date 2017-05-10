@@ -172,33 +172,41 @@
 	</div>
       <div class="container-fluid">
 
-<form name="registration_form" id="registration_form" class="form-horizontal">
+<form name="registration_form" id="registration_form" ng-submit="submit()" class="form-horizontal">
      <div class="form-group">
 	 <div class="col-sm-4">
              <label for="Title" class="package_form" >Title :</label>
-             <input id="firstname" class="form-control input-group-lg reg_name" type="text" name="firstname" title="MR / MRS" placeholder="MR / MRS">
+              <div class="input-group" style="width:100%;" >
+                                           <select name="State" id="State" ng-model="mrs" class="validate[required] form-control">
+                                           <option value=""></option>                    
+                                           <option value="MR">MR</option>
+                                           <option value="MRS">MRS</option>
+                                           <option value="MISS">MISS</option>
+                                           </select>                                                       
+                                       </div>
            </div> 
            <div class="col-sm-4">
              <label for="firstname" class="package_form" >First Name :</label>
-             <input id="firstname" class="form-control input-group-lg reg_name" type="text" name="firstname" title="Enter first name" placeholder="First name">
+             <input id="firstname" class="form-control input-group-lg reg_name" ng-model="FirstName" type="text" name="firstname" title="Enter first name" placeholder="First name">
            </div>       
            <div class="col-sm-4">
-             <label for="lastname" class="package_form">Last Name :</label>
-             <input id="lastname" class="form-control input-group-lg reg_name" type="text" name="lastname" title="Enter last name" placeholder="Last name">
+             <label for="lastname" class="package_form" >Last Name :</label>
+             <input id="lastname" class="form-control input-group-lg reg_name" type="text" ng-model="LastName" name="lastname" title="Enter last name" placeholder="Last name">
            </div>
     </div><!--/form-group-->
   
    <div class="form-group">
 	 <div class="col-sm-4">
-             <label for="Email" class="package_form" >Email :</label>
-             <input id="firstname" class="form-control input-group-lg reg_name" type="email" name="firstname" title="MR / MRS" placeholder="Email">
+             <label for="Email" class="package_form">Email :</label>
+             <input id="firstname" class="form-control input-group-lg reg_name" type="email" ng-model="Email" name="firstname" title="MR / MRS" placeholder="Email">
            </div> 
            <div class="col-sm-4">
              <label for="firstname" class="package_form" >Phone Number :</label>
-             <input id="firstname" class="form-control input-group-lg reg_name" type="number" name="firstname" title="Enter first name" placeholder="Phone Number">
+             <input id="firstname" class="form-control input-group-lg reg_name" type="tel" ng-model="PhoneNumber" name="firstname" title="Enter first name" placeholder="Phone Number">
            </div>       
            
     </div>
+    <!--<input type="submit" id="submit" value="Submit" />-->
  </form>
 
 </div>
@@ -272,17 +280,18 @@
 							</div>
 							<div class="col-sm-4">
 							
-							<h5 class="result_title14" style="color:#C34F5E;font-weight:bold !important;;text-align:right;font-size:14px;font-family: Open Sans !important;">{{bookpark.currentPrice | INR}}</h5>
+							<!--<h5 class="result_title14" style="color:#C34F5E;font-weight:bold !important;;text-align:right;font-size:14px;font-family: Open Sans !important;"><strike>{{bookpark.regularPrice | INR}}</strike></h5>-->
+                                <h5 class="result_title14" style="color:#C34F5E;font-weight:bold !important;;text-align:right;font-size:14px;font-family: Open Sans !important;">{{bookpark.currentPrice | INR}}</h5>
 							
 							
 							
-							<button type="button" class="btn  btn-md" ng-click="add=true;totalPrice=true;addBookCall(bookpark)" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;">Add</button>
+							<button type="button" class="btn  btn-md"  ng-click="add=true;qty=qty+1;addBookCall(bookpark)"   ng-hide="qty!=0" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;">Add</button>
 							
 							<div class="padding2">
 							</div><br>
 							<div class="row" ng-show="add"   style="padding-top:1%;">
 
-                                <form id='myform' >
+                                <form id='myform' ng-hide="qty==0">
                                   <!--  <md-button class="md-fab" aria-label="Eat cake" ng-click="decrement()" ng-disabled="qty<=0">
                                         <md-icon md-svg-src="../../assets/images/add.svg"></md-icon>
                                     </md-button>-->
@@ -497,7 +506,7 @@
 <div class="padding">
 	</div>
 	 <div class="row" align="center">
-	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;" ng-click="paymentCall()">Proceed</button>
+	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;" ng-click="submit()">Proceed</button>
 	  </div>
 	  <div class="padding">
 	</div>
