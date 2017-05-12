@@ -11,7 +11,8 @@
 
     <title>Outingday</title>
 
-    <!-- Bootstrap Core CSS --> 
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
 	<link rel="shortcut icon" href="assets/images/favicon.png" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/ngProgress.css" rel="stylesheet">
@@ -58,6 +59,7 @@
 
     <script src="assets/app.js"></script>
     <script src="assets/js/Angularjs/common.js"></script>
+    <script src="app/Resorts/modalCtr.js"></script>
     <script src="app/Resorts/localAreaService.js"></script>
 
 
@@ -144,7 +146,7 @@
                         </div><!-- /input-group -->
                         <!--<md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>-->
                     </div><!-- /.col-lg-6 -->
-                    <div class="col-lg-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div>
+                    <div class="col-lg-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">[&nbsp;SignUp / SignIn&nbsp;]</div>
                 </div>
             </div>
             <!-- /.navbar-collapse -->
@@ -164,21 +166,21 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner carousel_BG" style="">
             <div class="item active">
-                <div class="fill" style=" background-image:url(assets/images/resort_1.jpg);"></div>
+                <div class="fill" style=" background-image:url(assets/images/island.jpg);"></div>
                 <div class="carousel-caption">
                     <h2 style="color:#ffec00">Starting Price<br> @ 2500/- Only</h2>
                     <h2><a href="#" style="color:#fff;">Book Now</a></h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url(assets/images/resort_2.jpg);"></div>
+                <div class="fill" style="background-image:url(assets/images/island2.jpg);"></div>
                 <div class="carousel-caption">
                      <h2 style="color:#ffec00">Starting Price<br> @ 2500/- Only</h2>
                     <h2><a href="#" style="color:#fff;">Book Now</a></h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url(assets/images/resort_3.jpg);"></div>
+                <div class="fill" style="background-image:url(assets/images/island3.jpg);"></div>
                 <div class="carousel-caption">
                      <h2 style="color:#ffec00">Starting Price<br> @ 2500/- Only</h2>
                     <h2><a href="#" style="color:#fff;">Book Now</a></h2>
@@ -198,54 +200,26 @@
         <div class="row">
         	<div class="col-lg-12">
                 <h2 class="page-header" style="text-align:center;">Offers</h2>
+				 <hr style="width: 10%; color: #C34F6B; height: 5px; background-color:#C34F6B;border-radius:15px;" />
             </div>
+			
         </div>
-        <div class="row" style="background-color:#fff; padding:10px 5px 10px 5px; ">
+        <div class="row" style="padding:10px 5px 10px 5px; ">
             
-            <div class="col-md-3 col-sm-6 offers-columns-padding" ng-repeat="offer in offersList" href="#" ng-click="offerCall(offer.offerparkId)">
+            <div class="col-md-3 col-sm-6 offers-columns-padding" ng-repeat="offer in offersList" href="#" ng-click="offerCall(offer.offerparkId)" style="border:1px solid #d5d5d5;padding:0.8%;background-color:white; ">
                 <div class="row no-pad-mar">
                 	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/ResortsImages/offers/{{offer.offerimg}}" alt="" ></a>                </div>
-                <div class="row no-pad-mar" style="margin:0 6px 0 6px; font-size:14px;"  >
+                <div class="row no-pad-mar" style="margin:0 6px 0 6px; font-size:14px;border-top:1px solid #d5d5d5;padding-top:5%;"  >
                 	{{offer.offerdes}}               </div>
                 
                 <div class="row">&nbsp;</div>
                 
-                <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;" >
-                	{{offer.offerrating}}               </div>
+                <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;border-top:1px solid #d5d5d5;line-height:3;" >
+                	<strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;{{offer.offerrating}}</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;{{offer.offerprice}}</span><span style="color:#009985;padding-left:24%;font-size:14px;">{{offer.save}}</span>                
+					</div>
             </div>
             
-           <!-- <div class="col-md-3 col-sm-6 offers-columns-padding" >
-                <div class="row no-pad-mar">
-                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_2.jpg" alt="" ></a>                </div>
-                <div class="row" style="margin:0 6px 0 6px;" >
-                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .                </div>
-                 <div class="row">&nbsp;</div>
-                
-                <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;" >
-                	Starting rating - 1500/-                </div>
-            </div>
-            
-            <div class="col-md-3 col-sm-6 offers-columns-padding">
-                <div class="row no-pad-mar" >
-                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_3.jpg" alt="" ></a>                </div>
-                <div class="row no-pad-mar" style="margin:0 6px 0 6px;" >
-                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .                </div>
-                 <div class="row">&nbsp;</div>
-                
-                <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;" >
-                	Starting rating - 1500/-                </div>
-            </div>
-            
-            <div class="col-md-3 col-sm-6 offers-columns-padding" >
-                <div class="row no-pad-mar">
-                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/offer_4.jpg" alt="" ></a>                </div>
-                <div class="row no-pad-mar" style="margin:0 6px 0 6px;"  >
-                	It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset .                </div>
-                 <div class="row">&nbsp;</div>
-                
-                <div class="row no-pad-mar h4" style="margin:0 6px 0 6px;color:#2c3091;" >
-                	Starting rating - 1500/-                </div>
-            </div>-->
+          
         </div>
         <!-- /.row -->
         
@@ -254,11 +228,12 @@
         <div class="row">
         	<div class="col-lg-12">
                 <h2 class="page-header" style="text-align:center;">Popular Category</h2>
+				 <hr style="width: 10%; color: #C34F6B; height: 5px; background-color:#C34F6B;border-radius:15px;" />
             </div>
         </div>
         
         <div class="row">
-        	<div class="col-md-8 col-sm-6">
+        	<div class="col-md-9 col-sm-7">
             
             <!-- Popular Row 1 Begins -->
             	<div class="row" style=" padding:10px 5px 10px 5px; "  >
@@ -266,111 +241,40 @@
                     <div class="col-md-6 col-sm-6 offers-columns-padding"  ng-repeat="popularCategory in popularCategoryList" href="#" ng-click="popularCall(popularCategory.popularparkId)">
                         <div class="row no-pad-mar" style="border:solid 1px #ccc;margin:1%;background-color:white;" >
                         	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/ResortsImages/PopularCategory/{{popularCategory.popularimg}}" alt="" >                            </div>
+                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/ResortsImages/PopularCategory/{{popularCategory.popularimg}}" alt="" >                            
+								</div>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
                             	<div class="row no-pad-mar" style="padding:5px 0 5px 0;font-zize:14px;">
-                                	<strong style="font-zize:14px;"> {{popularCategory.popularname}}</strong>                                </div>
-                            	<div class="row no-pad-mar h6 " style="font-zize:14px;" >
+                                	<strong style="font-size:16px;"> {{popularCategory.popularname}}</strong>                                </div>
+                            	<div class="row no-pad-mar h6 " style="font-size:13px;line-height:1.3" >
                                     {{popularCategory.populardes}}                            </div>
                                 <div class="row no-pad-mar">
                                 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
-                                    	<div class="row "><meter value="4.1" min="0" max="5" >&nbsp;</meter></div>
-                                    	<div class="row" style="font-zize:14px;">reviews</div>
+                                    	<!-- <div class="row "><meter value="4.1" min="0" max="5" >&nbsp;</meter></div> -->
+                                    	<!-- <div class="row" style="font-zize:14px;">reviews</div> -->
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
-                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">{{popularCategory.popularrating}}</span>                                    </div>
+                                    <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;"> -->
+                                    	<!-- <span style="background-color:#227f4c; color:#fff;padding:5px;">{{popularCategory.popularrating}}</span>                                     -->
+										<!-- </div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Popular 1  Ends -->
                     
-                    <!-- Popular 2 Begins -->
-                   <!-- <div class="col-md-6 col-sm-6 offers-columns-padding" >
-                        <div class="row no-pad-mar" style="border:solid 1px #ccc;">
-                        	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/ResortsImages/PopularCategory/pop_2.jpg" alt="" >                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
-                            	<div class="row no-pad-mar" style="padding:5px 0 5px 0;">
-                                	<strong>Resort Name</strong>                                </div>
-                            	<div class="row no-pad-mar h6 ">
-                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.                                </div>
-                                <div class="row no-pad-mar">
-                                	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
-                                    	<div class="row "><meter value="4.8" min="0" max="5" >&nbsp;</meter></div>
-                                    	<div class="row">reviews</div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
-                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">4.8</span>                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!-- Popular 2  Ends -->
                 </div>
-                 <!-- Popular Row 1 Ends -->
                 
-                 <!-- Popular Row 2 Begins -->
-            	<!--<div class="row" style=" padding:10px 5px 10px 5px; display:none;">
-            		&lt;!&ndash; Popular 3 Begins &ndash;&gt;
-                    <div class="col-md-6 col-sm-6 offers-columns-padding" >
-                        <div class="row no-pad-mar" style="border:solid 1px #ccc;">
-                        	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/ResortsImages/PopularCategory/pop_3.jpg" alt="" >                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
-                            	<div class="row no-pad-mar" style="padding:5px 0 5px 0;">
-                                	<strong>Resort Name</strong>                                </div>
-                            	<div class="row no-pad-mar h6 " >
-                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.                                </div>
-                                <div class="row no-pad-mar">
-                                	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
-                                    	<div class="row "><meter value="3.5" min="0" max="5" >&nbsp;</meter></div>
-                                    	<div class="row">reviews</div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
-                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">3.5</span>                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    &lt;!&ndash; Popular 3  Ends &ndash;&gt;
-                    
-                    &lt;!&ndash; Popular 4 Begins &ndash;&gt;
-                    <div class="col-md-6 col-sm-6 offers-columns-padding" >
-                        <div class="row no-pad-mar" style="border:solid 1px #ccc;">
-                        	<div class="col-md-6 col-sm-6 col-xs-12 no-pad-mar">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="assets/ResortsImages/PopularCategory/pop_4.jpg" alt="" >                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12" style="background-color:#fff;">
-                            	<div class="row no-pad-mar" style="padding:5px 0 5px 0;">
-                                	<strong>Resort Name</strong>                                </div>
-                            	<div class="row no-pad-mar h6 ">
-                                	This property is 9 minutes walk from the beach. Located in Baga, 1.9 km from Britto's, Ticlo Resorts.                                </div>
-                                <div class="row no-pad-mar">
-                                	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
-                                    	<div class="row "><meter value="3.8" min="0" max="5" >&nbsp;</meter></div>
-                                    	<div class="row">reviews</div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding-top:8px;">
-                                    	<span style="background-color:#227f4c; color:#fff;padding:5px;">3.8</span>                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    &lt;!&ndash; Popular 4  Ends &ndash;&gt;
-                </div>-->
-                 <!-- Popular Row 2 Ends -->
             </div>
             <!-- New Letter Begins -->
-            <div class="col-md-4 col-sm-6" style="padding-top:10px;">
+            <div class="col-md-3 col-sm-5" style="padding-top:14px;">
             	<div class="row">
                 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border:solid 1px #ccc; height:270px; background-color:#fff;">
                     	<div class="row">
-                        	<div style="background-color:#121528; font-size:16px; border:solid 1px #fff; font-weight:bold; padding:10px 0 10px 0; text-align:center; color:#fff;">
+                        	<div style="background-color:#121528; font-size:16px; border:solid 1px #fff; font-weight:bold; padding:3px 0 10px 0; text-align:center; color:#fff;">
                             	Subscribe to News Letter                            </div>
                         </div>
                         <div class="row" style="background-color:#fff;">
-                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;">
-                            	Subscribe here to get News Letter            </div>
+                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;font-size:14px;">
+                            	 Receive special offers, upcoming events, inspirational travel ideas, and information on Four Seasons Residence Clubs and Private <br> Subscribe to our newsletter and you can enjoy exclusive offers, discounts and news in our hotels and resorts<br><b>Subscribe Now</b></div>
                         </div>
                         <div class="row" style="background-color:#fff;">
                         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;">
@@ -378,8 +282,12 @@
                             </div>
                         </div>
                         <div class="row" style="background-color:#fff;">
-                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;">
-                            	 <a class="btn btn-lg btn-primary btn-block" style="background-color:#2c3091;" href="#">Subscribe Now</a>                            </div>
+                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;" align="center">
+                            	 <a class="btn btn-md btn-primary " style="background-color:#2c3091;" href="#" align="center">Subscribe</a> 
+                           </div>
+						  <div>
+						  &nbsp;
+						  </div>
                         </div>
                     </div>
                 </div>
@@ -398,40 +306,42 @@
          <div class="row">
         	<div class="col-lg-12">
                 <h2 class="page-header" style="text-align:center;">Why book with Us</h2>
+				 <hr style="width: 10%; color: #C34F6B; height: 5px; background-color:#C34F6B;border-radius:15px;" />
             </div>
         </div>	
         
-        <div class="row" style="padding:10px 5px 10px 5px; ">
+        <div class="row" style="padding:10px 5px 20px 5px; ">
             
-            <div class="col-md-3 col-sm-6 offers-columns-padding" >
+            <div class="col-md-3 col-sm-6 offers-columns-padding" style="border:1px solid #d5d5d5;padding:0.8%;background-color:white; " >
                 <div class="row no-pad-mar" align="center">
                 	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_vta.png" alt="" ></a>                </div>
-                <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;">Verified Travel Agents</div>
-                 <div class="row no-pad-mar h5 " style="margin:0 10px 0 10px; text-align:justify;" >
+                <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;border-bottom:1px solid #d5d5d5;">Verified Travel Agents</div>
+                 <div class="row no-pad-mar h5 " style="margin:17px 10px 3px 10px; text-align:justify;line-height:1.3;" >
                 	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.                </div>
             </div>
             
-            <div class="col-md-3 col-sm-6 offers-columns-padding" >
+            <div class="col-md-3 col-sm-6 offers-columns-padding" style="border:1px solid #d5d5d5;padding:0.8%;background-color:white; ">
                 <div class="row no-pad-mar" align="center">
                 	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_cp.png" alt="" ></a>                </div>
-                 <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;">Customer Packages</div>
-                 <div class="row no-pad-mar h5 " style="margin:0 10px 0 10px; text-align:justify;" >
+                 <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;border-bottom:1px solid #d5d5d5;">Customer Packages</div>
+                 <div class="row no-pad-mar h5 " style="margin:17px 10px 3px 10px; text-align:justify;line-height:1.3;">
                 	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.                </div>
             </div>
             
-            <div class="col-md-3 col-sm-6 offers-columns-padding">
+            <div class="col-md-3 col-sm-6 offers-columns-padding" style="border:1px solid #d5d5d5;padding:0.8%;background-color:white; ">
                 <div class="row no-pad-mar" align="center">
                 	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_cmq.png" alt="" ></a>                </div>
-                 <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;">Compare Multiple Quotes</div>
-                <div class="row no-pad-mar h5 " style="margin:0 10px 0 10px; text-align:justify;" >
+                 <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0; font-size:20px;border-bottom:1px solid #d5d5d5;">Compare Multiple Quotes</div>
+                <div class="row no-pad-mar h5 " style="margin:17px 10px 3px 10px; text-align:justify;line-height:1.3;" >
                 	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.                </div>
             </div>
             
-            <div class="col-md-3 col-sm-6 offers-columns-padding" >
-                <div class="row no-pad-mar" align="center">
-                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_ms.png" alt="" ></a>                </div>
-                 <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0 ; font-size:20px;">100% Money Safe</div>
-               <div class="row no-pad-mar h5 " style="margin:0 10px 0 10px; text-align:justify;" >
+            <div class="col-md-3 col-sm-6 offers-columns-padding" style="border:1px solid #d5d5d5;padding:0.8%;background-color:white; " >
+                <div class="row no-pad-mar" align="center"style=" " >
+                	<a href="#"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_ms.png" alt="" ></a>                
+				</div>
+                 <div class="row no-pad-mar h4" align="center" style="padding:0px 0 10px 0 ; font-size:20px;border-bottom:1px solid #d5d5d5;">100% Money Safe</div>
+               <div class="row no-pad-mar h5 " style="margin:17px 10px 3px 10px; text-align:justify;line-height:1.3;" >
                 	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.                </div>
             </div>
         </div>
@@ -465,7 +375,7 @@
         <div class="row" style="background-color:#0c0e1b; ">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             	<div class="row" style="background-color:#121528;padding:10px 30px 10px 30px;">
-                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"  style="color:#fff; padding-top:6px;">Certified Logos</div>
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"  style="color:#fff; padding-top:6px;">We are Social</div>
                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
                     <a href="#" class="facebook"><img  src="assets/images/social_blank.png" alt="" ></a>
                     <a href="#" class="twitter"><img  src="assets/images/social_blank.png" alt="" ></a>
@@ -475,39 +385,39 @@
              
              	<div class="row" style="padding:30px;">
                 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center">
-                    	<img  src="assets/images/Logo_Footer.png" alt=""><br><span style="color:#fff;">© 2016 Outingday Pvt. Ltd.</span>                    </div>	
+                    	<img  src="assets/images/Logo_Footer.png" alt=""><br><span style="color:#fff;">© 2016 Outingday Pvt. Ltd.</span> <span style="color:#fff;padding-left:3%;">Powered by Castus</span>                      </div>	
                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-top:20px;">
-                    	<div class="row">
-                        	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;"> 
-                            	<p class="h4">COMPANY</p>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4">About the Site</p>
                                 <ul class="footerlist">
-                                    <li ><a href="#" class="footerlinks">Career</a></li>
-                                    <li><a href="#" class="footerlinks">About Us</a></li>
-                                    <li><a href="#" class="footerlinks">Services</a></li>
+                                    <li ><a href="app/Resorts/carrer.html" class="footerlinks" style="color:white;">Career</a></li>
+                                    <li><a href="app/Resorts/about.html" class="footerlinks" style="color:white;">About Us</a></li>
+                                    <li><a href="app/Resorts/services.html" class="footerlinks" style="color:white;">Services</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;"> 
-                            	<p class="h4">COMPANY</p>
-                                 <ul class="footerlist">
-                                    <li ><a href="#" class="footerlinks">Career</a></li>
-                                    <li><a href="#" class="footerlinks">About Us</a></li>
-                                    <li><a href="#" class="footerlinks">Services</a></li>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4"><a href="app/Resorts/products.html" style="color:white;">Products Offering</a></p>
+                                <ul class="footerlist">
+                                    <li ><a href="app/Resorts/carrer.html" class="footerlinks" style="color:white;">Career</a></li>
+                                    <li><a href="app/Resorts/about.html" class="footerlinks" style="color:white;">About Us</a></li>
+                                    <li><a href="app/Resorts/services.html" class="footerlinks" style="color:white;">Services</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;"> 
-                            	<p class="h4">COMPANY</p>
-                                 <ul class="footerlist">
-                                    <li ><a href="#" class="footerlinks">Career</a></li>
-                                    <li><a href="#" class="footerlinks">About Us</a></li>
-                                    <li><a href="#" class="footerlinks">Services</a></li>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4"><a href="app/Resorts/outingday.html" style="color:white;">Outing Day</a></p>
+                                <ul class="footerlist">
+                                    <li ><a href="app/Resorts/carrer.html" class="footerlinks" style="color:white;">Career</a></li>
+                                    <li><a href="app/Resorts/about.html" class="footerlinks" style="color:white;">About Us</a></li>
+                                    <li><a href="app/Resorts/services.html" class="footerlinks" style="color:white;">Services</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;"> 
-                            	<p class="h4">COMPANY</p>
-                                 <ul class="footerlist">
-                                    <li ><a href="#" class="footerlinks">Career</a></li>
-                                    <li><a href="#" class="footerlinks">About Us</a></li>
-                                    <li><a href="#" class="footerlinks">Services</a></li>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4">Country</p>
+                                <ul class="footerlist">
+                                    <li ><a class="footerlinks">India</a></li>
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
                                 </ul>
                             </div>
                         </div>

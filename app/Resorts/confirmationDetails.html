@@ -17,7 +17,7 @@
     <link href="../../assets/css/ngProgress.css" rel="stylesheet">
     <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
 
-    
+     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
     <link href="../../assets/css/modern-business.css" rel="stylesheet">
     <link href="../../assets/css/styles.css" rel="stylesheet">
 	<link href="../../assets/css/detail.css" rel="stylesheet">
@@ -116,196 +116,155 @@
         
     </nav>
 
-    
-	  <header>
-      
-       <div style="padding-top:5%;">
-	   
-	   </div>
-
-      
-       
-    </header>
-	 
-
-	 <div class="container">
-	  <div class="row" style="padding:5px 5px ;">
-		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="color:black;">
-			<div class="padding">
-	</div>
-		</div> 
-		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" align="right">
-			
-		</div> 
-	 </div>
-	  <div class="container-fluid">
-  <div class="row content">
-    <h4 class="result_title14">Confirmation Details</h4>
-    <div class="col-sm-9 details">
-	
-	<div class="padding">
-	</div>
-	
-	<div class="padding">
-	</div>
-	<h5 class="result_title14">Customer Details</h5>
-	
-   <div class="padding">
-	</div>
-	<h6 class="result_title14">{{mrs}}. {{FirstName}} {{LastName}}</h6>
-	<h6 class="result_title14">{{Email}}</h6>
-	<h6 class="result_title14">{{PhoneNumber}}</h6>
-	<!--<h6 class="result_title14">Hyderabad</h6>-->
-   
-      
-     <div class="padding">
-	</div>
-    </div>
-	
-	
-	
-	
-  </div>
-</div>
-<div class="padding" >
-	</div>
-<div class="container-fluid">
-  <div class="row content">
-   
-	
-	
-	<!-- <second div> -->
-	
-	
-	
-
-    <div class="col-sm-9 details" >
-	 <div class="padding" >
-	</div>
-	<h4 class="result_title14">Travel Confirmation</h4>
-	<h6 class="result_title14" style="color:#33349B;">{{resListName}}</h6>
-	
+    <header><div style="padding-top:5%;"></div></header>
 	<div class="container">
-    <div class="row">
-        <div class="col-md-2" style="padding-left:2px;!important">
-            <img src="../../assets/ResortsImages/{{resListPhoto}}" alt="thumbnail" class="img-rounded" height="150" width="150" align="left">
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 class="result_title">Confirmation Details</h1>
+            </div>
+        </div>   
         
-		</div>
-        <div class="col-md-6">
-            	
-				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;" >{{resListDes}}</h6>
-        </div>
-    </div>
-</div>
- <div class="padding" >
-	</div>
-	<h4 class="result_title14">Package Information</h4>
-	<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15">Room 1</h6>
-	<h6 class="result_title14 transparenttext">Adult - 1 , Children - 2</h6>
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15">Date</h6>
-	<h6 class="result_title14 transparenttext">{{datepicker}}</h6>
-  </div>
-</div>
-<!-- <div class="padding2"> -->
-	<!-- </div> -->
-	<!-- <div class="card" style="padding-left:1%;"> -->
-  <!-- <div class="card-block cardcss"> -->
-    <!-- <h6 class="result_title15">Meal Plan</h6> -->
-	<!-- <h6 class="result_title14 transparenttext">Room Only</h6> -->
-  <!-- </div> -->
-<!-- </div> -->
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15">Price Breakup</h6><p class="result_title16 price_color">{{bookParkcurrentPrice | INR}}</p>
-	
-	<h6 class="result_title14 transparenttext">One Room X Two Nights</h6>
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15">Coupon</h6><p class="result_title17 price_color">0.00 INR</p>
-	<h6 class="result_title14" style="color:transparent;">One Room X Two Nights</h6>
+        <div class="row">
+            <div class="col-lg-7 col-sm-7 col-md-7 col-xs-12 whitebg_margin" style="background-color:white;"> 
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  style="" >
+                    	<div class="row" >
+                            <div class="col-md-3" align="center">
+                                <img src="../../assets/ResortsImages/{{resListPhoto}}" alt="thumbnail" class="img-rounded" height="150" width="150" align="left">
+                            </div>
+                            <div class="col-md-9">
+                            	<h4 class="result_title">Travel Confirmation</h4>
+								<h6 class="detailtitle">{{resListName}}</h6>
+                                <h6 class="detailtext3">{{resListDes}}</h6>
+                            </div>
+                        </div>
+                    
+                    	
+                        
+                        <h4 class="detailtitle">Package Information</h4>
+                         
+                         
+                           	
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext" >Room 1</h6>
+                                	<h6 class="packagesubtext" >Adult - 1 , Children - 2</h6>
+                                </div>
+                            </div>
+                            
+                          
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext">Date</h6>
+                                	<h6 class="packagesubtext" >02-05-2017</h6>
+                                </div>
+                            </div>
+                            
+                          
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext">Price Breakup</h6><p class="subcost">{{bookParkcurrentPrice | INR}}</p>
+                                	<h6 class="packagesubtext">One Room X Two Nights</h6>
+                                </div>
+                            </div>
+                            
+                           
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext">Coupon</h6><p class="subcost">0.00 INR</p>
+                                	<h6 class="packagesubtext" style="color:transparent;">One Room X Two Nights</h6>
+                                </div>
+                            </div>
+                            
+                           
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext">Promo Discount</h6><p class="subcost">0.00 INR</p>
+                                	<h6 class="result_title14 transparenttext" style="color:transparent;">One Room X Two Nights</h6>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                            	<div class="card-block cardcss">
+                            		<h6 class="packagetitletext">Service Tax</h6><p class="subcost">0.00 INR</p>
+                            		<h6 class="packagesubtext" style="color:transparent;">One Room X Two Nights</h6>
+                            	</div>
+                        	</div>
+                            
+                            <!-- <div class="card"> -->
+                            	<!-- <div class="card-block cardcss"> -->
+                                    <!-- <div class="row" ng-repeat="facility in FacilityNameList"> -->
+                                    <!-- <div class="col-md-6" style="padding-left:3%;"> -->
+                                    <!-- <h6 class="packagesubtext"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>{{facility.facilityTypeTitle}}</h6> -->
+                                    <!-- </div>			 -->
+                                    
+                                    <!-- <div class="col-md-6" align="right"> -->
+                                    <!-- <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">{{facility.currentPrice | INR}}</h6> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                            	<!-- </div> -->
+                            <!-- </div> -->
+                        <div class="card">
+                            <div class="card-block cardcss">
+                                <div class="row" ng-repeat="facility in FacilityNameList">
+                                    <div class="col-md-4" style="padding-left:3%;">
+                                        <h6 class="result_title15" style="font-family: Open Sans !important;"><span style="padding-left:2%;">&nbsp;</span>{{facility.itemName}} </h6>
+                                        <!--<h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
+                                        <h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>-->
+                                    </div>
 
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15">Promo Discount</h6><p class="result_title17 price_color">0.00 INR</p>
-	<h6 class="result_title14 transparenttext" style="color:transparent;">One Room X Two Nights</h6>
+                                    <div class="col-md-4" align="center">
+                                        <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">{{facility.noOfItems}}  x  {{facility.orgPrice}}</h6>
+                                    </div>
 
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15">Service Tax</h6><p class="result_title17 price_color">0.00 INR</p>
-	<h6 class="result_title14" style="color:transparent;">One Room X Two Nights</h6>
+                                    <div class="col-md-4" align="right">
+                                        <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">{{facility.totalPrice | INR}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-  </div>
-  <div class="padding2">
-	</div>
-	<div class="card">
-  <div class="card-block cardcss">
-    <div class="row" ng-repeat="facility in FacilityNameList">
-        <div class="col-md-6" style="padding-left:3%;">
-			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>{{facility.facilityTypeTitle}}</h6>
-			<!--<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
-			<h6 class="result_title15"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>-->
-        </div>			
-				   
-		 <div class="col-md-6" align="right">
-		  <h6 class="result_title18 price_color">{{facility.currentPrice | INR}}</h6>
-          <!-- <h6 class="result_title18 price_color">450.00 INR</h6>
-		    <h6 class="result_title18 price_color">325.00 INR</h6>-->
-        </div>
-    </div>
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" >
-  <div class="card-block cardcss">
-  
-    <h6 class="result_title15">Total</h6><p class="result_title19 ">{{sum | INR}}</p>
-	<h6 class="result_title14 transparenttext" >One Room X Two Nights</h6>
 
-  </div>
-<div class="padding">
-	</div>
-	 <div class="row" align="center">
-	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;" ng-click="makePaymentCall()">Payment</button>
-	  </div>
-	  <div class="padding">
-	</div>
-      </div>
-     
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="padding" >
+                        <div class="card" >
+                          		<div class="card-block cardcss" >
+                            	<h6 class="packagetitletext">Total</h6><p class="totalcost">{{sum | INR}}</p>
+                            	<h6 class="packagesubtext" >One Room X Two Nights</h6>
+                            </div>
+                            <div class="padding"></div>
+                           
+                            </div>
+                            
+                            
+                        
+                        <div class="row" align="center" style="margin:10px 30px 0 30px">
+                          <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;" ng-click="makePaymentCall()">Payment</button>
+                         </div>
+                       
+               	 </div>
+            	</div>
+                 <div class="row">&nbsp;</div>
+             </div>  
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 whitebg_margin" style="background-color:white;border-radius:6px;float:right;">
+            	<div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "><h1 class="result_title">Customer Details </h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 result_title ">
+                    	<h6 class="detailtitle7">Name:<span class="detailtext7"> {{mrs}}. {{FirstName}} {{LastName}}</span></h6>
+                        <h6 class="detailtitle7">Email:<span class="detailtext7">{{Email}}</span></h6>
+                        <h6 class="detailtitle7">Phone Number :<span class="detailtext7">{{PhoneNumber}}</span></h6>
+                    </div>
+                </div>
+            </div>
+       </div>
+        <div class="row">&nbsp;</div>
+       
 	</div>
 
-</DIV>
-</DIV>
+
+
 
 
 

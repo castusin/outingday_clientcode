@@ -1,6 +1,6 @@
 
-app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$window', '$localStorage','$timeout','$q','$log','ngProgressFactory',
-    function ($scope,$state,GetParksInfo,$rootScope,$window,$localStorage,$timeout,$q,$log,ngProgressFactory) {
+app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$window', '$localStorage','$timeout','$q','$log','ngProgressFactory','$modal',
+    function ($scope,$state,GetParksInfo,$rootScope,$window,$localStorage,$timeout,$q,$log,ngProgressFactory,$modal) {
         debugger;
 
         $scope.ctrl.selectedItem = $localStorage.searchInput;
@@ -128,7 +128,7 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
         $scope.GetTypesMastersList=[
             {Id:1,typename:'Friends ',typeCount:''},
             {Id:2,typename:'Family&Kids ',typeCount:''},
-            {Id:3,typename:'Corpotare Team ',typeCount:''},
+            {Id:3,typename:'Corporate Team ',typeCount:''},
             {Id:4,typename:'Couples ',typeCount:''},
             {Id:5,typename:'Join a group ',typeCount:''},
             {Id:6,typename:'Solo ',typeCount:''}
@@ -550,6 +550,47 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
             });
         };
 //---------------Main Functionalty Ends-------------------//
+
+
+        $scope.loadEditForm = function () {
+            $scope.checkItem = "yes";
+            $modal.open({
+                templateUrl: '../../app/Resorts/modal.html',
+                controller: 'modalController as ctrl',
+                scope: $scope ,
+                backdrop: 'static',
+                keyboard: false
+            })
+                .result.then(function() {
+                    debugger ;
+
+
+                    /* alert('closed');*/
+                }, function() {
+                    debugger ;
+
+                    $window.location='../../app/Resorts/Viewresorts.html';
+
+                });
+        };
+
+        if( $localStorage.localAreas == undefined){
+            debugger;
+            $scope.loadEditForm();
+        }
+        else{
+            debugger;
+        }
+
+        if( $localStorage.localAreas == undefined){
+            debugger;
+            $scope.regionModel = function(){ return  "SELECT A REGION"; }
+        }
+        else{
+            debugger;
+            $scope.regionModel = function(){ return  $localStorage.modelsearch.cityName; }
+        }
+
 
 
 

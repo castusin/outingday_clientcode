@@ -17,7 +17,7 @@
     <link href="../../assets/css/ngProgress.css" rel="stylesheet">
     <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
 
-    
+     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
     <link href="../../assets/css/modern-business.css" rel="stylesheet">
     <link href="../../assets/css/styles.css" rel="stylesheet">
 	<link href="../../assets/css/detail.css" rel="stylesheet">
@@ -90,7 +90,7 @@
                     <span class="icon-bar"></span>
                     
                 </button>
-                <a class="navbar-brand" href="index.html">Outing<span>Day</span></a>
+                <a class="navbar-brand" href="../../index.html">Outing<span>Day</span></a>
 				<a class="navbar-brand" style="font-size:16px;">Package Details</a>
 				<a class="navbar-brand" ><i class="fa fa-caret-right" aria-hidden="true" style="font-size:27px;color:#858585;"></i></a>
 				<a class="navbar-brand" style="font-size:16px; color:#858585 !important;">Confirmation Details</a>
@@ -104,423 +104,302 @@
                             <span class="input-group-btn" align="center">
                                
                             </span>
-                           
                         </div>
                     </div>
                     <!-- <div class="col-lg-2  col-sm-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div> -->
                 </div>
             </div>
+        </div>
+    </nav>
+	<header><div style="padding-top:5%;"></div> </header>
+	 
+<div class="container">
+	
+	<div class="row">&nbsp;</div>
+    <div class="row">
+	<h2 class="result_title">Booking Package Details</h2>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             
         </div>
-        
-    </nav>
-
+    </div>
     
-	  <header>
-      
-       <div style="padding-top:5%;">
-	   
-	   </div>
-
-      
-       
-    </header>
-	 
-
-	 <div class="container">
-	  <div class="row" style="padding:5px 5px ;">
-		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="color:black;">
-			<div class="padding">
-	</div>
-		</div> 
-		<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" align="right">
-			
-		</div> 
-	 </div>
-	  <div class="container-fluid">
-  <div class="row content">
-    
-    <div class="col-sm-8 details1">
-	
-	<div class="padding">
-	</div>
-	<h4 class="result_title14">Booking Package Details</h4>
-	<div class="padding">
-	</div>
-	
-	<div class="row input_buttons">
-   <div class="col-xs-6 ">
-   <div>
-		<button type="button" class="btn btn-custom btn-md" style="padding-left:3%;"><label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked=""> <span class="outer"><span class="inner"></span></span>
-    										<span class="labeltext "> <span class="label-txt lato-semibold block">Continue as Guest</span> 
-    									</span>
-    									</label>
-										</div>
-   </div>
-   <div class="col-xs-6" >
-   <div disabled="disabled">
-		<button type="button" class="btn btn-disabled btn-md" style="padding-left:3%;hover:none !important;" disabled="disabled" ><label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked="" disabled="disabled"> <span class="outer" disabled><span class="inner" disabled> </span></span>
-    										<span class="labeltext "> <span class="label-txt lato-semibold block">Continue with Login</span> 
-    									</span>
-    									</label>
-										</div>	
-   </div>
-   
-   
-</div>
-<div class="padding">
-	</div>
-      <div class="container-fluid">
-
-<form name="registration_form" id="registration_form" ng-submit="submit()" class="form-horizontal">
-     <div class="form-group">
-	 <div class="col-sm-4">
-             <label for="Title" class="package_form" >Title :</label>
-              <div class="input-group" style="width:100%;" >
-                                           <select name="State" id="State" ng-model="mrs" class="validate[required] form-control">
+    <div class="row">
+    	<div class="col-lg-7 col-sm-7 col-md-7 col-xs-12 whitebg_margin">
+        	<div class="row">
+            	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
+                	<div class="row">
+                        <div class="col-md-6 col-sm-6 offers-columns-padding" ng-repeat="bookpark in bookParkList" ng-show="bookpark.facilityType == 'O'" style="">
+                        	<h5 class="detailtitle" style="text-transform:capitalize;">{{bookpark.facilityTypeTitle}}</h5>
+                        <div class="row no-pad-mar" style="border:solid 1px #ccc;background-color:white;border-radius:6px;">
+                        <div class="" style="padding:2px;margin-bottom:5px;"><img class="img-responsive img-portfolio img-hover  no-pad-mar img-rounded" src="../../assets/ResortsImages/{{bookpark.facilityImage}}" alt=""  style="height:200px;width:100%;">                            </div>
+                        <!-- <hr style="width: 100%; color: #d5d5d5; height: 0.5px; background-color:#d5d5d5;" /> -->
+							<div style="border-top:1px solid #d5d5d5;padding-left:2%;padding-right:2%;">
+							&nbsp;
+							</div>
+						<div class="row" style="padding-left:1%;padding-right:1%;">
+							
+                            <div class="col-sm-7" style="">
+                            	<h6 class="detailtext1"  ng-text-truncate="bookpark.facilityInRoomFacilites"ng-tt-chars-threshold="100" ></h6>
+                            </div>
+                            <div class="col-sm-4" >
+                            
+                            <!--<h5 class="result_title14" style="color:#C34F5E;font-weight:bold !important;;text-align:right;font-size:14px;font-family: Open Sans !important;"><strike>{{bookpark.regularPrice | INR}}</strike></h5>-->
+                            <h5 class="detailtext1" style="color:#C34F5E;font-weight:bold !important;">{{bookpark.currentPrice | INR}}</h5>
+                            <button type="button" class="btn  btn-md btn-block"  ng-click="add=true;qty=qty+1;addBookCall(bookpark)"   ng-hide="qty!=0" style="background-color:#33349B;border:1px solid #33349B;color:white;">Add</button>
+                            
+                            <div class="padding2"></div><br>
+                            <div class="row" ng-show="add"   style="padding-top:1%;">
+                            
+                            <form id='myform' ng-hide="qty==0">
+                            <!--  <md-button class="md-fab" aria-label="Eat cake" ng-click="decrement()" ng-disabled="qty<=0">
+                            <md-icon md-svg-src="../../assets/images/add.svg"></md-icon>
+                            </md-button>-->
+                            <button ng-click="qty=qty-1;subCall(bookpark)" class='qtyminus'  ng-disabled="qty<=0">-</button>
+                            <input  ng-model="qty" type='text' name='quantity' class='qty' style="height:22px;border:none;width:20px;text-align:center;"/>
+                            <button ng-click="qty=qty+1;addCall(bookpark)">+</button>
+                            <!--<md-button class="md-fab" aria-label="Eat cake" ng-click="increment()">
+                            <md-icon md-svg-src="../../assets/images/remove.svg"></md-icon>
+                            </md-button>-->
+                            </form>
+                            
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        
+                        <!-- <h6 class="result_title14" style="word-wrap:break-word;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Fe</h6> -->
+                        </div>
+                        
+                        <!-- Extra Fields Begins-->
+                  
+                        <!-- Extra Fields Ends-->
+                        
+                   </div>
+                </div>
+            </div>
+        	<div class="row">&nbsp;</div>
+            <div class="row">
+            	<div class="col-xs-12 ">
+              		<button type="button" class="btn btn-default btn-block btn-md" style="background-color:#f9fcff;width:100%;border-radius:6px;">
+                    <label class="radio block" style="padding-left:10%;"> <input type="radio" name="GuestLogin" checked=""> <span class="outer"><span class="inner"></span></span>
+                        <span class="labeltext "> <span class="label-txt lato-semibold block">CONTINUE AS GUEST</span></span>
+                    </label>
+           		</div>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row" style="background-color:white;padding:2%;border:1px solid #d5d5d5;border-radius:6px;">
+            	<div class="col-xs-12 ">
+                <form name="registration_form" id="registration_form" ng-submit="submit()" class="form-horizontal">
+                <div class="form-group">
+                <div class="col-sm-4">
+                <label for="Title" class="package_form detailform" >Title :</label>
+                <div class="input-group" style="width:100%;" >
+                                           <select name="State" id="State" ng-model="mrs" class="validate[required] form-control detailformtext">
                                            <option value=""></option>                    
                                            <option value="MR">MR</option>
                                            <option value="MRS">MRS</option>
                                            <option value="MISS">MISS</option>
                                            </select>                                                       
                                        </div>
-           </div> 
-           <div class="col-sm-4">
-             <label for="firstname" class="package_form" >First Name :</label>
-             <input id="firstname" class="form-control input-group-lg reg_name" ng-model="FirstName" type="text" name="firstname" title="Enter first name" placeholder="First name">
-           </div>       
-           <div class="col-sm-4">
-             <label for="lastname" class="package_form" >Last Name :</label>
-             <input id="lastname" class="form-control input-group-lg reg_name" type="text" ng-model="LastName" name="lastname" title="Enter last name" placeholder="Last name">
-           </div>
-    </div><!--/form-group-->
-  
-   <div class="form-group">
-	 <div class="col-sm-4">
-             <label for="Email" class="package_form">Email :</label>
-             <input id="firstname" class="form-control input-group-lg reg_name" type="email" ng-model="Email" name="firstname" title="MR / MRS" placeholder="Email">
-           </div> 
-           <div class="col-sm-4">
-             <label for="firstname" class="package_form" >Phone Number :</label>
-             <input id="firstname" class="form-control input-group-lg reg_name" type="tel" ng-model="PhoneNumber" name="firstname" title="Enter first name" placeholder="Phone Number">
-           </div>       
-           
-    </div>
-    <!--<input type="submit" id="submit" value="Submit" />-->
- </form>
-
-</div>
-      
-      
-     <div class="padding">
-	</div>
-    </div>
-	
-	  <div class="col-sm-3 sidenav details">
-      <h5 class="result_title14">Choose your date</h5>
-	  <div class="input-group">
-  <!--  <span class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true" style="color:black;"></i></span>-->
-
-          <div class="input-group"
-               moment-picker="ctrl.datepicker"
-               format="MMM d, YYYY">
-    <span class="input-group-addon">
-        <i class="fa fa-calendar-o"></i>
-    </span>
-              <input class="form-control"
-                     placeholder="Select a date"
-                     ng-model="ctrl.datepicker"
-                     ng-model-options="{ updateOn: 'blur' }">
-          </div>
-          <!--<input class="form-control"
-                 placeholder="Select a date..."
-                 moment-picker="ctrl.input.stringDate"
-                 locale="en"
-                 format="MMM d, yyyy"
-                 ng-model="bookParkDate"
-                 ng-model-options="{ updateOn: 'blur' }">-->
-   <!-- <input id="email" type="text" class="form-control" ng-model="bookParkDate" name="email" placeholder="Date">-->
-  </div>
-  
- 
-	  <br>
-	   <br> <br>
-	  
-	  
-	  <div class="row" align="center">
-	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;">Update Changes</button>
-	  </div>
-	  <div class="padding" >
-	</div>
-    </div>
-
-	
-	
-  </div>
-</div>
-<div class="padding" >
-	</div>
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-5 sidenav details1">
-     <!-- <h5 class="result_title14">Buffet</h5>-->
-	  
-  
-  
-	 	<div class="row" style=" padding:10px 5px 10px 5px; ">
-            		<!-- Popular 1 Begins -->
-                    <div class="col-md-6 col-sm-6 offers-columns-padding" ng-repeat="bookpark in bookParkList" ng-show="bookpark.facilityType == 'O'">
-                        <h5 class="result_title14">{{bookpark.facilityTypeTitle}}</h5>
-                        <div class="row no-pad-mar" style="border:solid 1px #ccc;">
-                        	<div class="">
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar img-rounded" src="../../assets/ResortsImages/{{bookpark.facilityImage}}" alt="" >                            </div>
-                            <div class="row">
-							<div class="col-sm-7">
-                                <h6 class="result_title14" style="word-wrap:break-word;font-size:13px;font-family: Open Sans !important;" ng-text-truncate="bookpark.facilityInRoomFacilites"ng-tt-chars-threshold="100" ></h6>
-							</div>
-							<div class="col-sm-4">
-							
-							<!--<h5 class="result_title14" style="color:#C34F5E;font-weight:bold !important;;text-align:right;font-size:14px;font-family: Open Sans !important;"><strike>{{bookpark.regularPrice | INR}}</strike></h5>-->
-                                <h5 class="result_title14" style="color:#C34F5E;font-weight:bold !important;;text-align:right;font-size:14px;font-family: Open Sans !important;">{{bookpark.currentPrice | INR}}</h5>
-							
-							
-							
-							<button type="button" class="btn  btn-md"  ng-click="add=true;qty=qty+1;addBookCall(bookpark)"   ng-hide="qty!=0" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;">Add</button>
-							
-							<div class="padding2">
-							</div><br>
-							<div class="row" ng-show="add"   style="padding-top:1%;">
-
-                                <form id='myform' ng-hide="qty==0">
-                                  <!--  <md-button class="md-fab" aria-label="Eat cake" ng-click="decrement()" ng-disabled="qty<=0">
-                                        <md-icon md-svg-src="../../assets/images/add.svg"></md-icon>
-                                    </md-button>-->
-                                    <button ng-click="qty=qty-1;subCall(bookpark)" class='qtyminus'  ng-disabled="qty<=0">-</button>
-                                    <input  ng-model="qty" type='text' name='quantity' class='qty' style="height:22px;border:none;width:20px;text-align:center;"/>
-                                    <button ng-click="qty=qty+1;addCall(bookpark)">+</button>
-                                    <!--<md-button class="md-fab" aria-label="Eat cake" ng-click="increment()">
-                                        <md-icon md-svg-src="../../assets/images/remove.svg"></md-icon>
-                                    </md-button>-->
-                                </form>
-						<!--	<form class="form-inline">
-  
-					  <div class="input-group">
-					  
-					  <span class="input-group-btn">
-						  <button class="btn btn-default btn-xs" type="button">
-							<span class="glyphicon glyphicon-minus"></span>
-						  </button>
-						</span>
-						<input type="text" class="form-control" style="height:22px;border:none;width:10px;">
-						<span class="input-group-btn">
-						  <button class="btn btn-default btn-xs" type="button">
-							<span class="glyphicon glyphicon-plus"></span>
-						  </button>
-						</span>
-					  </div>
-					  </form>-->
-					  </div>
-							</div>
-							</div>
-                        </div>
-						
-						
-						<!-- <h6 class="result_title14" style="word-wrap:break-word;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Fe</h6> -->
-                    </div>
-                    <!-- Popular 1  Ends -->
-                    
-                    <!-- Popular 2 Begins -->
-                   <!-- <div class="col-md-6 col-sm-6 offers-columns-padding" >
-                        <div class="row no-pad-mar" style="border:solid 1px #ccc;">
-                        	<div>
-                            	<img class="img-responsive img-portfolio img-hover  no-pad-mar" src="../../assets/images/pop_2.jpg" alt="" >                            </div>
-                               <div class="row">
-							<div class="col-sm-8">
-							  <h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;" >This upscale resort, set on 5 hectares of lush greenery, is a 5-minute walk from Osman Sagar Lake and 11 km from the Golkonda medieval fortress. Fe</h6>
-							</div>
-							<div class="col-sm-4">
-							
-							<h5 class="result_title14" style="color:#C34F5E;font-weight:bold;text-align:right;">RS 600</h5>
-							
-							
-							
-							<button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;">Add</button>
-							
-							<div class="padding2">
-							</div>
-							<br>
-							<div class="row" style="padding-top:1%;">
-							
-							<form class="form-inline">
-  
-					  <div class="input-group">
-					  
-					  <span class="input-group-btn">
-						  <button class="btn btn-default btn-xs" type="button">
-							<span class="glyphicon glyphicon-minus"></span>
-						  </button>
-						</span>
-						<input type="text" class="form-control" style="height:22px;border:none;width:10px;">
-						<span class="input-group-btn">
-						  <button class="btn btn-default btn-xs" type="button">
-							<span class="glyphicon glyphicon-plus"></span>
-						  </button>
-						</span>
-					  </div>
-					  </form>
-					  </div>
-							</div>
-							</div>
-                        </div>
-						
-                    </div>-->
-                    <!-- Popular 2  Ends -->
+                </div> 
+                <div class="col-sm-4">
+                <label for="firstname" class="package_form detailform" >First Name :</label>
+                <input id="firstname" class="form-control input-group-lg reg_name detailformtext" ng-model="FirstName" type="text" name="firstname" title="Enter first name" placeholder="First name">
+                </div>       
+                <div class="col-sm-4">
+                <label for="lastname" class="package_form detailform" >Last Name :</label>
+                <input id="lastname" class="form-control input-group-lg reg_name detailformtext" type="text" ng-model="LastName" name="lastname" title="Enter last name" placeholder="Last name">
                 </div>
-	  
-	  <div class="padding" >
-	</div>
-    </div>
-	
-	
-	
-	<!-- <second div> -->
-	
-	
-	
-
-    <div class="col-sm-6 details" >
-	 <div class="padding" >
-	</div>
-	<h4 class="result_title14">Travel Confirmation</h4>
-
-	
-	<div class="container">
-        <h6 class="result_title14" style="color:#33349B;">{{resListName}}</h6>
-    <div class="row">
-        <div class="col-md-2" style="padding-left:2px;!important">
-            <img src="../../assets/ResortsImages/{{resListPhoto}}" alt="thumbnail" class="img-rounded" height="150" width="150" align="left">
+                </div><!--/form-group-->
+                
+                <div class="form-group">
+                <div class="col-sm-4">
+                <label for="Email" class="package_form detailform">Email :</label>
+                <input id="firstname" class="form-control input-group-lg reg_name detailformtext" type="email" ng-model="Email" name="firstname" title="MR / MRS" placeholder="Email">
+                </div> 
+                <div class="col-sm-4">
+                <label for="firstname" class="package_form detailform" >Phone Number :</label>
+                <input id="firstname" class="form-control input-group-lg reg_name detailformtext" type="tel" ng-model="PhoneNumber" name="firstname" title="Enter first name" placeholder="Phone Number">
+                </div>       
+                
+                </div>
+                <!--<input type="submit" id="submit" value="Submit" />-->
+                </form>
+                </div>
+            </div>
+            
+            <div class="row">
+            	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="row">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        	<h3 class="detailtext3">Check In Date: <strong>02-05-2017</strong></h3>
+                            
+                            <!--
+                            <div class="input-group" moment-picker="ctrl.datepicker" format="MMM d, YYYY">
+                                <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                                <input class="form-control"  placeholder="Select a date" ng-model="ctrl.datepicker" ng-model-options="{ updateOn: 'blur' }">
+                            </div>
+                            -->
+                        </div>
+                        
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        	<h3 class="detailtext3">Check Out Date: <strong>02-05-2017</strong></h3>
+                            <!--
+                            <div class="input-group" moment-picker="ctrl.datepicker" format="MMM d, YYYY">
+                                <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                                <input class="form-control"  placeholder="Select a date" ng-model="ctrl.datepicker" ng-model-options="{ updateOn: 'blur' }">
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
         
-		</div>
-        <div class="col-md-4">
+       	<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 whitebg">
+        	<div class="row">
+            	<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                	<div class="row" style="margin-top:20px;">
+                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12" style="margin:15px 0 0 0;">
+                            <img class="img-responsive img-portfolio img-hover  no-pad-mar" src="../../assets/ResortsImages/{{resListPhoto}}" alt="" >
+                        </div>
+            		</div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                            <h3 class="detailtitle">{{resListName}}</h3>
+                            <h6 class="detailtext1">
+                              {{resListDes}}
+                            </h6> 
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+				
+                    	<div class="col-lg-12">
+						<h4 class="detailtitle">Travel Confirmation</h4>
+                        	
+                         
+                         <div style="border:1px solid #d5d5d5">
+                           	
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext" >Room 1</h6>
+                                	<h6 class="packagesubtext" >Adult - 1 , Children - 2</h6>
+                                </div>
+                            </div>
+                            
+                          
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext">Date</h6>
+                                	<h6 class="packagesubtext" >{{ctrl.datepicker}}</h6>
+                                </div>
+                            </div>
+                            
+                          
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext">Price Breakup</h6><p class="subcost">{{bookParkcurrentPrice | INR}}</p>
+                                	<h6 class="packagesubtext">One Room X Two Nights</h6>
+                                </div>
+                            </div>
+                            
+                           
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext">Coupon</h6><p class="subcost">0.00 INR</p>
+                                	<h6 class="packagesubtext" style="color:transparent;">One Room X Two Nights</h6>
+                                </div>
+                            </div>
+                            
+                           
+                            <div class="card">
+                                <div class="card-block cardcss">
+                                	<h6 class="packagetitletext">Promo Discount</h6><p class="subcost">0.00 INR</p>
+                                	<h6 class="result_title14 transparenttext" style="color:transparent;">One Room X Two Nights</h6>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                            	<div class="card-block cardcss">
+                            		<h6 class="packagetitletext">Service Tax</h6><p class="subcost">0.00 INR</p>
+                            		<h6 class="packagesubtext" style="color:transparent;">One Room X Two Nights</h6>
+                            	</div>
+                        	</div>
+                            
+                            <!-- <div class="card"> -->
+                            	<!-- <div class="card-block cardcss"> -->
+                                    <!-- <div class="row" ng-repeat="facility in FacilityNameList"> -->
+                                    <!-- <div class="col-md-6" style="padding-left:3%;"> -->
+                                    <!-- <h6 class="packagesubtext"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>{{facility.facilityTypeTitle}}</h6> -->
+                                    <!-- </div>			 -->
+                                    
+                                    <!-- <div class="col-md-6" align="right"> -->
+                                    <!-- <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">{{facility.currentPrice | INR}}</h6> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                            	<!-- </div> -->
+                            <!-- </div> -->
+                             <div class="card">
+                                 <div class="card-block cardcss">
+                                     <div class="row" ng-repeat="facility in FacilityNameList">
+                                         <div class="col-md-4" style="padding-left:3%;">
+                                             <h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" href="#" ng-click="deleteItem()" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>{{facility.itemName}} </h6>
+                                             <!--<h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
+                                             <h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>-->
+                                         </div>
 
-				<h6 class="result_title14" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;" >{{resListDes}}</h6>
+                                         <div class="col-md-4" align="center">
+                                             <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">{{facility.noOfItems}}  x  {{facility.orgPrice}}</h6>
+                                         </div>
+
+                                         <div class="col-md-4" align="right">
+                                             <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">{{facility.totalPrice | INR}}</h6>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                            
+                            <div class="card" >
+                          		<div class="card-block cardcss" >
+                            	<h6 class="packagetitletext">Total</h6><p class="totalcost">{{sum | INR}}</p>
+                            	<h6 class="packagesubtext" >One Room X Two Nights</h6>
+                            </div>
+                            <div class="padding"></div>
+                            <div class="row" align="center" style="margin:20px;">
+                           		<button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;" ng-click="submit()">Proceed</button>
+                            </div>
+                          
+                            </div>
+                            
+                            
+                          
+                            
+                        </div>
+                    
+                    	</div>
+                            </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
-    </div>
+        
+        
+        <div class="row">&nbsp;</div>
+    </div> 
 </div>
- <div class="padding" >
-	</div>
-	<h4 class="result_title14">Package Information</h4>
-	<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Room 1</h6>
-	<h6 class="result_title14 transparenttext" style="word-wrap:break-word;font-size:13px;padding-right:6%;font-family: Open Sans !important;">Adult - 1 , Children - 2</h6>
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Date</h6>
-	<h6 class="result_title14 transparenttext" style="word-wrap:break-word;font-size:13px;padding-right:6%;font-family: Open Sans !important;">02-05-2017</h6>
-  </div>
-</div>
-<!-- <div class="padding2"> -->
-	<!-- </div> -->
-	<!-- <div class="card" style="padding-left:1%;"> -->
-  <!-- <div class="card-block cardcss"> -->
-    <!-- <h6 class="result_title15">Meal Plan</h6> -->
-	<!-- <h6 class="result_title14 transparenttext">Room Only</h6> -->
-  <!-- </div> -->
-<!-- </div> -->
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Price Breakup</h6><p class="result_title16 price_color">{{bookParkcurrentPrice | INR}}</p>
-	
-	<h6 class="result_title14 transparenttext" style="word-wrap:break-word;font-size:13px;padding-right:6%;font-family: Open Sans !important;">One Room X Two Nights</h6>
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Coupon</h6><p class="result_title17 price_color">0.00 INR</p>
-	<h6 class="result_title14" style="color:transparent;">One Room X Two Nights</h6>
-
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15" style="word-wrap:break-word;font-size:13px;color:#191919;padding-right:6%;font-family: Open Sans !important;">Promo Discount</h6><p class="result_title17 price_color">0.00 INR</p>
-	<h6 class="result_title14 transparenttext" style="color:transparent;">One Room X Two Nights</h6>
-
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" style="padding-left:1%;">
-  <div class="card-block cardcss">
-    <h6 class="result_title15">Service Tax</h6><p class="result_title17 price_color">0.00 INR</p>
-	<h6 class="result_title14" style="color:transparent;">One Room X Two Nights</h6>
-
-  </div>
-  <div class="padding2">
-	</div>
-	<div class="card">
-  <div class="card-block cardcss">
-    <div class="row" ng-repeat="facility in FacilityNameList">
-        <div class="col-md-6" style="padding-left:3%;">
-			<h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>{{facility.facilityTypeTitle}}</h6>
-			<!--<h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Day Care</h6>
-			<h6 class="result_title15" style="font-family: Open Sans !important;"><i class="fa fa-times-circle" aria-hidden="true" style="color:#bfbfbf;"></i><span style="padding-left:2%;">&nbsp;</span>Water Park</h6>-->
-        </div>			
-				   
-		 <div class="col-md-6" align="right">
-		  <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">{{facility.currentPrice | INR}}</h6>
-         <!--  <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">450.00 INR</h6>
-		    <h6 class="result_title18 price_color" style="font-family: Open Sans !important;">325.00 INR</h6>-->
-        </div>
-    </div>
-  </div>
-</div>
-<div class="padding2">
-	</div>
-	<div class="card" >
-       <!-- <div class="card-block cardcss" >
-
-            <h6 class="result_title15">Total</h6><p class="result_title19 ">{{bookParkcurrentPrice | INR}}</p>
-            <h6 class="result_title14 transparenttext" >One Room X Two Nights</h6>
-
-        </div>-->
-  <div class="card-block cardcss" >
-  
-    <h6 class="result_title15">Total</h6><p class="result_title19 ">{{sum | INR}}</p>
-	<h6 class="result_title14 transparenttext" >One Room X Two Nights</h6>
-
-  </div>
-<div class="padding">
-	</div>
-	 <div class="row" align="center">
-	  <button type="button" class="btn  btn-md" style="background-color:#33349B;border:1px solid #33349B;color:white;font-family: Open Sans !important;" ng-click="submit()">Proceed</button>
-	  </div>
-	  <div class="padding">
-	</div>
-      </div>
+     	
+   
      
-      </div>
-    </div>
-  </div>
-</div>
+     
 
-<div class="padding" >
-	</div>
-
-</DIV>
+	 
 </DIV>
 
 

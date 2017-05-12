@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+    
+    <link href="../../assets/css/modern-business.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+	 <link href="../../assets/css/detail.css" rel="stylesheet">
+	  <link href="../../assets/css/detailslide.css" rel="stylesheet">
+    <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+<link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+     <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+	 
+	  <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+ <script src="../../assets/js/Angularjs/ng-text-truncate.js"></script>
+
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+
+    <script src="../../assets/app.js"></script>
+    <script src="../../assets/js/Angularjs/common.js"></script>
+    <script src="../../app/Resorts/modalCtr.js"></script>
+    <script src="../../app/Resorts/localAreaService.js"></script>
+    <script src="../../app/Resorts/ResortCtr.js"></script>
+    <script src="../../app/Resorts/ResortService.js"></script>
+    <script src="../../app/Resorts/ResortdetailCtr.js"></script>
+    <script src="../../app/Resorts/ResortdetailService.js"></script>
+    <script src="../../app/Resorts/aboutCtr.js"></script>
+
+   <script src="../../assets/js/jquery.js"></script>
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+   $(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+
+	<style>
+	
+	</style>
+	
+	
+	 <!-- #region Jssor Slider Begin -->
+    <script src="../../assets/js/jssor.slider-23.1.5.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jssor_1_slider_init = function() {
+
+            var jssor_1_options = {
+              $AutoPlay: 1,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 9,
+                $SpacingX: 3,
+                $SpacingY: 3,
+                $Align: 260
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            /*responsive code begin*/
+            /*remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 600);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            /*responsive code end*/
+        };
+
+
+$(document).ready(function() {
+	var showChar = 100;
+	var ellipsestext = "...";
+	var moretext = "more";
+	var lesstext = "less";
+	$('.more').each(function() {
+		var content = $(this).html();
+
+		if(content.length > showChar) {
+
+			var c = content.substr(0, showChar);
+			var h = content.substr(showChar-1, content.length - showChar);
+
+			var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+			$(this).html(html);
+		}
+
+	});
+
+	$(".morelink").click(function(){
+		if($(this).hasClass("less")) {
+			$(this).removeClass("less");
+			$(this).html(moretext);
+		} else {
+			$(this).addClass("less");
+			$(this).html(lesstext);
+		}
+		$(this).parent().prev().toggle();
+		$(this).prev().toggle();
+		return false;
+	});
+});
+
+    </script>
+
+	<style>
+
+    </style>
+</head>
+
+<body ng-app="MyApp"  data-spy="scroll" data-offset="50" ng-controller="aboutCtr as ctrl" ng-cloak>
+   
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border:none;">
+    	<div class=" navbar-top">
+		<span style="padding-left:5%; line-height:3.5;">
+		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>
+		</span>
+		 <span style=" float:right;color:white;padding-right:5%; line-height:3;">
+		<!--<a href="#"><i style="color:#ffbb39;margin-right:10px;" >ComiCon</i></a>-->
+            <!-- <span style="color:white;margin-right:10px; ">Blog</span> -->
+		<a ><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:17px;" ng-click="loadEditForm()" ></i></a>
+          <span style="color:#ffbb39;font-size:17px;"data-ng-bind="regionModel()" ng-click="loadEditForm()"></span>
+		<!--<a href="index.html" style="color:white;margin-right:10px;">Hyderabad</i></a>
+		<a href="index.html"><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i></a>-->
+		</span>
+		</div>
+        <div class="container D_container">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+                <a class="navbar-brand">Outing<span>Day</span></a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row D_row" align="center">
+                    <div class="col-lg-1 col-md-hidden col-xs-hidden" ></div>
+                    <div class="col-lg-7 col-md-7 col-xs-12 " style="" align="center">
+                        <div class="input-group" align="center">
+                            <span class="input-group-btn" align="center">
+                              
+                                <div class="dropdown">
+                                   <button class="dropbtn2">
+                                        <a href="#">
+                                            <span style="float:left;"><i class="fa fa-th-large" aria-hidden="true" style="color:#313496;font-size:12px;"></i><span style="font-size:14px;"> &nbsp;All&nbsp;</span></span>
+ <span style="float:right; margin-right:12px;">
+ <i class="fa fa-caret-down" aria-hidden="true" style="color:#313496;font-size:14px;"></i>
+ </span></a>
+                                    </button>
+
+                                    <div class="dropdown-content">
+                                        <div class="D_dropdown">
+                                            <a href="#" style="height:50px"><div class="D_dropdown_span"><img src="../../assets/images/resorts.png" width="18px" height="18px"></div><div class="D_dropdown_span2">Resorts</div></a>
+                                        </div>
+                                        <div class="D_dropdown">
+                                            <a href="#" style="height:50px"><div class="D_dropdown_span"><img src="../../assets/images/hotel.png" width="18px" height="20px"></div><div class="D_dropdown_span2">Hotels</div></a>
+                                        </div>
+                                        <div class="D_dropdown">
+                                            <a href="#" style="height:50px"><div class="D_dropdown_span"><img src="../../assets/images/restaurants.png" width="17px" height="17px"></div><div class="D_dropdown_span2">Restaurants</div></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                             md-search-text="ctrl.searchText" md-selected-item-change="MainSearch()" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                             md-item-text="item.localArea" md-min-length="0" placeholder="Search for Resorts" md-menu-class="autocomplete-custom-template" >
+                                <md-item-template >
+                                  <span class="item-title" >
+                                 <md-icon><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i> </md-icon>
+                                 <span> {{item.localArea}} </span>                                     </span>
+                                    <!--  <span class="item-metadata">
+                                       <span>
+                                   <strong>{{item.metro}}</strong>                                 </span>
+                                      <span>
+                                  <strong>{{item.forks}}</strong>
+                                      </span>
+                                      </span>-->
+                                </md-item-template>
+                            </md-autocomplete>
+                        </div>
+                    </div>
+                   
+					
+                </div>
+            </div>
+            
+        </div>
+	
+        
+    </nav>
+
+    
+	 
+	 
+<div style="margin-top:60px;">
+&nbsp;
+</div>
+	
+	 
+	  
+
+
+		
+
+ <div class="container details" style="border-radius:5px;border:1px solid #d5d5d5;">
+ <div class="card ">
+  <div class="card-block">
+   <h3 class="aboutus_text">Products Offering</h3>
+    <hr style="width: 8%; color: #C34F6B; height: 2px; background-color:#C34F6B;border-radius:15px;" />
+  </div>
+ <div class="row" align="center">
+  <!-- <h4 class="aboutus_description">“All work and no play make Jack a dull boy” that famous saying really applies for us all isn’t it? It true and we need to break that monotony of work. As you are in the IT capital of India there is no doubt in that all of you are busy with your 9-5 jobs. Let’s take a break that and ensure our time in finding out some of the best One Day team outing places in Bangalore for a great day ahead. The best thing is that if you are planning a one day team outing in Bangalore and are looking for a location that can give you maximum fun and entertainment then there are a lot of options for you.As you are in one of the busiest city there are also a lot of day routing option like Windflower Prakruthi, Golden Palms Resort, Guhantara Resort, Holiday Village Resort, Kanakapura Nature Adventure Camp, Jade Vanani, Discovery Village, Ramanashree California Resort, Royal Orchid and so on. Enjoy a fun filled day with your colleagues in these resorts and build your bond stronger with your teammates. Not just indulge in some activities but also delight in some delicious meals. Supplement your trip with some of our fun and exciting activities and your trip will be as good as an outing in a faraway destination. </h4> -->
+  <img src="../../assets/images/construction.jpg"  class="img-rounded img-responsive" width="304" height="236">
+  
+  </div>
+  <div class="padding">
+  </div>
+</div>
+</div>
+
+<div style="margin-top:10px;">
+&nbsp;
+</div>
+
+ <div class="container-fluid" style="margin:0px;">   
+   
+        <div class="row" style="background-color:#0c0e1b; ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            	<div class="row" style="background-color:#121528;padding:10px 30px 10px 30px;">
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"  style="color:#fff; padding-top:6px;">We are Social</div>
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
+                    <a href="#" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a>
+                    <a href="#" class="twitter"><img  src="../../assets/images/social_blank.png" alt="" ></a>
+                    <a href="#" class="instagram"><img  src="../../assets/images/social_blank.png" alt="" ></a>
+                    <a href="#" class="pinterest"><img  src="../../assets/images/social_blank.png" alt="" ></a>                   </div>
+                </div>
+             
+             	<div class="row" style="padding:30px;">
+                	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center">
+                    	<img  src="../../assets/images/Logo_Footer.png" alt=""><br><span style="color:#fff;">© 2016 Outingday Pvt. Ltd.</span> <span style="color:#fff;padding-left:3%;">Powered by Castus</span>                      </div>	
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-top:20px;">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4">About the Site</p>
+                                <ul class="footerlist">
+                                    <li ><a href="../../app/Resorts/carrer.html" class="footerlinks" style="color:white;">Career</a></li>
+                                    <li><a href="../../app/Resorts/about.html" class="footerlinks" style="color:white;">About Us</a></li>
+                                    <li><a href="../../app/Resorts/services.html" class="footerlinks" style="color:white;">Services</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4"><a href="../../app/Resorts/products.html" style="color:white;">Products Offering</a></p>
+                                <ul class="footerlist">
+                                    <li ><a href="../../app/Resorts/carrer.html" class="footerlinks" style="color:white;">Career</a></li>
+                                    <li><a href="../../app/Resorts/about.html" class="footerlinks" style="color:white;">About Us</a></li>
+                                    <li><a href="../../app/Resorts/services.html" class="footerlinks" style="color:white;">Services</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4"><a href="../../app/Resorts/outingday.html" style="color:white;">Outing Day</a></p>
+                                <ul class="footerlist">
+                                    <li ><a href="../../app/Resorts/carrer.html" class="footerlinks" style="color:white;">Career</a></li>
+                                    <li><a href="../../app/Resorts/about.html" class="footerlinks" style="color:white;">About Us</a></li>
+                                    <li><a href="../../app/Resorts/services.html" class="footerlinks" style="color:white;">Services</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4">Country</p>
+                                <ul class="footerlist">
+                                    <li ><a class="footerlinks">India</a></li>
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+        </div>
+ </div>
+    
+	 
+	
+	 
+	 
+	 
+	 
+	 <script type="text/ng-template" id="modal1.html">
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Yes or No?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>It's your call...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+  
+   
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>
