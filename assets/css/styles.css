@@ -490,6 +490,7 @@ img {
     font-weight: 400 !important;
     cursor: pointer !important;
     color:#424242  !important;
+	line-height:1.4 !important;
 }
 
 
@@ -672,4 +673,11 @@ pre {
 	border:1px solid #d5d5d5!important;
 	color:#424242 !important;
 	font-family: "Lato" !important;
+}
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    color: #777!important;
+    cursor: not-allowed!important;
+    background-color: #fff!important;
+    border-color: #ddd!important;
+    border: 2px solid #d5d5d5!important;
 }

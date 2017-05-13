@@ -29,11 +29,19 @@ md-autocomplete input:not(.md-input) {
     height: 34px !important;
 	
 }
+md-autocomplete input:not(.md-input) {
+    font-size: 14px !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+    line-height: 34px !important;
+    height: 34px !important;
+    border: 1px solid #d5d5d5;
+}
 
 </style>
 </head>
 
-<div style="width:100%;height:240px; background-color:#f3f3f3;border-radius:10px;" align="right">
+<div style="width:100%;height:170px; background-color:#f3f3f3;border-radius:10px;" align="right">
 <div class="modal-body">
     <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
                      md-search-text="ctrl.searchText" md-selected-item-change="citySearchCall()" md-items="item in ctrl.querySearch(ctrl.searchText)"
@@ -54,9 +62,9 @@ md-autocomplete input:not(.md-input) {
 </div>
 
 </div>
-<div class="modal-footer">
+<!-- <div class="modal-footer"> -->
 
-    <a href="#" ng-click="showAdvanced($event)" style="color:#C34F5E;">   ALL CITIES    </a>
-</div>
+    <!-- <a href="#" ng-click="showAdvanced($event)" style="color:#C34F5E;">   ALL CITIES    </a> -->
+<!-- </div> -->
 </body>
 </html>

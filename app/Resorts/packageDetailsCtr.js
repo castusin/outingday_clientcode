@@ -46,6 +46,8 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
         $localStorage.FacilityNameList =  $scope.FacilityNameList;
         $scope.addBookCall= function(facilityName){
             debugger;
+
+
             $scope.facilityName = facilityName;
 
 
@@ -69,6 +71,7 @@ debugger;
                 var b = Number($scope.facilityName.currentPrice || 0);
                 $scope.sum = a+b;
                 $localStorage.TotalPrice = $scope.sum;
+
             }
 
         } ;
@@ -121,11 +124,25 @@ debugger;
 
         //--------------------------Add Aditionals End------------------------//
 
-        /*$scope.deleteItem= function(){
+        $scope.deleteItem= function(facility){
+            debugger;
+
+            $scope.totalPrice   =  facility.totalPrice;
+            $scope.FindList = $.grep($scope.FacilityNameList,function (fl) {
+                return fl.itemName==facility.itemName;
+            })[0];
+
             var SelIndexOf=$scope.FacilityNameList.map(function(x){return x.itemName}).indexOf($scope.FindList.itemName);
+
+
+            var a = Number($scope.sum || 0);
+            var b = Number($scope.totalPrice || 0);
+            $scope.sum = a-b;
+            $scope.FacilityNameList[SelIndexOf].noOfItems = 0;
             $scope.FacilityNameList.splice(SelIndexOf, 1);
-        }
-*/
+
+
+        };
 
 
 

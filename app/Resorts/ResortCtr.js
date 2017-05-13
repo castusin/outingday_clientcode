@@ -222,6 +222,7 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
             $('#img-load1').show();
             GetParksInfo.GetParksService($scope.parks).then(function(ParksInfo){
                 debugger;
+
                 if(ParksInfo.responseCode == 200){
                     $timeout($scope.progressbar.complete(), 1000);
                     $('#img-load').hide();
@@ -263,15 +264,16 @@ app.controller('ResortCtr',['$scope','$state','GetParksInfo','$rootScope','$wind
                         var data = $.grep($scope.todos,function(td){}).parktype;
                     };
                     $scope.makeTodos();
-
-                    $scope.$watch('currentPage + numPerPage', function() {
+                      $scope.GoToDisplayData= $scope.OrgDataList;
+                        GetOutPutDataInfo();
+                  /*  $scope.$watch('currentPage + numPerPage', function() {
                         $timeout(function() {
                             var begin = (($scope.currentPage - 1) * $scope.numPerPage)
                                 , end = begin + $scope.numPerPage;
 
                             $scope.DetailsListInfo = $scope.todos.slice(begin, end);
                         }, 10);
-                    });
+                    });*/
 
 
                     /*  $scope.DetailsListInfo = ParksInfo.resultObject;*/

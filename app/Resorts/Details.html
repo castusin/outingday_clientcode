@@ -447,21 +447,21 @@ $(document).ready(function() {
 		
 		<section id="section2">
 		
-		<div  class="left-panel details" ng-repeat="park in ParkDetail" ng-show="park.facilityType == 'R'">
+		<div  class="left-panel details" ng-repeat="park in ParkDetail" ng-show="park.facilityType == 'R'" style="padding:1%!important;padding-bottom:0%!important;">
 			
 			<h4 class="detailtitle">{{park.facilityTypeTitle}}</h4>
 			
 				
 		<div class="row">
-		<div class="col-xs-2" style="margin-right:15%;">
+		<div class="col-xs-4" style="">
 		<!-- <img src="../../assets/ResortsImages/{{park.facilityImage}}" alt="thumbnail" class="img-rounded" height="120" width="120" align="left"> -->
 		
 		<!-- <h6 class="detailtext1"  ng-text-truncate="park.description" ng-tt-chars-threshold="50"></h6> -->
-		<div class="card">
-		  <img src="../../assets/ResortsImages/{{park.facilityImage}}" alt="thumbnail" class="img-rounded img-hover  no-pad-mar" src="..." alt="Card image cap" style="width:200px;height:200px" align="left">
-		  <div class="card-block">
+		<div class="card" >
+		  <img src="../../assets/ResortsImages/{{park.facilityImage}}" alt="thumbnail" class="img-rounded img-hover  no-pad-mar" src="..." alt="Card image cap" style="width:224px;height:170px" align="left">
+		  <div class="card-block" style="background-color:#f3f3f3;">
 			
-			<h6 class="detailtext1"  ng-text-truncate="park.description" ng-tt-chars-threshold="50"></h6>
+			<h6 class="detailtext1"  ng-text-truncate="park.description" ng-tt-chars-threshold="50" style="margin-bottom:0%!important;padding-bottom:0%!important;" ></h6>
 			
 		  </div>
 		</div>
@@ -475,8 +475,8 @@ $(document).ready(function() {
 		<!--<h6 class="result_title14" style="color:#C34F6B;font-weight:bold;"><strike>{{park.regularPrice | INR}}</strike></h6>-->
             <h6 class="totalcost" style="font-size:18px!important;text-align:right;" >{{park.currentPrice | INR}}</h6>
 		</div>
-		<div class="col-xs-1" align="right" style="float:right;padding-right:7%;">
-		<button type="button" class="btn  btn-md" style="background-color:#C34F6B;border:1px solid #C34F6B;color:white;" ng-click="BookPkgCall(park)" align="right">Book</button>
+		<div class="col-xs-1" align="right" style="">
+		<button type="button" class="btn  btn-md" style="background-color:#C34F6B;border:1px solid #C34F6B;color:white;" ng-click="BookPkgCall(park)">Book</button>
 		</div>
 		</div>
 
